@@ -5,9 +5,48 @@ const Main = () => {
   return (
     <div>
         <div className="Row">
-            <h2>My List</h2>
+            <h2>Action</h2>
                 <div className="films">
-                    <img src={Iron} alt=""/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                </div>
+        </div>
+        <div className="Row">
+            <h2>Comedy</h2>
+                <div className="films">
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                </div>
+        </div>
+        <div className="Row">
+            <h2>Fantasy</h2>
+                <div className="films">
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
+                    <img src={Iron} alt="pics"/>
                 </div>
         </div>
     </div>
