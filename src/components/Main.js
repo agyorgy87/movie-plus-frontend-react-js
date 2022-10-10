@@ -1,10 +1,11 @@
+import '../css/Main.css';
 import React from 'react';
-import Iron from '../img/iron.jpg'
+import Iron from '../img/iron.jpg';
 
 const Main = () => {
   return (
     <div>
-        <div className="Row">
+        <div className="Row FirstRow">
             <h2>Action</h2>
                 <div className="films">
                     <img src={Iron} alt="pics"/>

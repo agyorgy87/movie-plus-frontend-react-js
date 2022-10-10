@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Menu {
+    background-color: black;
+}
+
+.Logo {
+    color: white;
+}
+
+.DropDownArrow, 
+.SearchIcon,
+.AccountIcon {
+    color: white;
+    font-size: 2rem;
+}
