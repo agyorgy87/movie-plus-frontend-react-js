@@ -1,9 +1,12 @@
 .HomeContainer {
     min-height: 100vh;
     min-width: 200px;
-    position: fixed;
+    /*position: fixed;*/
     /*background-size:cover;*/
     background-position: center;
-    background-color: #150050;
+    background-color: #21243D;
+    display:flex;
+    flex-direction: column;
 }
+
 

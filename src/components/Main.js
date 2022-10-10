@@ -4,10 +4,10 @@ import Iron from '../img/iron.jpg';
 
 const Main = () => {
   return (
-    <div>
-        <div className="Row FirstRow">
-            <h2 className="action">Action</h2>
-                <div className="films">
+    <div className="Main">
+        <div className="Row FirstRow"> 
+            <h2>Action</h2>
+                <div className="Movies">
                     <img className="Pictures" src={Iron} alt="pics"/>
                     <img className="Pictures" src={Iron} alt="pics"/>
                     <img className="Pictures" src={Iron} alt="pics"/>
@@ -22,7 +22,7 @@ const Main = () => {
         </div>
         <div className="Row">
             <h2>Comedy</h2>
-                <div className="films">
+                <div className="Movies">
                     <img className="Pictures" src={Iron} alt="pics"/>
                     <img className="Pictures" src={Iron} alt="pics"/>
                     <img className="Pictures" src={Iron} alt="pics"/>
@@ -37,7 +37,7 @@ const Main = () => {
         </div>
         <div className="Row">
             <h2>Fantasy</h2>
-                <div className="films">
+                <div className="Movies">
                     <img className="Pictures" src={Iron} alt="pics"/>
                     <img className="Pictures" src={Iron} alt="pics"/>
                     <img className="Pictures" src={Iron} alt="pics"/>

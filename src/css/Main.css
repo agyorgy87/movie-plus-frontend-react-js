@@ -9,6 +9,36 @@ html {
     font-size: 1rem;
 }
 
+.Main {
+    position:relative;
+    margin-left: 1rem;
+}
+
+.Row {
+    width: 100%;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+h2 {
+    margin: 0 1rem;
+}
+
+.Movies {
+    display: flex;
+    overflow-x: scroll;
+    padding: 1rem;
+    align-items: center;
+}
+
+.Movies::-webkit-scrollbar {
+    display: none;
+}
+
+.Movies img {
+    
+}
+
 .Pictures {
     height: 100px;
     width: 200px;

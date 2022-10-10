@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
@@ -8,13 +8,11 @@
     user-select: none;
 }
 
-.Menu {
-    background-color: #191919; 
-}
-
 .Logo {
-    color: #645CAA;
-    font-family: 'Silkscreen', cursive;
+    color: #FF2C2C;
+    font-family: 'Permanent Marker', cursive;
+    margin: 0 1rem;
+    font-size: 1.7rem;
 }
 
 .DropDownArrow, 
@@ -22,6 +20,29 @@
 .AccountIcon {
     color: white;
 }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-image: linear-gradient(180deg,rgb(0, 0, 0),rgb(32, 32, 32));
+    /*position: fixed;*/
+    /*z-index: 3;*/
+    /*transition: background-color 0.2s;*/
+}
+
+nav .Menu {
+    display: flex;
+    align-items: center;
+    margin: 0 2rem;
+}
+
+/*
+nav:hover {
+    background-color: linear-gradient(180deg,rgb(0, 0, 0),rgb(32, 32, 32));   
+}
+*/
 
 nav a {
     display: block;
@@ -40,4 +61,17 @@ ul li:first-child a {
 
 nav ul li:not(:first-child) a:hover {
     color: #b1b1b1;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav .Browse {
+    display: flex;
+}
+
+nav .DropDownArrow {
+    display: none;
 }

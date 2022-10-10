@@ -19,13 +19,14 @@ const Header = () => {
                                     <li><a href="#">Series</a></li>
                                     <li><a href="#">My List</a></li>
                                 </ul>
-                        </div>
-                        <div className="SearchBar">
-                            <AiOutlineSearch className="SearchIcon"/><input placeholder="kereső  mező"></input>
-                            <MdAccountCircle className="AccountIcon"/>
-                        </div>
+                        </div>                        
                 </div>
-                
+                <div className="Menu">
+                    <div className="SearchBar">
+                        <AiOutlineSearch className="SearchIcon"/><input placeholder="kereső  mező"></input>
+                        <MdAccountCircle className="AccountIcon"/>
+                    </div>
+                </div>               
             </nav>
         </div>
   )
