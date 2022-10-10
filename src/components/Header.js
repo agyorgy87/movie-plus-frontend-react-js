@@ -4,19 +4,20 @@ import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdAccountCircle } from 'react-icons/md';
 
-const Header = () => {
+const Header = () => { 
 
     return (
         <div>
             <nav>
                 <div className="Menu">
-                    <p className="Logo">MOVIE PLUS</p> 
+                    <p className="Logo">MOVIE+</p> 
                         <div className="Browse">
                            <RiArrowDropDownLine className="DropDownArrow"/> 
                                 <ul>
-                                    <li><a href="#">MOVIES</a></li>
-                                    <li><a href="#">SERIES</a></li>
-                                    <li><a href="#">MY LIST</a></li>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Movies</a></li>
+                                    <li><a href="#">Series</a></li>
+                                    <li><a href="#">My List</a></li>
                                 </ul>
                         </div>
                         <div className="SearchBar">

@@ -1,8 +1,9 @@
 .HomeContainer {
-    min-height: 100%;
-    min-width: 100%;
+    min-height: 100vh;
+    min-width: 200px;
     position: fixed;
     /*background-size:cover;*/
     background-position: center;
     background-color: #150050;
 }
+
