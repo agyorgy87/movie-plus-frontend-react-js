@@ -12,7 +12,9 @@ const Header = () => {
                 <div className="Menu">
                     <p className="Logo">MOVIE+</p> 
                         <div className="Browse">
-                           <RiArrowDropDownLine className="DropDownArrow"/> 
+                            <div>
+                           <RiArrowDropDownLine className="DropDownArrow"/>
+                           </div>
                                 <ul>
                                     <li><a href="#">Home</a></li>
                                     <li><a href="#">Movies</a></li>

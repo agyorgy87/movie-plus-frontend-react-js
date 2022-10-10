@@ -1,0 +1,9 @@
+.Footer {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.Footer .col, .Footer p {
+    margin: 1rem;
+}

@@ -36,8 +36,21 @@ h2 {
 }
 
 .Movies img {
-    
+    max-width: 40vw;
+    margin-right: 1.5rem;
+    border-radius: 0.3rem;
 }
+
+.Movies img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+
+/*
+.FirstRow .Movies img {
+    max-width: 60vw !important;
+}
+*/
 
 .Pictures {
     height: 100px;

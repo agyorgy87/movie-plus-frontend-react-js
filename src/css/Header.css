@@ -8,10 +8,40 @@
     user-select: none;
 }
 
+@media (max-width: 900px) and (min-width: 550px) {
+    nav .Browse .DropDownArrow {
+        display: block;
+    }
+    nav .Browse ul {
+        display: none;
+    }
+    nav .Browse::before {
+        content: "Browse";
+        padding: 1.25rem 0.5rem;
+    }
+    nav .Browse:hover ul{
+        display: block;
+        position: absolute;
+        top: 3.5rem;
+        left: -2rem;
+        width: 10rem;
+        text-align: center;
+        background-color: rgb(32, 32, 32) ;
+    }
+}
+
+@media (max-width: 550px) {
+    nav {
+        flex-direction: column-reverse;
+        position: static;
+        top: 0;
+    }
+}
+
 .Logo {
     color: #FF2C2C;
     font-family: 'Permanent Marker', cursive;
-    margin: 0 1rem;
+    margin: 0 4rem;
     font-size: 1.7rem;
 }
 
@@ -19,6 +49,11 @@
 .SearchIcon,
 .AccountIcon {
     color: white;
+}
+
+.DropDownArrow {
+    font-size: 1rem;
+    margin: 2rem 0rem;
 }
 
 nav {
@@ -70,8 +105,11 @@ nav ul {
 
 nav .Browse {
     display: flex;
+    color: white;
+    margin-top: 1rem;
+    position: relative;
 }
 
-nav .DropDownArrow {
+.DropDownArrow {
     display: none;
 }
