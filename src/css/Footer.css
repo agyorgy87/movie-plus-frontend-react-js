@@ -1,4 +1,6 @@
 .Footer {
+    max-height: 100%;
+    background-color: rgb(32, 32, 32);
     color: white;
     display: flex;
     justify-content: center;
@@ -6,4 +8,12 @@
 
 .Footer .col, .Footer p {
     margin: 1rem;
+}
+
+@media (max-width: 550px) {
+    .Footer {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
 }

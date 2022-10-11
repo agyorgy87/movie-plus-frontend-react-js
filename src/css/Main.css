@@ -14,6 +14,27 @@ html {
     margin-left: 1rem;
 }
 
+@media (max-width: 550px) {
+    .Main {
+        margin-left: 1rem;
+        text-align: center;
+    }
+
+    .Main .Movies {
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+    }
+
+    .Main .Movies img {
+        max-width: 80vw;
+        margin-bottom: 3rem;
+    }   
+    .Forward {
+        display: none;
+    }
+}
+
 .Row {
     width: 100%;
     margin-bottom: 2rem;
@@ -51,6 +72,24 @@ h2 {
     max-width: 60vw !important;
 }
 */
+
+i{
+    font-size: 2rem;
+}
+
+.Forward {
+    color: white;
+    
+    opacity: 0.7;
+    position: absolute;
+    left: 85vw;
+    z-index: 1;
+    transition: transform 0.5s;
+}
+
+.Forward:hover {
+    transform: scale(2);
+}
 
 .Pictures {
     height: 100px;
