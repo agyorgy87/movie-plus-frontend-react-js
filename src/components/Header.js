@@ -22,6 +22,7 @@ const Header = () => {
                                 <ul>
                                     <li><a className="MenuPages" onClick={() => {navigate("/")}}>Home</a></li>
                                     <li><a className="MenuPages" onClick={() => {navigate("/movies")}}>Movies</a></li>
+                                    <li><a className="MenuPages" onClick={() => {navigate("/search")}}>Search</a></li>
                                     <li><a className="MenuPages" onClick={() => {navigate("/mylist")}}>My List</a></li>
                                 </ul>
                         </div>                        
