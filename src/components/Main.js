@@ -1,10 +1,12 @@
 import '../css/Main.css';
-import React, { useRef } from 'react';
+import React from 'react';
 import Iron from '../img/iron.jpg'; 
 import { MdArrowForwardIos } from 'react-icons/md';
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
 
+    let navigate = useNavigate();
 
     return (
         <div className="Main">
@@ -12,7 +14,7 @@ const Main = () => {
                 <h2>Action</h2>
                     <div className="Movies">
                         <i className="Forward"><MdArrowForwardIos/></i>
-                        <img className="Pictures" src={Iron} alt="pics"/>
+                        <img className="Pictures" src={Iron} alt="pics" onClick={() => {navigate("/selectedmovie")}}/>
                         <img className="Pictures" src={Iron} alt="pics"/>
                         <img className="Pictures" src={Iron} alt="pics"/>
                         <img className="Pictures" src={Iron} alt="pics"/>

@@ -33,6 +33,7 @@ const Header = () => {
                         </div>
                         <div>
                             <input className="SearchInput"></input>
+                            <button onClick={() => {navigate("/searchedresult")}}>Search button</button>
                         </div>
                         <div>
                             <MdAccountCircle className="AccountIcon"/>
