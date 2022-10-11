@@ -3,9 +3,12 @@ import React from 'react';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdAccountCircle } from 'react-icons/md';
+import { useNavigate } from "react-router-dom";
 
 
 const Header = () => { 
+
+    let navigate = useNavigate();
 
     return (
         <div>
@@ -17,10 +20,9 @@ const Header = () => {
                            <RiArrowDropDownLine className="DropDownArrow"/>
                            </div>
                                 <ul>
-                                    <li><a href="#" className="MenuPages">Home</a></li>
-                                    <li><a href="#" className="MenuPages">Movies</a></li>
-                                    <li><a href="#" className="MenuPages">Series</a></li>
-                                    <li><a href="#" className="MenuPages">My List</a></li>
+                                    <li><a className="MenuPages" onClick={() => {navigate("/")}}>Home</a></li>
+                                    <li><a className="MenuPages" onClick={() => {navigate("/movies")}}>Movies</a></li>
+                                    <li><a className="MenuPages" onClick={() => {navigate("/mylist")}}>My List</a></li>
                                 </ul>
                         </div>                        
                 </div>

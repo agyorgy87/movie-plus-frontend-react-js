@@ -1,4 +1,4 @@
-.HomeContainer {
+.PagesContainer {
     min-height: 100vh;
     /*position: fixed;*/
     /*background-size:cover;*/
@@ -8,5 +8,3 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
-
