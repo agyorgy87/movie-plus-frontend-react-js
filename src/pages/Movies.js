@@ -17,10 +17,8 @@ const Movies = () => {
                     <select>
                         <option>Movie type</option>
                         <option>Action</option>
-                        <option>Drama</option>
-                        <option>Comedy</option>
-                        <option>Cartoon</option>
-                        <option>Horror</option>
+                        <option>Scifi</option>
+                        <option>Fantasy</option>
                     </select>
                 </div>
                 <div>
