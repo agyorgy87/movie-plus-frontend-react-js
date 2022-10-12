@@ -7,6 +7,8 @@ import React, {useState, useEffect} from 'react';
 //import { MdArrowForwardIos } from 'react-icons/md';
 import { useNavigate } from "react-router-dom";
 //import { useParams, Link} from 'react-router-dom';
+import { useContext } from 'react';
+import { MovieContext } from "../context/MovieContext.js";
 
 const Home = () => {
     //const params = useParams();
@@ -18,6 +20,8 @@ const Home = () => {
     const [scifiMovies, setScifiMovies] = useState([]);
     const [fantasyMovies, setFantasyMovies] = useState([]);
     //const [visibleMovie, setVisibleMovie] = useState([]);
+
+    const movieDetails = useContext(MovieContext);
 
     useEffect(() => {//FETCH for all data
         fetch("http://localhost:4000/all-movies")
@@ -70,7 +74,7 @@ const Home = () => {
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
                                                 style={{width: "200px", marginRight: "20px"}} 
                                                 alt="moviepicture" 
-                                                onClick={() => {navigate("/selectedmovie")}}
+                                                onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                             />
                                             {/*<Link to={"/get-movie/" + movies.movieMainTitle}><img src={"http://localhost:4000/icons/" + movies.icon} style={{width: "200px", marginRight: "20px"}} alt="moviepicture"/></Link>*/}
                                         </div>

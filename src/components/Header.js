@@ -1,14 +1,22 @@
 import '../css/Header.css'; 
-import React from 'react';
+import React, {useState} from 'react';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdAccountCircle } from 'react-icons/md';
 import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import { SearchContext } from "../context/SearchContext.js";
 
 
 const Header = () => { 
 
     let navigate = useNavigate();
+
+    const searchDetails = useContext(SearchContext);
+
+    const handleChange = (e) => {
+        searchDetails.setValue(e.target.value);
+    }
 
     return (
         <div>
@@ -33,7 +41,7 @@ const Header = () => {
                             <AiOutlineSearch className="SearchIcon"/>
                         </div>
                         <div>
-                            <input className="SearchInput"></input>
+                            <input className="SearchInput" onChange={handleChange}></input>
                             <button onClick={() => {navigate("/searchedresult")}}>Search button</button>
                         </div>
                         <div>
