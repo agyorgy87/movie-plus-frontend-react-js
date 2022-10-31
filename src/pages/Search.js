@@ -1,5 +1,5 @@
 import '../css/PagesStyle.css';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 //import { useNavigate } from "react-router-dom";
@@ -14,37 +14,16 @@ const Search = () => {
 
     const movieDetails = useContext(MovieContext);
 
-    const [allMoviesType, setAllMoviesType] = useState([]);
     const [searchForMovies, setSearchForMovies] = useState("");
     const [visibleMovies, setVisibleMovies] = useState([]);
 
-
-    useEffect (() => {
-        fetch("http://localhost:4000/all-movies")
-                .then(data => data.json())
-                .then(parsedData => {
-                    setAllMoviesType(parsedData);
-                })
-    }, [])
-
-
-
-
-    const filterByAllMoviesType = () => {
-        fetch("http://localhost:4000/all-movies-type/" + searchForMovies)
-                .then(data => data.json())
-                .then(parsedData => {
-                    setAllMoviesType(parsedData);
-                })
-    };
-
-    const miez = () => {
+    const filterByAllMoviesTypeWrite = () => {
         fetch("http://localhost:4000/all-movies-by-action/action")
             .then(data => data.json())
             .then(parsedData => {
                 setVisibleMovies(parsedData)
             })
-    }
+    };
 
     return (
         <div className="PagesContainer">
@@ -53,14 +32,6 @@ const Search = () => {
             </div>
             <div>
                 <div className="SelectsForFilter">
-                    <div>
-                        <select>
-                            <option>Movie type</option>
-                            <option onClick={miez}>Action</option>
-                            <option>Scifi</option>
-                            <option>Fantasy</option>
-                        </select>
-                    </div>
                     <div>
                         <select>
                             <option>Search by year</option>
@@ -81,8 +52,12 @@ const Search = () => {
                     </div>  
                     <div>
                         <input onChange={(e) => setSearchForMovies(e.target.value)} value={searchForMovies}/>
-                        <button onClick={filterByAllMoviesType}>Filter movies type pl.: action, fantasy</button>
-                    </div>       
+                        <button onClick={filterByAllMoviesTypeWrite}>Filter movies type pl.: action, fantasy</button>
+                    </div>     
+                    <div>
+                        <input/>
+                        <button>keresés színészre</button>
+                    </div>   
                 </div>
             
                 <div>               

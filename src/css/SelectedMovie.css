@@ -1,0 +1,17 @@
+.SelectedMovieContainer {
+    position: relative;
+}
+
+.SelectedMovieBackgroundImage {
+    width: 100%;
+    opacity: calc(0.7);
+}
+
+.MovieDetails {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    color: white;
+    font-size: 20px;
+    display: flex;
+}

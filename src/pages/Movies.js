@@ -17,14 +17,21 @@ const Movies = () => {
                 .then(data => data.json())
                 .then(parsedData => {
                   allMovies.current = parsedData;
-                  setVisibleMovies(parsedData);
+                  //setVisibleMovies(parsedData);
                 })
       }, [])
       
-      //Frontend filter 
-      const filterByMoviesTitle = () => {
+    //Frontend filter 
+    const filterByMoviesTitle = () => {
         const filteredMovies = allMovies.current.filter(movie => movie.movieMainTitle.includes(moviesTitle));
         setVisibleMovies(filteredMovies);
+    }
+
+    //search by type
+
+    const filteredByActionMovies = () => {
+        const filteredActionMovies = allMovies.current.filter(movie => movie.type === "action");
+        setVisibleMovies(filteredActionMovies);
     }
 
     return (
@@ -38,6 +45,15 @@ const Movies = () => {
                     <div>
                         <input onChange={(e) => setMoviesTitle(e.target.value)} value={moviesTitle}/>
                             <button onClick={filterByMoviesTitle}>Filter movies by titles</button>
+                    <div>
+                                <select>
+                                    <option value="">Movie type</option>
+                                    <option value="actionMovies">Action</option>
+                                    <option value="scifiMovies">Scifi</option>
+                                    <option value="fantasyMovies">Fantasy</option>
+                                </select>
+                                <button onClick={filteredByActionMovies}>filter</button>
+                            </div>
                                 {
                                     visibleMovies.map( movies => (
                                         <div >  
