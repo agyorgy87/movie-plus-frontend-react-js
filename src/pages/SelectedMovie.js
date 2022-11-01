@@ -7,6 +7,8 @@ import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
 //import Movies from './Movies';
 
+import { BsFillPlayFill } from 'react-icons/bs';
+
 
 const SelectedMovie = () => {
 
@@ -20,14 +22,21 @@ const SelectedMovie = () => {
           <div className="SelectedMovieContainer">
                 <img className="SelectedMovieBackgroundImage" src={"http://localhost:4000/img/" + movieDetails.value.image} alt="#"/>
                     <div className="MovieDetails">
-                        <p className="MainTitle">{movieDetails.value.movieMainTitle}</p>
+                        <p className="MainTitle">{movieDetails.value.movieTitle}</p>
                             <div className="AgeYearTimeContainer">                               
                                 <p className="AgeLimit">{movieDetails.value.ageLimit}</p>                                                                
-                                <p className="ReleaseDate">{movieDetails.value.year}</p>
+                                <p className="ReleaseDate">{movieDetails.value.releaseDate}</p>
                                 <span class="Dot"></span>
-                                <p className="MovieLength">{movieDetails.value.time}</p>
+                                <p className="MovieLength">{movieDetails.value.movieLength}</p>
                             </div>                        
-                        <p className="MovieGenre">{movieDetails.value.type}</p>
+                        <p className="MovieGenre">{movieDetails.value.genre}</p>
+                            <div className="PlayAndAddButtons">
+                                
+                                    <button className="PlayButton"><BsFillPlayFill className="PlayIcon" />Lejátszás</button>
+                                                             
+                                <button>Előzetes</button>
+                                <button>listámhoz adás</button>
+                            </div>
                         <p className="MovieDescription">{movieDetails.value.description}</p>
                         <p className="MovieDirector">Rendező: {movieDetails.value.director}</p>
                         <p className="MovieActors">Szereplők: {movieDetails.value.actors}</p>

@@ -30,7 +30,7 @@ const Home = () => {
                 setAllMovies(parsedData);
             })
 
-        fetch("http://localhost:4000/all-movies-by-action/action")
+        fetch("http://localhost:4000/all-movies-by-action/akció")
             .then(data => data.json())
             .then(parsedData => {
                 setActionMovies(parsedData)
@@ -72,7 +72,7 @@ const Home = () => {
                                         <div >  
                                             <img 
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
-                                                style={{width: "200px", marginRight: "20px"}} 
+                                                className="MovieIcons"
                                                 alt="moviepicture" 
                                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                             />
