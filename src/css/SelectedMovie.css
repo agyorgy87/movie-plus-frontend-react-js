@@ -1,17 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed&display=swap');
+
 .SelectedMovieContainer {
     position: relative;
 }
 
 .SelectedMovieBackgroundImage {
     width: 100%;
-    opacity: calc(0.7);
+    opacity: calc(0.6);
 }
 
 .MovieDetails {
+    height: 60%;
+    width: 30%;
     position: absolute;
     top: 10%;
     left: 5%;
     color: white;
     font-size: 20px;
     display: flex;
+    flex-direction: column;
+    font-family: 'Saira Condensed', sans-serif;
+}
+
+.MainTitle {
+    font-size: 150px;
+}
+
+.AgeYearTimeContainer {
+    display: flex;
+}
+
+.AgeLimit {
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    height: 2.2rem;
+    width: 2.2rem;
+    border-radius: 5px;
+    background-color: #383838;
+    margin-right: 0.5rem;
+}
+
+.ReleaseDate {
+    font-size: 1.5rem;
+    margin-right: 0.2rem;
+}
+
+.Dot {
+    height: 0.5rem;
+    width: 0.5rem;
+    background-color: white;
+    border-radius: 50%;
+    margin-top:2%;
+    margin-right: 0.2rem;
+}
+
+.MovieLength {
+    font-size: 1.5rem;
+}
+
+.MovieGenre {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.MovieDescription {
+    margin-bottom: 1.5rem;
+}
+
+.MovieDirector {
+    margin-bottom: 0.5rem;
 }
