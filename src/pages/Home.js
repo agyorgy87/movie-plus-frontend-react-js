@@ -17,7 +17,7 @@ const Home = () => {
 
     const [allMovies, setAllMovies] = useState([]);
     const [actionMovies, setActionMovies] = useState([]);
-    const [scifiMovies, setScifiMovies] = useState([]);
+    const [comedyMovies, setComedyMovies] = useState([]);
     const [fantasyMovies, setFantasyMovies] = useState([]);
     //const [visibleMovie, setVisibleMovie] = useState([]);
 
@@ -36,10 +36,10 @@ const Home = () => {
                 setActionMovies(parsedData)
             })
 
-        fetch("http://localhost:4000/all-movies-by-scifi/scifi")
+        fetch("http://localhost:4000/all-movies-by-comedy/vígjáték")
             .then(data => data.json())
             .then(parsedData => {
-                setScifiMovies(parsedData);
+                setComedyMovies(parsedData);
             })
 
         fetch("http://localhost:4000/all-movies-by-fantasy/fantasy")
@@ -83,14 +83,14 @@ const Home = () => {
                             </div>
                     </div>
                     <div className="Row">
-                        <h2>Scifi</h2>
+                        <h2>Vigjáték</h2>
                             <div className="Movies">
                                 {
-                                    scifiMovies.map( movies => (
+                                    comedyMovies.map( movies => (
                                         <div>  
                                             <img 
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
-                                                style={{width: "200px", marginRight: "20px"}} 
+                                                className="MovieIcons"
                                                 alt="moviepicture"
                                                 onClick={() => {navigate("/selectedmovie")}}
                                             />

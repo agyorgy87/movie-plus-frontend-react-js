@@ -14,17 +14,39 @@ const Search = () => {
 
     const movieDetails = useContext(MovieContext);
 
+    const allMovies = useRef([]);
+
     const [searchForMovies, setSearchForMovies] = useState("");
     const [visibleMovies, setVisibleMovies] = useState([]);
+    const [searchByReleaseDate, setSearchByReleaseDate] = useState([]);
+
+    useEffect (() => {
+        fetch("http://localhost:4000/all-movies")
+                .then(data => data.json())
+                .then(parsedData => {
+                  allMovies.current = parsedData;
+                  setVisibleMovies(parsedData);
+                })
+      }, [])
 
     const filterByAllMoviesTypeWrite = () => {
-        fetch("http://localhost:4000/all-movies-by-action/action")
+        fetch("http://localhost:4000/all-movies-by-action/akció")
             .then(data => data.json())
             .then(parsedData => {
                 setVisibleMovies(parsedData)
             })
     };
 
+    /*
+    useEffect (() => {
+        searchByYear();
+    },[searchByReleaseDate])
+
+    const searchByYear = () => {
+        const splitYears = searchByReleaseDate.split("-");
+        
+    }
+    */    
     return (
         <div className="PagesContainer">
             <div>
@@ -33,12 +55,12 @@ const Search = () => {
             <div>
                 <div className="SelectsForFilter">
                     <div>
-                        <select>
+                        <select onChange={(e) => setSearchByReleaseDate(e.target.value)}>
                             <option>Search by year</option>
-                            <option>2010-2022</option>
-                            <option>2000-2010</option>
-                            <option>1990-2000</option>
-                            <option>1980-1990</option>
+                            <option value="2010-2022">2010-2022</option>
+                            <option value="2000-2010">2000-2010</option>
+                            <option value="1990-2000">1990-2000</option>
+                            <option value="1980-2000">1980-1990</option>
                         </select>
                     </div>
                     <div>
