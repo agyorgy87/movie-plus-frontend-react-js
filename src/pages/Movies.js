@@ -62,20 +62,19 @@ const Movies = () => {
                             <option value="akció">Akció</option>
                             <option value="vígjáték">Vígjáték</option>
                         </select>
-
-                        </div>
-                            {
-                                visibleMovies.map( movies => (
-                                    <div >  
-                                        <img 
-                                            src={"http://localhost:4000/icons/" + movies.icon} 
-                                            style={{width: "200px", marginRight: "20px"}} 
-                                            alt="moviepicture"
-                                            onClick={() => {navigate("/selectedmovie")}}
-                                            />
-                                    </div>
-                                ))
-                            }
+                    </div>
+                        {
+                            visibleMovies.map( movies => (
+                                <div >  
+                                    <img 
+                                        src={"http://localhost:4000/icons/" + movies.icon} 
+                                        style={{width: "200px", marginRight: "20px"}} 
+                                        alt="moviepicture"
+                                        onClick={() => {navigate("/selectedmovie")}}
+                                        />
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>

@@ -92,7 +92,7 @@ const Home = () => {
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
                                                 className="MovieIcons"
                                                 alt="moviepicture"
-                                                onClick={() => {navigate("/selectedmovie")}}
+                                                onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                             />
                                         </div>
                                     ))
