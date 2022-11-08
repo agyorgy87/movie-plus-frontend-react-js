@@ -22,7 +22,7 @@ const Movies = () => {
                 })
       }, [])
 
-    useEffect(() => {
+    useEffect(() => { 
         moviesGenre();
     },[selectedMoviesGenre])
       

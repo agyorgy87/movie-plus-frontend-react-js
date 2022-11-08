@@ -63,13 +63,15 @@ const Home = () => {
             </div>
             <div>
                 <div className="Main">
-                    <div className="Row FirstRow"> 
+                    <div className="Row"> 
+                    <div>
                         <h2>Action</h2>
+                    </div>
                             <div className="Movies">
                                 {/*<i className="Forward"><MdArrowForwardIos/></i>*/}
                                 {
                                     actionMovies.map( movies => (
-                                        <div >  
+                                        <div>  
                                             <img 
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
                                                 className="MovieIcons"
@@ -83,7 +85,7 @@ const Home = () => {
                             </div>
                     </div>
                     <div className="Row">
-                        <h2>Vigjáték</h2>
+                        <h2>Comedy</h2>
                             <div className="Movies">
                                 {
                                     comedyMovies.map( movies => (
