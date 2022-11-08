@@ -11,6 +11,9 @@
 
 .SelectsForFilter {
     display: flex;
+    justify-content: center;
 }
+
+
 
 

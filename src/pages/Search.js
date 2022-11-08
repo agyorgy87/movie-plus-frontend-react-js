@@ -19,6 +19,7 @@ const Search = () => {
     const [searchForMovies, setSearchForMovies] = useState("");
     const [visibleMovies, setVisibleMovies] = useState([]);
     const [searchByReleaseDate, setSearchByReleaseDate] = useState([]);
+    const [searchByMovieLength, setSearchByMovieLength] = useState([]);
 
     useEffect (() => {
         fetch("http://localhost:4000/all-movies")
@@ -37,13 +38,18 @@ const Search = () => {
             })
     };
 
-    useEffect (() => {
+    useEffect(() => {
         searchByYear();
-    },[searchByReleaseDate])
+    },[searchByReleaseDate]) 
+
+    useEffect (() => {
+        
+        searchByTime();
+    },[searchByMovieLength])
 
     
     const searchByYear = () => {
-        setVisibleMovies([]);
+
         if(searchByReleaseDate === "2010-2022"){
             const releaseDateBetweenTenAndTwentyTwo = allMovies.current.filter(movie => movie.releaseDate >= 2010 && movie.releaseDate <= 2022);
             setVisibleMovies(releaseDateBetweenTenAndTwentyTwo);
@@ -65,6 +71,21 @@ const Search = () => {
         }
     }
 
+    const searchByTime = () => {
+
+        if(searchByMovieLength === "120+"){
+            const moreThan120Minutes = allMovies.current.filter(movie => movie.movieLength > 120)
+            setVisibleMovies(moreThan120Minutes);
+        }
+        else if(searchByMovieLength === "60-120"){
+            const lessThan120Minutes = allMovies.current.filter(movie => movie.movieLength > 60 && movie.movieLength < 120);
+            setVisibleMovies(lessThan120Minutes);
+        }
+        else if(searchByMovieLength === "none"){
+            setVisibleMovies(allMovies.current);
+        }
+    }
+
 
       
     return (
@@ -72,7 +93,7 @@ const Search = () => {
             <div>
                 <Header/>
             </div>
-            <div>
+            <div className="SearchPage">
                 <div className="SelectsForFilter">
                     <div>
                         <select onChange={(e) => setSearchByReleaseDate(e.target.value)}>
@@ -84,22 +105,22 @@ const Search = () => {
                         </select>
                     </div>
                     <div>
-                        <select>
-                            <option>Search by movie time</option>
-                            <option>more than 2 hours</option>
-                            <option>under than 2 hours</option>
-                            <option>between 1 and 2 hours</option>
-                            <option>under than 1 hour</option>
+                        <select onChange={(e) => setSearchByMovieLength(e.target.value)}>
+                            <option value="none">Search by movie time</option>
+                            <option value="120+">more than 2 hours</option>
+                            <option value="60-120">between 1 and 2 hours</option>
                         </select>
-                    </div>  
+                    </div> 
+                    {/*} 
                     <div>
                         <input onChange={(e) => setSearchForMovies(e.target.value)} value={searchForMovies}/>
                         <button onClick={filterByAllMoviesTypeWrite}>Filter movies type pl.: action, fantasy</button>
                     </div>     
+                    */}  
                     <div>
                         <input/>
                         <button>keresés színészre</button>
-                    </div>   
+                    </div> 
                 </div>
             
                 <div>               
