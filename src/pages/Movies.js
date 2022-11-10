@@ -26,12 +26,12 @@ const Movies = () => {
         moviesGenre();
     },[selectedMoviesGenre])
       
-    //Frontend filter 
+    /*
     const filterByMoviesTitle = () => {
         const filteredMovies = allMovies.current.filter(movie => movie.movieTitle.includes(moviesTitle));
         setVisibleMovies(filteredMovies);
     }
-
+    */
     const moviesGenre = () => {
         const selectedMovies = allMovies.current.filter(movie => movie.genre === selectedMoviesGenre);
         setVisibleMovies(selectedMovies);
@@ -52,10 +52,12 @@ const Movies = () => {
             </div>
             <div>
                 <div>
-                    Search by name: 
                     <div>
+                        {/*}
+                        Search by name: 
                         <input onChange={(e) => setMoviesTitle(e.target.value)} value={moviesTitle}/>
                             <button onClick={filterByMoviesTitle}>Filter movies by titles</button>
+                            */}
                     <div>
                         <select onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
                             <option>Movie type</option>

@@ -6,7 +6,7 @@ import { MdAccountCircle } from 'react-icons/md';
 import { AiFillHome } from 'react-icons/ai';
 import { MdLocalMovies } from 'react-icons/md';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { GrFormSearch } from 'react-icons/gr';
+import { BiSearch} from 'react-icons/bi';
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { SearchContext } from "../context/SearchContext.js";
@@ -26,30 +26,28 @@ const Header = () => {
         <div>
             <nav>
                 <div className="Menu">
-                    <p className="Logo">MOVIE+</p> 
                         <div className="Browse">
                             <div>
                            <RiArrowDropDownLine className="DropDownArrow"/>
                            </div>
                                 <ul>
-                                    <li><a className="MenuPages" onClick={() => {navigate("/")}}><AiFillHome/>Home</a></li>
-                                    <li><a className="MenuPages" onClick={() => {navigate("/movies")}}><MdLocalMovies/>Movies</a></li>
-                                    <li><a className="MenuPages" onClick={() => {navigate("/search")}}><AiOutlineSearch/>Search</a></li>
-                                    <li><a className="MenuPages" onClick={() => {navigate("/mylist")}}><AiOutlinePlus/>My List</a></li>
+                                    <li><a className="MenuPages" onClick={() => {navigate("/")}}><AiFillHome className="menu-icons"/>Home</a></li>
+                                    <li><a className="MenuPages" onClick={() => {navigate("/movies")}}><MdLocalMovies className="menu-icons"/>Movies</a></li>
+                                    <li><a className="MenuPages" onClick={() => {navigate("/search")}}><AiOutlineSearch className="menu-icons"/>Search</a></li>
+                                    <li><a className="MenuPages" onClick={() => {navigate("/mylist")}}><AiOutlinePlus className="menu-icons"/>My List</a></li>
                                 </ul>
                         </div>                        
                 </div>
                 <div className="Menu">
-                    <div className="SearchBarContainer">
-                        <div>
-                            <input className="SearchInput" onChange={handleChange}></input>
-                            
-                            <button onClick={() => {navigate("/searchedresult")}}><GrFormSearch/></button>
-                            
-                        </div>
-                        <div>
-                            <MdAccountCircle className="AccountIcon"/>
-                        </div>
+                    <p className="Logo">MOVIE+</p> 
+                </div>
+                <div className="Menu">
+                    <div className="SearchBarContainer">                        
+                            <input type="text" placeholder="Search among movies"className="SearchInput" onChange={handleChange}/>                          
+                            <button className="SearchButton" onClick={() => {navigate("/searchedresult")}}><BiSearch/></button>                                                         
+                    </div>
+                    <div className="account-container">
+                        <MdAccountCircle className="account-icon"/>
                     </div>
                 </div>               
             </nav>
@@ -58,3 +56,9 @@ const Header = () => {
 }
 
 export default Header;
+
+//<button className="searchButton" onClick={() => {navigate("/searchedresult")}}><HiOutlineSearchCircle/></button>
+
+{/*
+
+*/}

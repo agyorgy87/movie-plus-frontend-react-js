@@ -24,16 +24,14 @@ const SelectedMovie = () => {
                     <div className="MovieDetails">
                         <p className="MainTitle">{movieDetails.value.movieTitle}</p>
                             <div className="AgeYearTimeContainer">                               
-                                <p className="AgeLimit">{movieDetails.value.ageLimit}</p>                                                                
+                                <p className="AgeLimit">{movieDetails.value.ageLimit}+</p>                                                                
                                 <p className="ReleaseDate">{movieDetails.value.releaseDate}</p>
                                 <span class="Dot"></span>
                                 <p className="MovieLength">{movieDetails.value.movieLength}</p>
                             </div>                        
                         <p className="MovieGenre">{movieDetails.value.genre}</p>
-                            <div className="PlayAndAddButtons">
-                                
-                                    <button className="PlayButton"><BsFillPlayFill className="PlayIcon" />Lejátszás</button>
-                                                             
+                            <div className="PlayAndAddButtons">                               
+                                    <button className="PlayButton"><BsFillPlayFill className="PlayIcon" />Lejátszás</button>                                                            
                                 <button>Előzetes</button>
                                 <button>listámhoz adás</button>
                             </div>
