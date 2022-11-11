@@ -1,14 +1,32 @@
-.Footer {
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.Footer { 
     max-height: 100%;
-    max-height: 20%;
     background-color: rgb(32, 32, 32);
     color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-menu {
     display: flex;
     justify-content: center;
 }
 
 .Footer .col, .Footer p {
-    margin: 1rem;
+    margin: 0.3rem;
+}
+
+.footer-logo {
+    color: #5DA7DB;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5rem;
+}
+
+.footer-menu {
+    font-size: 12px;
 }
 
 @media (max-width: 550px) {
