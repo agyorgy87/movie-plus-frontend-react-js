@@ -13,14 +13,17 @@ const SearchedResult = () => {
 
   const searchDetails = useContext(SearchContext);
 
+  console.log(searchDetails);
+
   const movieDetails = useContext(MovieContext);
 
-  const [allMovies, setAllMovies] = useState([])
+  const [allMovies, setAllMovies] = useState([]);
 
   useEffect (() => {
     fetch("http://localhost:4000/get-movie/" + searchDetails.value)
             .then(data => data.json())
             .then(parsedData => {
+                console.log(parsedData);
               setAllMovies(parsedData);
             })
   }, [])

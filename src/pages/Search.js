@@ -18,8 +18,9 @@ const Search = () => {
 
     const [searchForMovies, setSearchForMovies] = useState("");
     const [visibleMovies, setVisibleMovies] = useState([]);
-    const [searchByReleaseDate, setSearchByReleaseDate] = useState([]);
-    const [searchByMovieLength, setSearchByMovieLength] = useState([]);
+    const [searchByReleaseDate, setSearchByReleaseDate] = useState("none");
+    const [searchByMovieLength, setSearchByMovieLength] = useState("none");
+
 
     useEffect (() => {
         fetch("http://localhost:4000/all-movies")
@@ -39,17 +40,20 @@ const Search = () => {
     };
 
     useEffect(() => {
+        filterDatas();
+    },[searchByReleaseDate, searchByMovieLength]) 
+
+    /*
+    useEffect(() => {
         searchByYear();
     },[searchByReleaseDate]) 
 
-    useEffect (() => {
-        
+    useEffect (() => {        
         searchByTime();
     },[searchByMovieLength])
-
-    
+    */
+    /*
     const searchByYear = () => {
-
         if(searchByReleaseDate === "2010-2022"){
             const releaseDateBetweenTenAndTwentyTwo = allMovies.current.filter(movie => movie.releaseDate >= 2010 && movie.releaseDate <= 2022);
             setVisibleMovies(releaseDateBetweenTenAndTwentyTwo);
@@ -70,6 +74,20 @@ const Search = () => {
             setVisibleMovies(allMovies.current)
         }
     }
+    */
+   /*
+
+    const searchByYear = () => {
+
+        console.log(searchByReleaseDate)
+        const splittedYears = searchByReleaseDate.split("-");
+
+        const fromYears = parseInt(splittedYears[0]);
+        const toYears = parseInt(splittedYears[1]);
+
+        const releaseDate = allMovies.current.filter(movie => movie.releaseDate >= fromYears && movie.releaseDate <= toYears);
+            setVisibleMovies(releaseDate);
+    }
 
     const searchByTime = () => {
 
@@ -85,7 +103,28 @@ const Search = () => {
             setVisibleMovies(allMovies.current);
         }
     }
+    */
 
+    const filterDatas = () => {
+
+        let filterAllMovies = allMovies.current;
+
+        if(searchByReleaseDate !== "none"){
+            const splittedYears = searchByReleaseDate.split("-");
+            const fromYears = parseInt(splittedYears[0]);
+            const toYears = parseInt(splittedYears[1]);
+            filterAllMovies = filterAllMovies.filter(movie => movie.releaseDate >= fromYears && movie.releaseDate <= toYears);
+        }
+        if(searchByMovieLength !== "none"){
+            if(searchByMovieLength === "120+"){
+                filterAllMovies = filterAllMovies.filter(movie => movie.movieLength > 120);            
+            }
+            else if(searchByMovieLength === "60-120"){
+                filterAllMovies = filterAllMovies.filter(movie => movie.movieLength > 60 && movie.movieLength < 120);               
+            }
+        }
+        setVisibleMovies(filterAllMovies);
+    }
 
       
     return (

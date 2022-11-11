@@ -52,7 +52,7 @@ h2 {
     margin: 0 1rem;
 }
 
-.Movies {
+.Movies { 
     display: flex;
     overflow-x: scroll;
     padding: 1rem;

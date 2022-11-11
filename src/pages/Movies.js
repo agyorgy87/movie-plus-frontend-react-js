@@ -3,10 +3,14 @@ import React, {useState, useEffect, useRef} from 'react';
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import { MovieContext } from "../context/MovieContext.js";
 
-const Movies = () => {
+const Movies = () => { 
 
     let navigate = useNavigate();
+
+    const movieDetails = useContext(MovieContext);
 
     const allMovies = useRef([]);
     const [visibleMovies, setVisibleMovies] = useState([]);
@@ -50,14 +54,12 @@ const Movies = () => {
             <div>
                 <Header/>
             </div>
-            <div>
-                <div>
-                    <div>
-                        {/*}
-                        Search by name: 
-                        <input onChange={(e) => setMoviesTitle(e.target.value)} value={moviesTitle}/>
-                            <button onClick={filterByMoviesTitle}>Filter movies by titles</button>
-                            */}
+                <div>             
+                    {/*}
+                    Search by name: 
+                    <input onChange={(e) => setMoviesTitle(e.target.value)} value={moviesTitle}/>
+                    <button onClick={filterByMoviesTitle}>Filter movies by titles</button>
+                    */}
                     <div>
                         <select onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
                             <option>Movie type</option>
@@ -65,21 +67,21 @@ const Movies = () => {
                             <option value="vígjáték">Vígjáték</option>
                         </select>
                     </div>
-                        {
-                            visibleMovies.map( movies => (
-                                <div >  
-                                    <img 
-                                        src={"http://localhost:4000/icons/" + movies.icon} 
-                                        style={{width: "200px", marginRight: "20px"}} 
-                                        alt="moviepicture"
-                                        onClick={() => {navigate("/selectedmovie")}}
-                                        />
-                                </div>
-                            ))
-                        }
-                    </div>
+                    <div className="visible-movies">
+                            {
+                                visibleMovies.map( movies => (
+                                    <div>  
+                                        <img 
+                                            src={"http://localhost:4000/icons/" + movies.icon} 
+                                            className="MoviesIcon"
+                                            alt="moviepicture"
+                                            onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
+                                            />
+                                    </div>
+                                ))
+                            }
+                    </div>                                         
                 </div>
-            </div>
             <div>
                 <Footer/>
             </div>
