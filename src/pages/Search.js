@@ -16,10 +16,10 @@ const Search = () => {
 
     const allMovies = useRef([]);
 
-    const [searchForMovies, setSearchForMovies] = useState("");
     const [visibleMovies, setVisibleMovies] = useState([]);
     const [searchByReleaseDate, setSearchByReleaseDate] = useState("none");
     const [searchByMovieLength, setSearchByMovieLength] = useState("none");
+    const [searchByAgeLimit, setSearchByAgeLimit] = useState("none");
 
 
     useEffect (() => {
@@ -41,7 +41,7 @@ const Search = () => {
 
     useEffect(() => {
         filterDatas();
-    },[searchByReleaseDate, searchByMovieLength]) 
+    },[searchByReleaseDate, searchByMovieLength, searchByAgeLimit]) 
 
     /*
     useEffect(() => {
@@ -76,7 +76,6 @@ const Search = () => {
     }
     */
    /*
-
     const searchByYear = () => {
 
         console.log(searchByReleaseDate)
@@ -88,7 +87,7 @@ const Search = () => {
         const releaseDate = allMovies.current.filter(movie => movie.releaseDate >= fromYears && movie.releaseDate <= toYears);
             setVisibleMovies(releaseDate);
     }
-
+    /*
     const searchByTime = () => {
 
         if(searchByMovieLength === "120+"){
@@ -123,6 +122,14 @@ const Search = () => {
                 filterAllMovies = filterAllMovies.filter(movie => movie.movieLength > 60 && movie.movieLength < 120);               
             }
         }
+        if(searchByAgeLimit !== "none"){
+            if(searchByAgeLimit === "16+"){
+                filterAllMovies = filterAllMovies.filter(movie => movie.ageLimit >= 16);            
+            }
+            else if(searchByAgeLimit === "12+"){
+                filterAllMovies = filterAllMovies.filter(movie => movie.ageLimit >= 12);               
+            }
+        }
         setVisibleMovies(filterAllMovies);
     }
 
@@ -150,15 +157,12 @@ const Search = () => {
                             <option value="60-120">between 1 and 2 hours</option>
                         </select>
                     </div> 
-                    {/*} 
                     <div>
-                        <input onChange={(e) => setSearchForMovies(e.target.value)} value={searchForMovies}/>
-                        <button onClick={filterByAllMoviesTypeWrite}>Filter movies type pl.: action, fantasy</button>
-                    </div>     
-                    */}  
-                    <div>
-                        <input/>
-                        <button>keresés színészre</button>
+                        <select onChange={(e) => setSearchByAgeLimit(e.target.value)}>
+                            <option value="none">Search by age limit</option>
+                            <option value="16+">16+</option>
+                            <option value="12+">12+</option>
+                        </select>
                     </div> 
                 </div>
             
