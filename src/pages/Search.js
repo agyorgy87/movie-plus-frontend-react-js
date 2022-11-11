@@ -135,7 +135,7 @@ const Search = () => {
 
       
     return (
-        <div className="PagesContainer">
+        <div className="pages-container">
             <div>
                 <Header/>
             </div>

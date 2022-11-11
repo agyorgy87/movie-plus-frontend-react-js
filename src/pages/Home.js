@@ -54,7 +54,7 @@ const Home = () => {
 }, [])
 
     return ( 
-        <div className="PagesContainer">
+        <div className="pages-container">
             <div>
                 <Header/>
             </div>            

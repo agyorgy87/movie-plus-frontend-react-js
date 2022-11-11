@@ -14,7 +14,7 @@ const Movies = () => {
 
     const allMovies = useRef([]);
     const [visibleMovies, setVisibleMovies] = useState([]);
-    const [moviesTitle, setMoviesTitle] = useState("");
+    //const [moviesTitle, setMoviesTitle] = useState("");
     const [selectedMoviesGenre, setSelectedMoviesGenre] = useState([]);
 
     useEffect (() => {
@@ -30,17 +30,23 @@ const Movies = () => {
         moviesGenre();
     },[selectedMoviesGenre])
       
-    /*
-    const filterByMoviesTitle = () => {
-        const filteredMovies = allMovies.current.filter(movie => movie.movieTitle.includes(moviesTitle));
-        setVisibleMovies(filteredMovies);
-    }
-    */
+    
     const moviesGenre = () => {
+
+        let filterMoviesGenre = allMovies.current
         
-        const selectedMovies = allMovies.current.filter(movie => movie.genre === selectedMoviesGenre);
-        setVisibleMovies(selectedMovies);
+        if(selectedMoviesGenre !== "none"){   
+            filterMoviesGenre = filterMoviesGenre.filter(movie => movie.genre === selectedMoviesGenre);
+            setVisibleMovies(filterMoviesGenre); 
+        }
+        setVisibleMovies(filterMoviesGenre);
+        
     }
+
+    /*
+            const selectedMovies = allMovies.current.filter(movie => movie.genre === selectedMoviesGenre);
+            setVisibleMovies(selectedMovies);
+            */
 
     return (
         <div className="pages-container">
@@ -55,7 +61,7 @@ const Movies = () => {
                     */}
                     <div>
                         <select onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
-                            <option >All Movies</option>
+                            <option value="none">All Movies</option>
                             <option value="akció">Action</option>
                             <option value="vígjáték">Comedy</option>
                         </select>
