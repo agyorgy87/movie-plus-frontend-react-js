@@ -8,11 +8,7 @@
     user-select: none;
 }
 
-html {
-    font-size: 1rem;
-}
-
-.Main {
+.main {
     position:relative;
     margin-left: 1rem; 
     font-family: 'Poppins', sans-serif;
@@ -21,73 +17,69 @@ html {
 }
 
 @media (max-width: 550px) {
-    .Main {
+    .main {
         margin-left: 1rem;
         text-align: center;
     }
 
-    .Main .Movies {
+    .main .movies {
         flex-wrap: wrap;
         display: flex;
         justify-content: center;
     }
 
-    .Main .Movies img {
+    .main .movies img {
         max-width: 80vw;
         margin-bottom: 3rem;
     }   
-    .Forward {
+    .forward {
         display: none;
     }
 }
 
-.Row {
+.row {
     width: 100%;
     margin-bottom: 2rem;
     position: relative;
     height: 30%;
 }
 
-h2 {
-    margin: 0 1rem;
+.movie-text-container {
+    height: 2rem;
 }
 
-.Movies { 
+.movie-genre-texts {
+    margin: 0 1rem;
+    font-size: 1.5rem;
+}
+
+.movies { 
     display: flex;
     overflow-x: scroll;
-    padding: 1rem;
+    padding: 2rem;
     align-items: center;
+    height: 12rem;
 }
 
-.Movies::-webkit-scrollbar {
+.movies::-webkit-scrollbar {
     display: none;
 }
 
-.Movies img {
+.movies img {
     max-width: 40vw;
     margin-right: 1.5rem;
-    border-radius: 0.3rem;
+    border-radius: 0.2rem;
+    margin-top: 10px;
 }
 
-.Movies img:hover {
+.movies img:hover {
     transform: scale(1.1);
-    transition: 0.2s;
-    border: 2px solid white;
+    transition: 0.3s;
+    border: 4px solid #FFFDFA;
 }
 
-/*
-.FirstRow .Movies img {
-    max-width: 60vw !important;
-}
-*/
-
-i{
-    font-size: 2rem;
-}
-
-.Forward {
-    color: white;
-    
+.forward{
+    color: white; 
     opacity: 0.7;
     position: absolute;
     left: 85vw;
@@ -95,12 +87,13 @@ i{
     transition: transform 0.5s;
 }
 
-.Forward:hover {
+.forward:hover {
     transform: scale(2);
 }
 
-.MovieIcons {
+.movie-icons {
     width: 15rem;
     margin-right: 1rem;
     box-shadow: 0 5px 8px 3px black;
 }
+

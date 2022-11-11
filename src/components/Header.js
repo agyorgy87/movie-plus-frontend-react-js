@@ -43,7 +43,7 @@ const Header = () => {
                 </div>
                 <div className="Menu">
                     <div className="SearchBarContainer">                        
-                            <input type="text" placeholder="Search among movies"className="SearchInput" onChange={handleChange}/>                          
+                            <input type="text" placeholder="Search Movies"className="SearchInput" onChange={handleChange}/>                          
                             <button className="SearchButton" onClick={() => {navigate("/searchedresult")}}><BiSearch/></button>                                                         
                     </div>
                     <div className="account-container">
@@ -57,8 +57,3 @@ const Header = () => {
 
 export default Header;
 
-//<button className="searchButton" onClick={() => {navigate("/searchedresult")}}><HiOutlineSearchCircle/></button>
-
-{/*
-
-*/}

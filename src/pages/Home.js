@@ -1,10 +1,8 @@
 import '../css/PagesStyle.css';
 import '../css/Main.css';
 import Header from "../components/Header.js";
-//import Main from "../components/Main.js";
 import Footer from "../components/Footer.js";
 import React, {useState, useEffect} from 'react';
-//import { MdArrowForwardIos } from 'react-icons/md';
 import { useNavigate } from "react-router-dom";
 //import { useParams, Link} from 'react-router-dom';
 import { useContext } from 'react';
@@ -19,7 +17,6 @@ const Home = () => {
     const [actionMovies, setActionMovies] = useState([]);
     const [comedyMovies, setComedyMovies] = useState([]);
     const [fantasyMovies, setFantasyMovies] = useState([]);
-    //const [visibleMovie, setVisibleMovie] = useState([]);
 
     const movieDetails = useContext(MovieContext);
 
@@ -56,43 +53,40 @@ const Home = () => {
         */
 }, [])
 
-    return (
+    return ( 
         <div className="PagesContainer">
             <div>
                 <Header/>
-            </div>
-            <div>
-                <div className="Main">
-                    <div className="Row"> 
-                    <div>
-                        <h2>Action</h2>
-                    </div>
-                            <div className="Movies">
-                                {/*<i className="Forward"><MdArrowForwardIos/></i>*/}
+            </div>            
+                <div className="main">
+                    <div className="row"> 
+                        <div className="movie-text-container">
+                            <h2 className="movie-genre-texts">Action</h2>
+                        </div>
+                            <div className="movies">
                                 {
                                     actionMovies.map( movies => (
                                         <div>  
                                             <img 
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
-                                                className="MovieIcons"
+                                                className="movie-icons"
                                                 alt="moviepicture" 
                                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                             />
-                                            {/*<Link to={"/get-movie/" + movies.movieMainTitle}><img src={"http://localhost:4000/icons/" + movies.icon} style={{width: "200px", marginRight: "20px"}} alt="moviepicture"/></Link>*/}
                                         </div>
                                     ))
                                 }
                             </div>
                     </div>
-                    <div className="Row">
-                        <h2>Comedy</h2>
-                            <div className="Movies">
+                    <div className="row">
+                        <h2 className="movie-genre-texts">Comedy</h2>
+                            <div className="movies">
                                 {
                                     comedyMovies.map( movies => (
                                         <div>  
                                             <img 
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
-                                                className="MovieIcons"
+                                                className="movie-icons"
                                                 alt="moviepicture"
                                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                             />
@@ -101,15 +95,15 @@ const Home = () => {
                                 }   
                             </div>
                     </div>
-                    <div className="Row">
-                        <h2>Fantasy</h2>
-                            <div className="Movies">
+                    <div className="row">
+                        <h2 className="movie-genre-texts">Fantasy</h2>
+                            <div className="moviess">
                                 {
                                     fantasyMovies.map( movies => (
                                         <div >  
                                             <img 
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
-                                                style={{width: "200px", marginRight: "20px"}} 
+                                                className="movie-icons" 
                                                 alt="moviepicture"
                                                 onClick={() => {navigate("/selectedmovie")}}
                                             />
@@ -119,7 +113,6 @@ const Home = () => {
                             </div>
                     </div>
                 </div>
-            </div>
             <div>
                 <Footer/>
             </div>
