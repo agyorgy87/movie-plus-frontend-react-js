@@ -37,20 +37,13 @@ const Movies = () => {
     }
     */
     const moviesGenre = () => {
+        
         const selectedMovies = allMovies.current.filter(movie => movie.genre === selectedMoviesGenre);
         setVisibleMovies(selectedMovies);
     }
 
-    /*
-    //search by type
-    const filteredByActionMovies = () => {
-        const filteredActionMovies = allMovies.current.filter(movie => movie.type === "action");
-        setVisibleMovies(filteredActionMovies);
-    }
-    */
-
     return (
-        <div className="PagesContainer">
+        <div className="pages-container">
             <div>
                 <Header/>
             </div>
@@ -62,9 +55,9 @@ const Movies = () => {
                     */}
                     <div>
                         <select onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
-                            <option>Movie type</option>
-                            <option value="akció">Akció</option>
-                            <option value="vígjáték">Vígjáték</option>
+                            <option >All Movies</option>
+                            <option value="akció">Action</option>
+                            <option value="vígjáték">Comedy</option>
                         </select>
                     </div>
                     <div className="visible-movies">
@@ -73,7 +66,7 @@ const Movies = () => {
                                     <div>  
                                         <img 
                                             src={"http://localhost:4000/icons/" + movies.icon} 
-                                            className="MoviesIcon"
+                                            className="movies-icon"
                                             alt="moviepicture"
                                             onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                             />
