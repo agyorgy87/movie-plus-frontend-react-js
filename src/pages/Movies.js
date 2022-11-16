@@ -43,11 +43,6 @@ const Movies = () => {
         
     }
 
-    /*
-            const selectedMovies = allMovies.current.filter(movie => movie.genre === selectedMoviesGenre);
-            setVisibleMovies(selectedMovies);
-            */
-
     return (
         <div className="pages-container">
             <div>
@@ -60,19 +55,21 @@ const Movies = () => {
                     <button onClick={filterByMoviesTitle}>Filter movies by titles</button>
                     */}
                     <div>
+                        <h1 className="movie-page-movie-text">MOVIES</h1>
                         <select onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
                             <option value="none">All Movies</option>
                             <option value="akció">Action</option>
                             <option value="vígjáték">Comedy</option>
                         </select>
                     </div>
+                    
                     <div className="visible-movies">
                             {
                                 visibleMovies.map( movies => (
                                     <div>  
                                         <img 
                                             src={"http://localhost:4000/icons/" + movies.icon} 
-                                            className="movies-icon"
+                                            className="movie-icons"
                                             alt="moviepicture"
                                             onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                             />

@@ -1,0 +1,19 @@
+.slider {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    float: left;
+}
+
+.image {
+   width: 1000px;
+   height: 600px;
+   border-radius: 10px; 
+}
+
+.right-arrow {
+    position: absolute;
+    top: 50%;
+    right: 32px;
+    font-size: 3rem;
+}

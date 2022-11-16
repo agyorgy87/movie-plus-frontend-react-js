@@ -1,7 +1,9 @@
-import '../css/PagesStyle.css';
+//import '../css/PagesStyle.css';
 import '../css/Main.css';
+import '../css/Slider.css';
 import Header from "../components/Header.js";
 import Footer from "../components/Footer.js";
+import ImageSlider from "../components/ImageSlider.js";
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 //import { useParams, Link} from 'react-router-dom';
@@ -17,6 +19,9 @@ const Home = () => {
     const [actionMovies, setActionMovies] = useState([]);
     const [comedyMovies, setComedyMovies] = useState([]);
     const [fantasyMovies, setFantasyMovies] = useState([]);
+
+    const sliderData = [actionMovies];
+    console.log(sliderData);
 
     const movieDetails = useContext(MovieContext);
 
@@ -59,6 +64,9 @@ const Home = () => {
                 <Header/>
             </div>            
                 <div className="main">
+                    <div className="row"> 
+                        <ImageSlider className="slider" slides={sliderData}/>
+                    </div>
                     <div className="row"> 
                         <div className="movie-text-container">
                             <h2 className="movie-genre-texts">Action</h2>
