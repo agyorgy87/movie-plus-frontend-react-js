@@ -25,26 +25,26 @@ const Header = () => {
     return (
         <div>
             <nav>
-                <div className="Menu">
-                        <div className="Browse">
+                <div className="navigation-menu">
+                        <div className="browse-container">
                             <div>
-                           <RiArrowDropDownLine className="DropDownArrow"/>
+                           <RiArrowDropDownLine className="drop-down-arrow"/>
                            </div>
                                 <ul>
-                                    <li><a className="MenuPages" onClick={() => {navigate("/")}}><AiFillHome className="menu-icons"/>Home</a></li>
-                                    <li><a className="MenuPages" onClick={() => {navigate("/movies")}}><MdLocalMovies className="menu-icons"/>Movies</a></li>
-                                    <li><a className="MenuPages" onClick={() => {navigate("/search")}}><AiOutlineSearch className="menu-icons"/>Search</a></li>
-                                    <li><a className="MenuPages" onClick={() => {navigate("/mylist")}}><AiOutlinePlus className="menu-icons"/>My List</a></li>
+                                    <li><a className="menu-pages" onClick={() => {navigate("/")}}><AiFillHome className="menu-icons"/>Home</a></li>
+                                    <li><a className="menu-pages" onClick={() => {navigate("/movies")}}><MdLocalMovies className="menu-icons"/>Movies</a></li>
+                                    <li><a className="menu-pages" onClick={() => {navigate("/search")}}><AiOutlineSearch className="menu-icons"/>Search</a></li>
+                                    <li><a className="menu-pages" onClick={() => {navigate("/mylist")}}><AiOutlinePlus className="menu-icons"/>My List</a></li>
                                 </ul>
                         </div>                        
                 </div>
-                <div className="Menu">
-                    <p className="Logo">MOVIE+</p> 
+                <div className="navigation-menu">
+                    <p className="logo">MOVIE+</p> 
                 </div>
-                <div className="Menu">
-                    <div className="SearchBarContainer">                        
-                            <input type="text" placeholder="Search Movies"className="SearchInput" onChange={handleChange}/>                          
-                            <button className="SearchButton" onClick={() => {navigate("/searchedresult")}}><BiSearch/></button>                                                         
+                <div className="navigation-menu">
+                    <div className="search-container">                        
+                            <input type="text" placeholder="Search Movies"className="search-input" onChange={handleChange}/>                          
+                            <button className="search-button" onClick={() => {navigate("/searchedresult")}}><BiSearch/></button>                                                         
                     </div>
                     <div className="account-container">
                         <MdAccountCircle className="account-icon"/>

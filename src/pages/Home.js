@@ -64,9 +64,11 @@ const Home = () => {
                 <Header/>
             </div>            
                 <div className="main">
+                    {/*}
                     <div className="row"> 
                         <ImageSlider className="slider" slides={sliderData}/>
                     </div>
+    */}
                     <div className="row"> 
                         <div className="movie-text-container">
                             <h2 className="movie-genre-texts">Action</h2>

@@ -1,93 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-* {
+* { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     user-select: none;
 }
 
-@media (max-width: 900px) and (min-width: 550px) {
-    nav .Browse .DropDownArrow {
-        display: block;
-    }
-    nav .Browse ul {
-        display: none;
-        margin-top: 1.5rem;
-    }
-    nav .Browse::before {
-        padding: 1.25rem 0.5rem;
-    }
-    nav .Browse:hover ul{
-        display: block;
-        position: absolute;
-        top: 3.5rem;
-        left: -2rem;
-        width: 10rem;
-        text-align: center;
-        background-color: rgb(32, 32, 32) ;
-    }
-}
-
-@media (max-width: 550px) {
-    nav {
-        flex-direction: column-reverse;
-        position: static;
-        top: 0;
-    }
-
-    .Logo {
-        display: none;
-    }
-
-    .Browse ul {
-        display: block;
-    }
-
-    .SearchBar {
-        display: block;
-        text-align: center;
-    }
-
-    nav .Browse a {
-        padding: 0.5rem;
-    }
-
-    nav .Browse {
-        padding-bottom: 1rem;
-    }
-
-}
-
-.Logo {
-    color: #5DA7DB;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 2rem;
-}
-
-.MenuPages {
-    font-size: 1.2rem;
-    margin-right: 0.2rem;
-    color: #FFFDFA;
-}
-
-.DropDownArrow, 
-.SearchIcon,
-.AccountIcon {
-    color: #FFFDFA;
-}
-
-.DropDownArrow {
-    font-size: 3rem;
-    margin: 2rem 0rem;
-}
-
-.menu-icons {
-    font-size: 1rem;
-    margin-right: 5px;
-    vertical-align:auto;
-}
+/*
+Menu -> navigation-menu
+Browse -> browse-container
+DropDownArrow -> drop-down-arrow
+MenuPages -> menu-pages
+SearchBarContainer -> search-container
+*/
 
 nav {
     display: flex;
@@ -105,17 +32,18 @@ nav {
     justify-content: space-between;
 }
 
-nav .Menu {
+nav .navigation-menu {
     display: flex;
     align-items: center;
     margin: 0 2rem;
 }
 
-/*
-nav:hover {
-    background-color: linear-gradient(180deg,rgb(0, 0, 0),rgb(32, 32, 32));   
+nav .browse-container {
+    display: flex;
+    color: #FFFDFA;
+    margin-top: 1rem;
+    position: relative;
 }
-*/
 
 nav a {
     display: block;
@@ -125,6 +53,15 @@ nav a {
     white-space: nowrap;
     font-family: 'Poppins', sans-serif;
     transition: color 0.5s;
+}
+
+nav ul li a:hover {
+    color: #6770c4;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
 }
 
 /*
@@ -140,33 +77,44 @@ nav ul li:not(:first-child) a:hover {
 }
 */
 
-nav ul li a:hover {
-    color: #6770c4;
-}
-
-
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav .Browse {
-    display: flex;
+.menu-pages {
+    font-size: 1.2rem;
+    margin-right: 0.2rem;
     color: #FFFDFA;
-    margin-top: 1rem;
-    position: relative;
 }
 
-.DropDownArrow {
+.menu-icons {
+    font-size: 1rem;
+    margin-right: 5px;
+    vertical-align:auto;
+}
+
+.drop-down-arrow, 
+.SearchIcon,
+.AccountIcon {
+    color: #FFFDFA;
+}
+
+.drop-down-arrow {
+    font-size: 3rem;
+    margin: 2rem 0rem;
+}
+
+.logo {
+    color: #5DA7DB;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2rem;
+}
+
+.drop-down-arrow {
     display: none;
 }
 
-.SearchBarContainer {
+.search-container{
     position: relative;
 }
 
-.SearchInput {
+.search-input {
     height: 2rem;
     width: 22rem;
     font-size: 1rem;
@@ -177,13 +125,7 @@ nav .Browse {
     font-family: 'Poppins', sans-serif;
 }
 
-/*
-.SearchInput:focus{
-    outline: none;
-}
-*/
-
-.SearchButton {
+.search-button {
     background: none;
     position: absolute;
     top: 2px;
@@ -208,4 +150,55 @@ nav .Browse {
     cursor: pointer;
 }
 
+@media (max-width: 900px) and (min-width: 550px) {
+    nav .browse-container .drop-down-arrow {
+        display: block;
+    }
+    nav .browse-container ul {
+        display: none;
+        margin-top: 1.5rem;
+    }
+    nav .browse-container::before {
+        padding: 1.25rem 0.5rem;
+    }
+    nav .browse-container:hover ul{
+        display: block;
+        position: absolute;
+        top: 3.5rem;
+        left: -2rem;
+        width: 10rem;
+        text-align: center;
+        background-color: rgb(32, 32, 32) ;
+    }
+}
+
+@media (max-width: 550px) {
+    nav {
+        flex-direction: column-reverse;
+        position: static;
+        top: 0;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .browse-container ul {
+        display: block;
+    }
+
+    .search-input {
+        display: block;
+        text-align: center;
+    }
+
+    nav .browse-container a {
+        padding: 0.5rem;
+    }
+
+    nav .browse-container {
+        padding-bottom: 1rem;
+    }
+
+}
 
