@@ -5,12 +5,19 @@ import Footer from '../components/Footer.js';
 //import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
+import { SearchContext } from "../context/SearchContext.js";
 
 
 
 const Search = () => { 
 
     //let navigate = useNavigate();
+
+    const searchDetails = useContext(SearchContext);
+
+    const handleChange = (e) => {
+        searchDetails.setValue(e.target.value);
+    }
 
     const movieDetails = useContext(MovieContext);
 
@@ -133,6 +140,46 @@ const Search = () => {
         setVisibleMovies(filterAllMovies);
     }
 
+    /*
+    <div className="search-input-button">                     
+                            <input type="text" placeholder="Search Movies"className="search-input" onChange={handleChange}/>                          
+                            <button className="search-button" onClick={() => {navigate("/searchedresult")}}><BiSearch/></button>  
+                        </div>
+
+                        .search-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.search-input-button{
+    position: relative;
+}
+
+.search-input {
+    height: 2rem;
+    width: 100%rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-button {
+    background: none;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    font-size: 1.5rem;
+    color: #3C4048;
+}
+*/
       
     return (
         <div className="pages-container">
