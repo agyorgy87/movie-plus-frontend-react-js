@@ -150,13 +150,18 @@ nav ul li:not(:first-child) a:hover {
     cursor: pointer;
 }
 
-@media (max-width: 900px) and (min-width: 550px) {
+
+
+
+@media (max-width: 1200px) and (min-width: 550px) {
     nav .browse-container .drop-down-arrow {
         display: block;
     }
+
     nav .browse-container ul {
         display: none;
-        margin-top: 1.5rem;
+        margin-top: 3.4rem;
+        z-index: 1;
     }
     nav .browse-container::before {
         padding: 1.25rem 0.5rem;
