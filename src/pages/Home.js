@@ -1,6 +1,6 @@
-//import '../css/PagesStyle.css';
+import '../css/PagesStyle.css';
 import '../css/Main.css';
-import '../css/Slider.css';
+//import '../css/Slider.css';
 import NavigationBar from "../components/NavigationBar.js";
 import Footer from "../components/Footer.js";
 //import ImageSlider from "../components/ImageSlider.js";
@@ -60,10 +60,10 @@ const Home = () => {
 
     return ( 
         <div className="pages-container">
-            <div>
+            <div className="header">
                 <NavigationBar/>
             </div>            
-                <div className="main">
+                <div className="main-content">
                     {/*}
                     <div className="row"> 
                         <ImageSlider className="slider" slides={sliderData}/>
@@ -123,7 +123,7 @@ const Home = () => {
                             </div>
                     </div>
                 </div>
-            <div>
+            <div className="footer">
                 <Footer/>
             </div>
         </div>

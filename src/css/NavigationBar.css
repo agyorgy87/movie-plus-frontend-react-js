@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * { 
-    margin: 0;
+    margin: 0; 
     padding: 0;
     box-sizing: border-box;
     user-select: none;
@@ -40,14 +40,6 @@ nav .navigation-menu {
     margin-right: 3rem;
 }
 
-/*
-nav .browse-container {
-    display: flex;
-    color: #FFFDFA;
-    margin-top: 0.5rem;
-    position: relative;
-}
-*/
 nav a {
     display: block;
     color: #FFFDFA; 
@@ -111,11 +103,12 @@ li {
 @media (max-width: 800px) {
 
     nav .navigation-menu {
-        margin: 0 2rem;
+        margin: 1 2rem;
+        height: 4rem;
     }
 
     .logo {
-        font-size: 2.1rem;
+        font-size: 2rem;
         margin-right: 2rem;
     }
 

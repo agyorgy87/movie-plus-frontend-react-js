@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
-.Footer { 
-    max-height: 100%;
+.footer-container { 
     background-color: rgb(32, 32, 32);
     color: white;
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    /*
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    */
 }
 
 .footer-menu {
@@ -15,7 +20,7 @@
     justify-content: center;
 }
 
-.Footer .col, .Footer p {
+.footer-container .col, .footer-container p {
     margin: 0.3rem;
 }
 
@@ -30,7 +35,7 @@
 }
 
 @media (max-width: 550px) {
-    .Footer {
+    .footer-container {
         display: flex;
         flex-direction: column;
         text-align: center;

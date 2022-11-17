@@ -45,10 +45,10 @@ const Movies = () => {
 
     return (
         <div className="pages-container">
-            <div>
+            <div className="header">
                 <NavigationBar/>
             </div>
-                <div>             
+                <div className="main-content">             
                     {/*}
                     Search by name: 
                     <input onChange={(e) => setMoviesTitle(e.target.value)} value={moviesTitle}/>
@@ -78,7 +78,7 @@ const Movies = () => {
                             }
                     </div>                                         
                 </div>
-            <div>
+            <div className="footer">
                 <Footer/>
             </div>
         </div>

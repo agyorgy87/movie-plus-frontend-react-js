@@ -183,10 +183,10 @@ const Search = () => {
       
     return (
         <div className="pages-container">
-            <div>
+            <div className="header">
                 <NavigationBar/>
             </div>
-            <div className="SearchPage">
+            <div className="main-content">
                 <div className="SelectsForFilter">
                     <div>
                         <select onChange={(e) => setSearchByReleaseDate(e.target.value)}>
@@ -230,7 +230,7 @@ const Search = () => {
                     <div>
                     </div>
             </div>
-            <div>
+            <div className="footer">
                 <Footer/>
             </div>
         </div>
