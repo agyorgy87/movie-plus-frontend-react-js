@@ -1,9 +1,9 @@
 //import '../css/PagesStyle.css';
 import '../css/Main.css';
 import '../css/Slider.css';
-import Header from "../components/Header.js";
+import NavigationBar from "../components/NavigationBar.js";
 import Footer from "../components/Footer.js";
-import ImageSlider from "../components/ImageSlider.js";
+//import ImageSlider from "../components/ImageSlider.js";
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 //import { useParams, Link} from 'react-router-dom';
@@ -61,7 +61,7 @@ const Home = () => {
     return ( 
         <div className="pages-container">
             <div>
-                <Header/>
+                <NavigationBar/>
             </div>            
                 <div className="main">
                     {/*}

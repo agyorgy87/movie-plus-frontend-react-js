@@ -1,12 +1,11 @@
-import '../css/Header.css'; 
+import '../css/NavigationBar.css'; 
 import React from 'react';
 import { AiFillHome, AiOutlineSearch, AiOutlinePlus } from 'react-icons/ai';
-import { MdLocalMovies } from 'react-icons/md';
-import { MdAccountCircle } from 'react-icons/md';
+import { MdLocalMovies, MdAccountCircle } from 'react-icons/md';
 import { useNavigate } from "react-router-dom";
 
 
-const Header = () => { 
+const NavigationBar = () => { 
 
     let navigate = useNavigate();
 
@@ -36,5 +35,5 @@ const Header = () => {
   )
 }
 
-export default Header;
+export default NavigationBar;
 

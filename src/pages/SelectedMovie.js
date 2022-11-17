@@ -1,7 +1,7 @@
 import '../css/PagesStyle.css';
 import '../css/SelectedMovie.css'
 import React from 'react';
-import Header from '../components/Header.js';
+import NavigationBar from '../components/NavigationBar.js';
 import Footer from '../components/Footer.js';
 import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
@@ -17,7 +17,7 @@ const SelectedMovie = () => {
     return (
       <div className="PagesContainer">
           <div>
-              <Header/>
+              <NavigationBar/>
           </div>
           <div className="SelectedMovieContainer">
                 <img className="SelectedMovieBackgroundImage" src={"http://localhost:4000/img/" + movieDetails.value.image} alt="#"/>

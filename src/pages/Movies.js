@@ -1,6 +1,6 @@
 import '../css/PagesStyle.css';
 import React, {useState, useEffect, useRef} from 'react';
-import Header from '../components/Header.js';
+import NavigationBar from '../components/NavigationBar.js';
 import Footer from '../components/Footer.js';
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
@@ -46,7 +46,7 @@ const Movies = () => {
     return (
         <div className="pages-container">
             <div>
-                <Header/>
+                <NavigationBar/>
             </div>
                 <div>             
                     {/*}

@@ -19,7 +19,7 @@ nav {
 nav .navigation-menu {
     display: flex;
     justify-content: space-between;
-    margin: 0 2rem;
+    margin: 0 1rem;
     width: 100%;
 }
 
@@ -67,35 +67,29 @@ nav a {
     height: 2px;
     bottom: 20px;
     left: 0;
-    background-color: #0087ca;
+    background-color: #FFFDFA;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
-  }
+}
   
 .menu-pages:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
+}
 
 nav ul {
     display: flex;
     list-style: none;
 }
-/*
-nav ul li a:hover {
-    color: #6770c4;
-}
-*/
+
 li {
     display: flex;
     margin-right: 1.5rem;
 }
 
 .menu-pages {
-    font-size: 1.2rem;
-    margin-right: 0.2rem;
-    color: #FFFDFA;
-   
+    font-size: 1.2rem; 
+    color: #FFFDFA; 
 }
 
 .menu-icons {
@@ -114,10 +108,60 @@ li {
     cursor: pointer;
 }
 
-@media (max-width: 830px) {
+@media (max-width: 800px) {
 
-    nav ul li a{
-        display: none;
+    nav .navigation-menu {
+        margin: 0 2rem;
+    }
+
+    .logo {
+        font-size: 2.1rem;
+        margin-right: 2rem;
+    }
+
+    .menu-icons {
+        margin-right: 1.5rem;
+        font-size: 1.7rem;
+    }
+
+    nav ul li a {
+        display: none;    
+    }  
+}
+
+@media (max-width: 550px) {
+
+    nav .navigation-menu {
+        margin: 0 1rem;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    .menu-icons {
+        margin-right: 0.5rem;
+        font-size: 1.4rem;
+    }
+
+    .account-icon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 414px) {
+
+    nav .navigation-menu {
+        margin: 0 1.2rem;
+    }
+
+    .logo {
+        font-size: 1.7rem;
+    }
+
+    .menu-icons {
+        margin-right: 0rem;
+        font-size: 1.3rem;
     }
 }
 

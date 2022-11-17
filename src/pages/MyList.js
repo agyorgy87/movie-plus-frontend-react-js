@@ -1,6 +1,6 @@
 import '../css/PagesStyle.css';
 import React from 'react';
-import Header from '../components/Header.js';
+import NavigationBar from '../components/NavigationBar.js';
 import Footer from '../components/Footer.js';
 
 
@@ -8,7 +8,7 @@ const MyList = () => {
   return (
     <div className="PagesContainer">
         <div>
-            <Header/>
+            <NavigationBar/>
         </div>
         <div>
            MY LIST CONTENT
