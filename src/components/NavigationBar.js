@@ -5,7 +5,7 @@ import { MdLocalMovies, MdAccountCircle } from 'react-icons/md';
 import { useNavigate } from "react-router-dom";
 
 
-const NavigationBar = () => { 
+const NavigationBar = () => {  
 
     let navigate = useNavigate();
 

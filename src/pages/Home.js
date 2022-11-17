@@ -1,9 +1,8 @@
 import '../css/PagesStyle.css';
-import '../css/Main.css';
-//import '../css/Slider.css';
+import '../css/Home.css';
 import NavigationBar from "../components/NavigationBar.js";
+import Slider from "../components/Slider.js";
 import Footer from "../components/Footer.js";
-//import ImageSlider from "../components/ImageSlider.js";
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 //import { useParams, Link} from 'react-router-dom';
@@ -20,12 +19,20 @@ const Home = () => {
     const [comedyMovies, setComedyMovies] = useState([]);
     const [fantasyMovies, setFantasyMovies] = useState([]);
 
-    const sliderData = [actionMovies];
-    console.log(sliderData);
-
+    const [sliderData, setSliderData] = useState([]);
+    
     const movieDetails = useContext(MovieContext);
 
-    useEffect(() => {//FETCH for all data
+    useEffect(() => {//FETCH for all data   
+        
+        
+        fetch("http://localhost:4000/all-movies-by-action/akció")
+            .then(data => data.json())
+            .then(parsedData => {
+                setSliderData(parsedData)
+        })
+        
+
         fetch("http://localhost:4000/all-movies")
             .then(data => data.json())
             .then(parsedData => {
@@ -56,7 +63,7 @@ const Home = () => {
                 setVisibleMovie(parsedData);
             }) 
         */
-}, [])
+    }, [])
 
     return ( 
         <div className="pages-container">
@@ -64,11 +71,9 @@ const Home = () => {
                 <NavigationBar/>
             </div>            
                 <div className="main-content">
-                    {/*}
-                    <div className="row"> 
-                        <ImageSlider className="slider" slides={sliderData}/>
+                    <div className="row">
+                        <Slider slidePictures={sliderData}/>
                     </div>
-    */}
                     <div className="row"> 
                         <div className="movie-text-container">
                             <h2 className="movie-genre-texts">Action</h2>
