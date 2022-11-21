@@ -63,8 +63,8 @@ const Home = () => {
         */
     }, [])
 
-    return ( 
-        <div className="pages-container">
+    return (  
+        <div className="pages-container"> 
             <div className="header">
                 <NavigationBar/>
             </div>            
@@ -76,13 +76,13 @@ const Home = () => {
                         <div className="movie-text-container">
                             <h2 className="movie-genre-texts">Action</h2>
                         </div>
-                            <div className="movies">
+                            <div className="movies-container">
                                 {
                                     actionMovies.map( movies => (
                                         <div>  
                                             <img 
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
-                                                className="movie-icons"
+                                                className="home-movie-icons"
                                                 alt="moviepicture" 
                                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                             />
@@ -93,13 +93,13 @@ const Home = () => {
                     </div>
                     <div className="row">
                         <h2 className="movie-genre-texts">Comedy</h2>
-                            <div className="movies">
+                            <div className="movies-container">
                                 {
                                     comedyMovies.map( movies => (
                                         <div>  
                                             <img 
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
-                                                className="movie-icons"
+                                                className="home-movie-icons"
                                                 alt="moviepicture"
                                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                             />
@@ -110,13 +110,13 @@ const Home = () => {
                     </div>
                     <div className="row">
                         <h2 className="movie-genre-texts">Fantasy</h2>
-                            <div className="moviess">
+                            <div className="movies-container">
                                 {
                                     fantasyMovies.map( movies => (
                                         <div >  
                                             <img 
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
-                                                className="movie-icons" 
+                                                className="home-movie-icons" 
                                                 alt="moviepicture"
                                                 onClick={() => {navigate("/selectedmovie")}}
                                             />

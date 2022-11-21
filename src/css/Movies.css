@@ -1,0 +1,33 @@
+.movies-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.movies-select-search-bar-container {
+    margin-top: 2rem;
+    padding: 0 3rem;
+    display: flex;
+}
+
+.movies-text {
+    font-size: 3rem;
+    margin-right: 2rem;
+}
+
+.visible-movies {
+    height: 100%; 
+    width: 100%; 
+}
+
+.visible-movies div {
+    height: 150px;
+    width: 250px;
+    margin: 50px;
+    float: left;  
+}
+
+.movies-movie-icons {
+    width: 20rem;
+    border-radius: 5px;
+}

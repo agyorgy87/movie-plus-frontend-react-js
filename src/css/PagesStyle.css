@@ -17,24 +17,7 @@
     flex: 1 0 auto;
 }
 
-/*i will need this for the movie page*/
-.visible-movies {
-    height: 100%; 
-    width: 100%;
-}
 
-.visible-movies div {
-    height: 150px;
-    width: 250px;
-    margin: 5px;
-    float: left; 
-}
-
-.home-movie-icons {
-    height: 100px;
-    width: 200px;
-    border-radius: 5px;
-}
 
 
 

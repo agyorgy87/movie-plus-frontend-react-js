@@ -25,8 +25,8 @@
     font-size: 1.5rem;
 }
 
-.movies { 
-    height: 13rem;
+.movies-container { 
+    height: 15rem;
     margin-top: -1rem;
     padding-left: 2rem;
     display: flex;
@@ -34,25 +34,25 @@
     align-items: center;
 }
 
-.movies::-webkit-scrollbar {
+.movies-container::-webkit-scrollbar {
     display: none;
 }
 
-.movies img {
+.movies-container img {
     max-width: 40vw;
     margin-top: 10px;   
     margin-right: 1.5rem;
-    border-radius: 0.2rem;
+    border-radius: 0.2rem; 
 }
 
-.movies img:hover {
+.movies-container img:hover {
     border: 3px solid #FFFDFA;
     transform: scale(1.1); 
     transition: 0.3s linear;
 }
 
-.movie-icons {
-    width: 16rem;
+.home-movie-icons {
+    width: 20rem;
     margin-right: 1rem;
     box-shadow: 0 5px 8px 3px black;
 }
