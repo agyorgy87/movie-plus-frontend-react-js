@@ -1,8 +1,8 @@
 .pages-container {  
     min-height: 100vh;
-    background-color: #21243D;
     display: flex;
     flex-direction: column;
+    background-color: #21243D;
 }   
 
 .header {
@@ -19,20 +19,20 @@
 
 /*i will need this for the movie page*/
 .visible-movies {
-    width: 100%;
     height: 100%; 
+    width: 100%;
 }
 
 .visible-movies div {
-    float: left; 
-    width: 250px;
     height: 150px;
+    width: 250px;
     margin: 5px;
+    float: left; 
 }
 
 .home-movie-icons {
-    width: 200px;
     height: 100px;
+    width: 200px;
     border-radius: 5px;
 }
 

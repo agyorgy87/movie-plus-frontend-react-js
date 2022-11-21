@@ -15,7 +15,7 @@ const Slider = ({slidePictures}) => {
     const [current, setCurrent] = useState(0);
     const length = slidePictures.length;
 
-    
+    /*
     useEffect(() => {
         if(current === 0){
             setTimeout(() => {setCurrent(1);}, 5000);
@@ -26,7 +26,7 @@ const Slider = ({slidePictures}) => {
         
         
     },[current])
-    
+    */
 
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1)

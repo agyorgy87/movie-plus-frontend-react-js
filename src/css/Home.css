@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 * {
     margin: 0;
@@ -8,35 +7,31 @@
     user-select: none;
 }
 
-.main {
-    position:relative;
+.main-content {
     margin-left: 1rem; 
+    position:relative;
+    color: #FFFDFA; 
     font-family: 'Poppins', sans-serif;
-    color: white; 
 }
 
 .row {
     width: 100%;
-    margin-bottom: 2rem;
-    position: relative;
-    height: 30%;
+    margin-bottom: 1rem;
 }
 
-.movie-text-container {
-    height: 2rem;
-}
 
 .movie-genre-texts {
-    margin: 0 1rem;
+    margin-left: 2rem;
     font-size: 1.5rem;
 }
 
 .movies { 
+    height: 13rem;
+    margin-top: -1rem;
+    padding-left: 2rem;
     display: flex;
     overflow-x: scroll;
-    padding: 2rem;
     align-items: center;
-    height: 12rem;
 }
 
 .movies::-webkit-scrollbar {
@@ -45,29 +40,15 @@
 
 .movies img {
     max-width: 40vw;
+    margin-top: 10px;   
     margin-right: 1.5rem;
     border-radius: 0.2rem;
-    margin-top: 10px;
-    
 }
 
 .movies img:hover {
-    transform: scale(1.1);
-    transition: 0.3s linear;
     border: 3px solid #FFFDFA;
-}
-
-.forward{
-    color: white; 
-    opacity: 0.7;
-    position: absolute;
-    left: 85vw;
-    z-index: 1;
-    transition: transform 0.5s;
-}
-
-.forward:hover {
-    transform: scale(2);
+    transform: scale(1.1); 
+    transition: 0.3s linear;
 }
 
 .movie-icons {
@@ -76,6 +57,20 @@
     box-shadow: 0 5px 8px 3px black;
 }
 
+.forward{
+    left: 85vw;
+    position: absolute;
+    z-index: 1;
+    color: #FFFDFA; 
+    opacity: 0.7;
+    transition: transform 0.5s;
+}
+
+.forward:hover {
+    transform: scale(2);
+}
+
+/*
 @media (max-width: 550px) {
     .main {
         margin-left: 1rem;
@@ -96,4 +91,4 @@
         display: none;
     }
 }
-
+*/
