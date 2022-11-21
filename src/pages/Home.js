@@ -76,7 +76,7 @@ const Home = () => {
                         <div className="movie-text-container">
                             <h2 className="movie-genre-texts">Action</h2>
                         </div>
-                            <div className="movies-container">
+                            <div className="home-movies-container">
                                 {
                                     actionMovies.map( movies => (
                                         <div>  
@@ -93,7 +93,7 @@ const Home = () => {
                     </div>
                     <div className="row">
                         <h2 className="movie-genre-texts">Comedy</h2>
-                            <div className="movies-container">
+                            <div className="home-movies-container">
                                 {
                                     comedyMovies.map( movies => (
                                         <div>  
@@ -110,7 +110,7 @@ const Home = () => {
                     </div>
                     <div className="row">
                         <h2 className="movie-genre-texts">Fantasy</h2>
-                            <div className="movies-container">
+                            <div className="home-movies-container">
                                 {
                                     fantasyMovies.map( movies => (
                                         <div >  

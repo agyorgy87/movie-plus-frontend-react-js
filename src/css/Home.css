@@ -25,7 +25,7 @@
     font-size: 1.5rem;
 }
 
-.movies-container { 
+.home-movies-container { 
     height: 15rem;
     margin-top: -1rem;
     padding-left: 2rem;
@@ -34,18 +34,18 @@
     align-items: center;
 }
 
-.movies-container::-webkit-scrollbar {
+.home-movies-container::-webkit-scrollbar {
     display: none;
 }
 
-.movies-container img {
+.home-movies-container img {
     max-width: 40vw;
     margin-top: 10px;   
     margin-right: 1.5rem;
     border-radius: 0.2rem; 
 }
 
-.movies-container img:hover {
+.home-movies-container img:hover {
     border: 3px solid #FFFDFA;
     transform: scale(1.1); 
     transition: 0.3s linear;

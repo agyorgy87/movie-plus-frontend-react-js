@@ -56,14 +56,18 @@ const Movies = () => {
                     <button onClick={filterByMoviesTitle}>Filter movies by titles</button>
                     */}
                     <div className="movies-select-search-bar-container">
-                        <h1 className="movies-text">MOVIES</h1>
+                        <div>
+                            <h1 className="movies-text">MOVIES</h1>
+                        </div>
+                        <div className="movies-search-bar-container">
                         <select className="movies-genre-select" onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
                             <option value="none">All Movies</option>
                             <option value="akció">Action</option>
                             <option value="vígjáték">Comedy</option>
                         </select>
+                        </div>
                     </div>                  
-                    <div className="visible-movies">
+                    <div className="visible-movies-container">
                             {
                                 visibleMovies.map( movies => (
                                     <div>  
