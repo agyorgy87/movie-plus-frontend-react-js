@@ -1,10 +1,32 @@
-import React, { useState } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import '../css/Slider.css';
+import React, { useEffect, useState } from 'react';
+//import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { MdArrowBackIos, MdArrowForwardIos} from 'react-icons/md';
+import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import { MovieContext } from "../context/MovieContext.js";
 
 const Slider = ({slidePictures}) => {
 
+    const movieDetails = useContext(MovieContext);
+
+    let navigate = useNavigate();
+
     const [current, setCurrent] = useState(0);
     const length = slidePictures.length;
+
+    
+    useEffect(() => {
+        if(current === 0){
+            setTimeout(() => {setCurrent(1);}, 5000);
+        }
+        if(current === 1){
+            setTimeout(() => {setCurrent(0);}, 5000);
+        }
+        
+        
+    },[current])
+    
 
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1)
@@ -22,21 +44,22 @@ const Slider = ({slidePictures}) => {
 
     return (
         <div className="slider-container">
-            <FaArrowLeft className="left-arrow" onClick={prevSlide}/>
+            <MdArrowBackIos className="left-arrow" onClick={prevSlide}/>
                 {slidePictures.map((movies, index) => {
                     return(
                         <div className={index === current ? 'slide-active' : 'slide'} key={index}>  
                             {index === current && (
                                 <img 
-                                src={"http://localhost:4000/icons/" + movies.icon} 
+                                src={"http://localhost:4000/wide-images/" + movies.wideImage} 
                                 className="slider-images"
-                                alt="moviepictures"                                               
+                                alt="moviepictures"    
+                                onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}                                           
                                 />
                             )}
                         </div> 
                     )                  
                 })}
-            <FaArrowRight className="right-arrow" onClick={nextSlide}/>             
+            <MdArrowForwardIos className="right-arrow" onClick={nextSlide}/>             
         </div>
   )
 }

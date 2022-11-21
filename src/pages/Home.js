@@ -24,14 +24,12 @@ const Home = () => {
     const movieDetails = useContext(MovieContext);
 
     useEffect(() => {//FETCH for all data   
-        
-        
-        fetch("http://localhost:4000/all-movies-by-action/akció")
+
+        fetch("http://localhost:4000/slide-show-images")
             .then(data => data.json())
             .then(parsedData => {
                 setSliderData(parsedData)
         })
-        
 
         fetch("http://localhost:4000/all-movies")
             .then(data => data.json())
