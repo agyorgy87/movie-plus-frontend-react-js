@@ -19,13 +19,31 @@ const SearchedResult = () => {
 
   const [allMovies, setAllMovies] = useState([]);
 
+  const [errorMessage, setErrorMessage] = useState("")
+
   useEffect (() => {
+
+    /*
     fetch("http://localhost:4000/get-movie/" + searchDetails.value)
             .then(data => data.json())
             .then(parsedData => {
+                if(parsedData.error){
+                    setErrorMessage(parsedData.error)
+                }else{
+                    setAllMovies(parsedData);
+                }
                 console.log(parsedData);
-              setAllMovies(parsedData);
+              
             })
+            */
+            fetch("http://localhost:4000/get-movie-title/" + searchDetails.value)
+            .then(data => data.json())
+            .then(parsedData => {
+                console.log(parsedData);
+                setAllMovies(parsedData); 
+
+            })
+    
   }, [])
   
 
@@ -35,6 +53,7 @@ const SearchedResult = () => {
                 <NavigationBar/>
             </div>
             <div>
+                {/*errorMessage !== "" ?*/}
                 <h1>KERESÉS EREDMÉNYE: "db" "{searchDetails.value}"</h1>
                 {
                     allMovies.map( movies => (
