@@ -1,8 +1,10 @@
 import '../css/PagesStyle.css';
+import '../css/Search.css';
 import React, {useState, useEffect, useRef} from 'react';
+import { BiSearch } from 'react-icons/bi';
 import NavigationBar from '../components/NavigationBar.js';
 import Footer from '../components/Footer.js';
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
 import { SearchContext } from "../context/SearchContext.js";
@@ -11,15 +13,14 @@ import { SearchContext } from "../context/SearchContext.js";
 
 const Search = () => { 
 
-    //let navigate = useNavigate();
-
+    let navigate = useNavigate();
+    
+    const movieDetails = useContext(MovieContext);
     const searchDetails = useContext(SearchContext);
 
     const handleChange = (e) => {
         searchDetails.setValue(e.target.value);
     }
-
-    const movieDetails = useContext(MovieContext);
 
     const allMovies = useRef([]);
 
@@ -139,55 +140,18 @@ const Search = () => {
         }
         setVisibleMovies(filterAllMovies);
     }
-
-    /*
-    <div className="search-input-button">                     
-                            <input type="text" placeholder="Search Movies"className="search-input" onChange={handleChange}/>                          
-                            <button className="search-button" onClick={() => {navigate("/searchedresult")}}><BiSearch/></button>  
-                        </div>
-
-                        .search-container {
-    display: flex;
-    justify-content: flex-end;
-}
-
-
-.search-input-button{
-    position: relative;
-}
-
-.search-input {
-    height: 2rem;
-    width: 100%rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    display: block;
-    outline: none;
-    font-family: 'Poppins', sans-serif;
-}
-
-.search-button {
-    background: none;
-    position: absolute;
-    top: 2px;
-    right: 0;
-    width: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: none;
-    font-size: 1.5rem;
-    color: #3C4048;
-}
-*/
       
     return (
         <div className="pages-container">
             <div className="header">
                 <NavigationBar/>
             </div>
-            <div className="main-content">
-                <div className="SelectsForFilter">
+            <div className="main-content search-content">
+                <div className="search-input-button-container">                     
+                    <input type="text" placeholder="Search Movies" className="search-input" onChange={handleChange}/>                          
+                    <button className="search-button" onClick={() => {navigate("/searchedresult")}}><BiSearch/></button>  
+                </div>
+                <div className="selects-container">
                     <div>
                         <select onChange={(e) => setSearchByReleaseDate(e.target.value)}>
                             <option value="none">Search by year</option>
@@ -211,24 +175,20 @@ const Search = () => {
                             <option value="12+">12+</option>
                         </select>
                     </div> 
-                </div>
-            
-                <div>               
+                </div>           
+                <div className="visible-search-container">               
                         {
                             visibleMovies.map( movies => (
                                 <div >  
                                     <img 
                                         src={"http://localhost:4000/icons/" + movies.icon} 
-                                        style={{width: "200px", marginRight: "20px"}} 
+                                        className="search-movie-icons"
                                         alt="moviepicture"
                                     />
                                 </div>
                             ))
                         }
                 </div>
-                    
-                    <div>
-                    </div>
             </div>
             <div className="footer">
                 <Footer/>
