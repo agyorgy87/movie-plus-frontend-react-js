@@ -59,11 +59,11 @@ const Movies = () => {
                         <div>
                             <h1 className="movies-text">MOVIES</h1>
                         </div>
-                        <div className="movies-search-bar-container">
+                        <div className="movies-search-bar-container"> 
                         <select className="movies-genre-select" onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
-                            <option value="none">All Movies</option>
-                            <option value="akció">Action</option>
-                            <option value="vígjáték">Comedy</option>
+                            <option className="movies-genre-options" value="none">All Movies</option>
+                            <option className="movies-genre-options" value="akció">Action</option>
+                            <option className="movies-genre-options" value="vígjáték">Comedy</option>
                         </select>
                         </div>
                     </div>                  

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 .movies-content {
     display: flex;
     flex-direction: column;
@@ -12,23 +14,31 @@
     display: flex;
 }
 
+.movies-text {
+    font-size: 3rem;
+    margin-right: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+
 .movies-search-bar-container {
     display: flex;
     justify-content: center;
     align-items: center
 }
 
-.movies-text {
-    font-size: 3rem;
-    margin-right: 2rem;
-}
 
 .movies-genre-select {
     outline: none;
     height: 2rem;
     width: 10rem;
-    border-radius: 20px;
+    border-radius: 2px;
+    border: none;
     font-size: 1rem;
+    padding-left: 30px;
+    color: #FFFDFA;
+    background-color: #585c69;
+    font-family: 'Poppins', sans-serif;
 }
 
 .visible-movies-container {
