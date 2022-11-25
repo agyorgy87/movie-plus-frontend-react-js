@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.search-content {
+.search-content { 
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -29,32 +29,74 @@
 }
 
 .search-button {
-    /*
-    background: none;
-    position: absolute;
-    top: 2px;
-    right: 0;
-    width: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: none;
-    font-size: 3rem;
-    color: #3C4048;
-*/
     width: 8%; 
-    padding: 10px;
-    border: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    border: none;
+    padding: 10px;
     font-size: 3rem;
     color: #FFFDFA;
-    background: #5DA7DB;
+    background: #585c69;
     cursor: pointer;
+}
+
+.search-button:hover{
+    background-color: #76787f;
 }
 
 .selects-container {
     display: flex;
     justify-content: center;
+}
+
+.release-date-select {
+    height: 3rem;
+    width: 14rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    padding-left: 10px;
+    font-size: 1rem;
+    color: #FFFDFA;
+    background-color: #585c69;
+    font-family: 'Poppins', sans-serif;
+}
+
+.movie-length-select {
+    height: 3rem;
+    width: 14rem;
+    margin-top: 1rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    padding-left: 10px;
+    font-size: 1rem;
+    color: #FFFDFA;
+    background-color: #585c69;
+    font-family: 'Poppins', sans-serif;
+}
+
+.age-limit-select {
+    height: 3rem;
+    width: 14rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    padding-left: 10px;
+    font-size: 1rem;
+    color: #FFFDFA;
+    background-color: #585c69;
+    font-family: 'Poppins', sans-serif;
+}
+
+.release-date-select:hover,
+.movie-length-select:hover,
+.age-limit-select:hover {
+    background-color: #76787f;
 }
 
 .visible-search-container {

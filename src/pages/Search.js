@@ -37,7 +37,7 @@ const Search = () => {
                   allMovies.current = parsedData;
                   setVisibleMovies(parsedData);
                 })
-      }, [])
+      }, []) 
 
     const filterByAllMoviesTypeWrite = () => {
         fetch("http://localhost:4000/all-movies-by-action/akció")
@@ -52,6 +52,9 @@ const Search = () => {
     },[searchByReleaseDate, searchByMovieLength, searchByAgeLimit]) 
 
     /*
+
+    first, old solutions...
+
     useEffect(() => {
         searchByYear();
     },[searchByReleaseDate]) 
@@ -59,8 +62,8 @@ const Search = () => {
     useEffect (() => {        
         searchByTime();
     },[searchByMovieLength])
-    */
-    /*
+    
+
     const searchByYear = () => {
         if(searchByReleaseDate === "2010-2022"){
             const releaseDateBetweenTenAndTwentyTwo = allMovies.current.filter(movie => movie.releaseDate >= 2010 && movie.releaseDate <= 2022);
@@ -82,8 +85,8 @@ const Search = () => {
             setVisibleMovies(allMovies.current)
         }
     }
-    */
-   /*
+    
+
     const searchByYear = () => {
 
         console.log(searchByReleaseDate)
@@ -95,7 +98,7 @@ const Search = () => {
         const releaseDate = allMovies.current.filter(movie => movie.releaseDate >= fromYears && movie.releaseDate <= toYears);
             setVisibleMovies(releaseDate);
     }
-    /*
+    
     const searchByTime = () => {
 
         if(searchByMovieLength === "120+"){
@@ -153,7 +156,7 @@ const Search = () => {
                 </div>
                 <div className="selects-container">
                     <div>
-                        <select onChange={(e) => setSearchByReleaseDate(e.target.value)}>
+                        <select className="release-date-select" onChange={(e) => setSearchByReleaseDate(e.target.value)}> 
                             <option value="none">Search by year</option>
                             <option value="2010-2022">2010-2022</option>
                             <option value="2000-2009">2000-2009</option>
@@ -162,14 +165,14 @@ const Search = () => {
                         </select>
                     </div>
                     <div>
-                        <select onChange={(e) => setSearchByMovieLength(e.target.value)}>
+                        <select className="movie-length-select" onChange={(e) => setSearchByMovieLength(e.target.value)}>
                             <option value="none">Search by movie time</option>
                             <option value="120+">more than 2 hours</option>
                             <option value="60-120">between 1 and 2 hours</option>
                         </select>
                     </div> 
                     <div>
-                        <select onChange={(e) => setSearchByAgeLimit(e.target.value)}>
+                        <select className="age-limit-select" onChange={(e) => setSearchByAgeLimit(e.target.value)}>
                             <option value="none">Search by age limit</option>
                             <option value="16+">16+</option>
                             <option value="12+">12+</option>
@@ -184,6 +187,7 @@ const Search = () => {
                                         src={"http://localhost:4000/icons/" + movies.icon} 
                                         className="search-movie-icons"
                                         alt="moviepicture"
+                                        onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                     />
                                 </div>
                             ))

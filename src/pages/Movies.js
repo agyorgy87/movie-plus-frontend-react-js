@@ -15,7 +15,6 @@ const Movies = () => {
 
     const allMovies = useRef([]);
     const [visibleMovies, setVisibleMovies] = useState([]);
-    //const [moviesTitle, setMoviesTitle] = useState("");
     const [selectedMoviesGenre, setSelectedMoviesGenre] = useState([]);
 
     useEffect (() => {
@@ -50,20 +49,15 @@ const Movies = () => {
                 <NavigationBar/>
             </div>
                 <div className="main-content movies-content">             
-                    {/*}
-                    Search by name: 
-                    <input onChange={(e) => setMoviesTitle(e.target.value)} value={moviesTitle}/>
-                    <button onClick={filterByMoviesTitle}>Filter movies by titles</button>
-                    */}
                     <div className="movies-select-search-bar-container">
                         <div>
                             <h1 className="movies-text">MOVIES</h1>
                         </div>
                         <div className="movies-search-bar-container"> 
                         <select className="movies-genre-select" onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
-                            <option className="movies-genre-options" value="none">All Movies</option>
-                            <option className="movies-genre-options" value="akció">Action</option>
-                            <option className="movies-genre-options" value="vígjáték">Comedy</option>
+                            <option value="none">All Movies</option>
+                            <option value="akció">Action</option>
+                            <option value="vígjáték">Comedy</option>
                         </select>
                         </div>
                     </div>                  
