@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.search-result-text-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.search-result-text { 
+    color: #FFFDFA;
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.all-movies-found {
+    height: 100%; 
+    width: 100%; 
+}
+
+.all-movies-found div {
+    height: 120px;
+    width: 250px;
+    margin: 50px;
+    float: left;  
+}
+
+.result-movie-icon {
+    width: 20rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 8px 3px black;
+}
+
+.result-movie-icon:hover {
+    border: 3px solid #FFFDFA;
+    transform: scale(1.1); 
+    transition: 0.3s linear;
+}

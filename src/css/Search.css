@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 .search-content { 
@@ -22,6 +27,7 @@
     border: none;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    padding-left: 30px;
     outline: none;
     float:left;
     font-size: 3rem;
@@ -52,7 +58,7 @@
 .release-date-select {
     height: 3rem;
     width: 14rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
     border: none;
     border-radius: 2px;
     outline: none;
@@ -66,7 +72,7 @@
 .movie-length-select {
     height: 3rem;
     width: 14rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-left: 4rem;
     margin-right: 4rem;
     border: none;
@@ -82,7 +88,7 @@
 .age-limit-select {
     height: 3rem;
     width: 14rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
     border: none;
     border-radius: 2px;
     outline: none;
