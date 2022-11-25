@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .movies-content {
+    margin-bottom: 5rem;
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-bottom: 5rem;
 }
 
 .movies-select-search-bar-container {
@@ -15,8 +15,8 @@
 }
 
 .movies-text {
-    font-size: 3rem;
     margin-right: 2rem;
+    font-size: 3rem;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -29,13 +29,13 @@
 
 
 .movies-genre-select {
-    outline: none;
     height: 2rem;
     width: 10rem;
-    border-radius: 2px;
     border: none;
-    font-size: 1rem;
+    border-radius: 2px;
+    outline: none;
     padding-left: 30px;
+    font-size: 1rem;
     color: #FFFDFA;
     background-color: #585c69;
     font-family: 'Poppins', sans-serif;
