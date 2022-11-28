@@ -51,13 +51,14 @@ const Movies = () => {
                 <div className="main-content movies-content">             
                     <div className="movies-select-search-bar-container">
                         <div>
-                            <h1 className="movies-text">MOVIES</h1>
+                            <h1 className="movies-text">FILMEK</h1>
                         </div>
                         <div className="movies-search-bar-container"> 
                         <select className="movies-genre-select" onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
-                            <option value="none">All Movies</option>
-                            <option value="akció">Action</option>
-                            <option value="vígjáték">Comedy</option>
+                            <option value="none">MINDEN FILM</option>
+                            <option value="akció">AKCIÓ</option>
+                            <option value="vígjáték">VÍGJÁTÉK</option>
+                            <option value="scifi">SCI-FI</option>
                         </select>
                         </div>
                     </div>                  

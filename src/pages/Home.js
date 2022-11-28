@@ -23,7 +23,7 @@ const Home = () => {
     
     const movieDetails = useContext(MovieContext);
 
-    useEffect(() => {//FETCH for all data   
+    useEffect(() => {  
 
         fetch("http://localhost:4000/slide-show-images")
             .then(data => data.json())
@@ -74,7 +74,7 @@ const Home = () => {
                     </div>
                     <div className="row"> 
                         <div className="movie-text-container">
-                            <h2 className="movie-genre-texts">Action</h2>
+                            <h2 className="movie-genre-texts">Akció filmek</h2>
                         </div>
                             <div className="home-movies-container">
                                 {
@@ -92,7 +92,7 @@ const Home = () => {
                             </div>
                     </div>
                     <div className="row">
-                        <h2 className="movie-genre-texts">Comedy</h2>
+                        <h2 className="movie-genre-texts">Vígjátékok</h2>
                             <div className="home-movies-container">
                                 {
                                     comedyMovies.map( movies => (
@@ -109,7 +109,7 @@ const Home = () => {
                             </div>
                     </div>
                     <div className="row">
-                        <h2 className="movie-genre-texts">Scifi</h2>
+                        <h2 className="movie-genre-texts">Sci-fi filmek</h2>
                             <div className="home-movies-container">
                                 {
                                     scifiMovies.map( movies => (
@@ -118,7 +118,7 @@ const Home = () => {
                                                 src={"http://localhost:4000/icons/" + movies.icon} 
                                                 className="home-movie-icons" 
                                                 alt="moviepicture"
-                                                onClick={() => {navigate("/selectedmovie")}}
+                                                onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                             />
                                         </div>
                                     ))

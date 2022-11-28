@@ -9,22 +9,22 @@ const Footer = () => {
             </div>
                 <div className="footer-menu">
                     <div className="col">
-                        <p>Privacy Policy</p>
+                        <p>Adatvédelmi Szabályzat</p>
                     </div>
                     <div className="col">
-                        <p>Cookie Policy</p>
+                        <p>Cookie-szabályzat</p>
                     </div>
                     <div className="col">
-                        <p>Privacy Rights(EU and UK)</p>
+                        <p>Adatvédelmi jogok(EU and UK)</p>
                     </div>
                     <div className="col">
-                        <p>Help</p>
+                        <p>Súgó</p>
                     </div>
                     <div className="col">
-                        <p>Supported Devices</p>
+                        <p>Támogoatott eszközök</p>
                     </div>
                     <div className="col">
-                        <p>About Us</p>
+                        <p>Rólunk</p>
                     </div>
                 </div>
             <div className="col">

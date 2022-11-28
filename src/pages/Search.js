@@ -151,13 +151,13 @@ const Search = () => {
             </div>
             <div className="main-content search-content">
                 <div className="search-input-button-container">                     
-                    <input type="text" placeholder="Search Movies" className="search-input" onChange={handleChange}/>                          
+                    <input type="text" placeholder="Film keresése" className="search-input" onChange={handleChange}/>                          
                     <button className="search-button" onClick={() => {navigate("/searchedresult")}}><BiSearch/></button>  
                 </div>
                 <div className="selects-container">
                     <div>
                         <select className="release-date-select" onChange={(e) => setSearchByReleaseDate(e.target.value)}> 
-                            <option value="none">Search by year</option>
+                            <option value="none">Megjelenési dátum</option>
                             <option value="2010-2022">2010-2022</option>
                             <option value="2000-2009">2000-2009</option>
                             <option value="1990-1999">1990-1999</option>
@@ -166,14 +166,14 @@ const Search = () => {
                     </div>
                     <div>
                         <select className="movie-length-select" onChange={(e) => setSearchByMovieLength(e.target.value)}>
-                            <option value="none">Search by movie time</option>
-                            <option value="120+">more than 2 hours</option>
-                            <option value="60-120">between 1 and 2 hours</option>
+                            <option value="none">Film Játékideje</option>
+                            <option value="120+">Több mint 2 órás</option>
+                            <option value="60-120">1 és 2 óra között</option>
                         </select>
                     </div> 
                     <div>
                         <select className="age-limit-select" onChange={(e) => setSearchByAgeLimit(e.target.value)}>
-                            <option value="none">Search by age limit</option>
+                            <option value="none">Korhatár</option>
                             <option value="16+">16+</option>
                             <option value="12+">12+</option>
                         </select>
