@@ -17,7 +17,7 @@ const Home = () => {
     const [allMovies, setAllMovies] = useState([]);
     const [actionMovies, setActionMovies] = useState([]);
     const [comedyMovies, setComedyMovies] = useState([]);
-    const [fantasyMovies, setFantasyMovies] = useState([]);
+    const [scifiMovies, setScifiMovies] = useState([]);
 
     const [sliderData, setSliderData] = useState([]);
     
@@ -49,10 +49,10 @@ const Home = () => {
                 setComedyMovies(parsedData);
             })
 
-        fetch("http://localhost:4000/all-movies-by-fantasy/fantasy")
+        fetch("http://localhost:4000/all-movies-by-scifi/scifi")
             .then(data => data.json())
             .then(parsedData => {
-                setFantasyMovies(parsedData);
+                setScifiMovies(parsedData);
             })
         /*    
         fetch("http://localhost:4000/get-movie/" + params.movieMainTitle)
@@ -109,10 +109,10 @@ const Home = () => {
                             </div>
                     </div>
                     <div className="row">
-                        <h2 className="movie-genre-texts">Fantasy</h2>
+                        <h2 className="movie-genre-texts">Scifi</h2>
                             <div className="home-movies-container">
                                 {
-                                    fantasyMovies.map( movies => (
+                                    scifiMovies.map( movies => (
                                         <div >  
                                             <img 
                                                 src={"http://localhost:4000/icons/" + movies.icon} 

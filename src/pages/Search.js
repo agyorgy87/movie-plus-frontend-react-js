@@ -161,7 +161,7 @@ const Search = () => {
                             <option value="2010-2022">2010-2022</option>
                             <option value="2000-2009">2000-2009</option>
                             <option value="1990-1999">1990-1999</option>
-                            <option value="1980-1989">1980-1989</option>
+                            <option value="1979-1989">1979-1989</option>
                         </select>
                     </div>
                     <div>
