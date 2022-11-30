@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira+Condensed&display=swap');
 
-* {
+* { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,16 +8,16 @@
 }
 
 
-.SelectedMovieContainer {
+.selected-movie-container {
     position: relative;
 }
 
-.SelectedMovieBackgroundImage {
+.selected-movie-background-image {
     width: 100%;
     opacity: calc(0.6);
 }
 
-.MovieDetails {
+.movie-details {
     height: 60%;
     width: 50%;
     position: absolute;
@@ -30,15 +30,15 @@
     font-family: 'Saira Condensed', sans-serif;
 }
 
-.MainTitle {
+.Main-title {
     font-size: 150px;
 }
 
-.AgeYearTimeContainer {
+.age-year-time-container {
     display: flex;
 }
 
-.AgeLimit {
+.age-limit {
     display: flex;
     justify-content: center;
     font-size: 23px;
@@ -49,12 +49,12 @@
     margin-right: 0.5rem;
 }
 
-.ReleaseDate {
+.release-date {
     font-size: 1.5rem;
     margin-right: 0.2rem;
 }
 
-.Dot {
+.dot {
     height: 0.5rem;
     width: 0.5rem;
     background-color: white;
@@ -63,20 +63,20 @@
     margin-right: 0.2rem;
 }
 
-.MovieLength {
+.movie-length {
     font-size: 1.5rem;
 }
 
-.MovieGenre {
+.movie-genre {
     font-size: 1.3rem;
     margin-bottom: 2rem;
 }
 
-.PlayAndAddButtons {
+.play-and-add-buttons {
     margin-bottom: 2rem;
 }
 
-.PlayButton {
+.play-button {
     width: 150px;
     height: 50px;
     border-radius: 5px;
@@ -84,15 +84,17 @@
     display: inline-block;
 }
 
-.PlayIcon {
+/*
+.play-icon {
     font-size: 3rem;
     vertical-align: middle;
 }
+*/
 
-.MovieDescription {
+.movie-description {
     margin-bottom: 1.5rem;
 }
 
-.MovieDirector {
+.movie-director {
     margin-bottom: 0.5rem;
 }

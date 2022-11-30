@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
-}
+} 
 
 
 .pages-container {  
@@ -17,13 +17,15 @@
     flex-shrink: 0;
 }
 
+.main-content {
+    flex: 1 0 auto;
+}
+
 .footer {
     flex-shrink: 0;
 }
 
-.main-content {
-    flex: 1 0 auto;
-}
+
 
 
 

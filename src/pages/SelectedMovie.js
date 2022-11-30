@@ -10,37 +10,37 @@ import { MovieContext } from "../context/MovieContext.js";
 import { BsFillPlayFill } from 'react-icons/bs';
 
 
-const SelectedMovie = () => {
+const SelectedMovie = () => { 
 
     const movieDetails = useContext(MovieContext);
 
     return (
-      <div className="PagesContainer">
-          <div>
+      <div className="pages-container"> 
+          <div className="header">
               <NavigationBar/>
           </div>
-          <div className="SelectedMovieContainer">
-                <img className="SelectedMovieBackgroundImage" src={"http://localhost:4000/img/" + movieDetails.value.image} alt="#"/>
-                    <div className="MovieDetails">
-                        <p className="MainTitle">{movieDetails.value.movieTitle}</p>
-                            <div className="AgeYearTimeContainer">                               
-                                <p className="AgeLimit">{movieDetails.value.ageLimit}+</p>                                                                
-                                <p className="ReleaseDate">{movieDetails.value.releaseDate}</p>
-                                <span class="Dot"></span>
-                                <p className="MovieLength">{movieDetails.value.movieLength}</p>
+          <div className="selected-movie-container main-content">
+                <img className="selected-movie-background-image" src={"http://localhost:4000/img/" + movieDetails.value.image} alt="#"/>
+                    <div className="movie-details">
+                        <p className="main-title">{movieDetails.value.movieTitle}</p>
+                            <div className="age-year-time-container">                               
+                                <p className="age-limit">{movieDetails.value.ageLimit}+</p>                                                                
+                                <p className="release-date">{movieDetails.value.releaseDate}</p>
+                                <span class="dot"></span>
+                                <p className="movie-length">{movieDetails.value.movieLength}</p>
                             </div>                        
-                        <p className="MovieGenre">{movieDetails.value.genre}</p>
-                            <div className="PlayAndAddButtons">                               
-                                    <button className="PlayButton"><BsFillPlayFill className="PlayIcon" />Lejátszás</button>                                                            
+                        <p className="movie-genre">{movieDetails.value.genre}</p>
+                            <div className="play-and-add-buttons">                               
+                                    <button className="play-button"><BsFillPlayFill className="PlayIcon" />Lejátszás</button>                                                            
                                 <button>Előzetes</button>
                                 <button>listámhoz adás</button>
                             </div>
-                        <p className="MovieDescription">{movieDetails.value.description}</p>
-                        <p className="MovieDirector">Rendező: {movieDetails.value.director}</p>
-                        <p className="MovieActors">Szereplők: {movieDetails.value.actors}</p>
+                        <p className="movie-description">{movieDetails.value.description}</p>
+                        <p className="movie-director">Rendező: {movieDetails.value.director}</p>
+                        <p className="movie-actors">Szereplők: {movieDetails.value.actors}</p>
                     </div>  
           </div>
-          <div>
+          <div className="footer">
               <Footer/>
           </div>
       </div>
