@@ -43,6 +43,8 @@
     margin-top: 10px;   
     margin-right: 1.5rem;
     border-radius: 0.2rem; 
+    transform: scale(1.0); 
+    transition: 0.3s linear;
 }
 
 .home-movies-container img:hover {

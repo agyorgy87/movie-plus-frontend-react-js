@@ -1,5 +1,5 @@
 import '../css/Slider.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 //import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { MdArrowBackIos, MdArrowForwardIos} from 'react-icons/md';
 import { useNavigate } from "react-router-dom";
@@ -15,18 +15,21 @@ const Slider = ({slidePictures}) => {
     const [current, setCurrent] = useState(0);
     const length = slidePictures.length;
 
-    /*
+    
     useEffect(() => {
         if(current === 0){
             setTimeout(() => {setCurrent(1);}, 5000);
         }
         if(current === 1){
+            setTimeout(() => {setCurrent(2);}, 5000);
+        }
+        if(current === 2){
             setTimeout(() => {setCurrent(0);}, 5000);
         }
         
         
     },[current])
-    */
+    
 
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1)
