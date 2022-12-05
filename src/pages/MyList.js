@@ -1,4 +1,5 @@
 import '../css/PagesStyle.css';
+import '../css/MyList.css'
 import React from 'react';
 import NavigationBar from '../components/NavigationBar.js';
 import Footer from '../components/Footer.js';
@@ -7,7 +8,7 @@ import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
 
 
-const MyList = () => { 
+const MyList = () => {  
 
     let navigate = useNavigate();
 
@@ -21,15 +22,19 @@ const MyList = () => {
             <div className="header">
                 <NavigationBar/>
             </div>
-            <div className="main-content">   
-                <h1>SAJÁT LISTA</h1>
-                <div>
+            <div className="main-content mylist-content">   
+                <div className="mylist-text-container">
+                    <div>
+                        <h1 className="mylist-text">SAJÁT LISTA</h1>
+                    </div>
+                </div>
+                <div className="mylist-movies-container">
                     {
                         parsedListForFavoritMovies.map(movies => ( 
                             <div>  
                                 <img 
                                     src={"http://localhost:4000/icons/" + movies.icon} 
-                                    className="home-movie-icons"
+                                    className="mylist-movie-icons"
                                     alt="moviepicture" 
                                     onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                     />
