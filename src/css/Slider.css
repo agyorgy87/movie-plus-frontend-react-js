@@ -50,8 +50,6 @@
     transition: 0.2s;
 }
 
-
-
 .slide {
     opacity: 0;
     transition-duration: 2s ease;

@@ -1,5 +1,5 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');*/
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -16,9 +16,7 @@
 .row {
     width: 100%;
     margin-bottom: 1rem;
-
 }
-
 
 .movie-genre-texts {
     margin-left: 2rem;

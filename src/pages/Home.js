@@ -18,6 +18,7 @@ const Home = () => {
     const [actionMovies, setActionMovies] = useState([]);
     const [comedyMovies, setComedyMovies] = useState([]);
     const [scifiMovies, setScifiMovies] = useState([]);
+    const [diehardCollection, setDiehardCollection] = useState([]);
 
     const [sliderData, setSliderData] = useState([]);
     
@@ -53,6 +54,12 @@ const Home = () => {
             .then(data => data.json())
             .then(parsedData => {
                 setScifiMovies(parsedData);
+            })
+
+            fetch("http://localhost:4000/group/diehardcollection")
+            .then(data => data.json())
+            .then(parsedData => {
+                setDiehardCollection(parsedData);
             })
         /*    
         fetch("http://localhost:4000/get-movie/" + params.movieMainTitle)
@@ -125,6 +132,24 @@ const Home = () => {
                                 }
                             </div>
                     </div>
+                    <div className="row">
+                        <h2 className="movie-genre-texts">Gyűjtemények</h2>
+                            <div className="home-movies-container">
+                                {
+                                    scifiMovies.map( movies => (
+                                        <div >  
+                                            <img 
+                                                src={"http://localhost:4000/icons/" + movies.icon} 
+                                                className="home-movie-icons" 
+                                                alt="moviepicture"
+                                                onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
+                                            />
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                    </div>
+               
                 </div>
             <div className="footer">
                 <Footer/>
