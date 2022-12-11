@@ -22,7 +22,7 @@ const MyList = () => {
             <div className="header">
                 <NavigationBar/>
             </div>
-            <div className="main-content mylist-content">   
+            <div className="main-content mylist-content">    
                 <div className="mylist-text-container">
                     <div>
                         <h1 className="mylist-text">SAJÁT LISTA</h1>

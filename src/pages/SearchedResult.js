@@ -37,7 +37,7 @@ const SearchedResult = () => {
                 <div className="search-result-text-container">
                     <h1 className="search-result-text">KERESÉS EREDMÉNYE: "{allMovies.length} db" "{searchDetails.value}"</h1>
                 </div>
-                <div className="all-movies-found">
+                <div className="all-movies-found"> 
                     {
                         allMovies.map( movies => (
                             <div>  

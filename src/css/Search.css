@@ -121,6 +121,17 @@
     float: left;  
 }
 
+.visible-search-container img { 
+    transform: scale(1.0); 
+    transition: 0.3s linear;
+}
+
+.visible-search-container img:hover {
+    border: 3px solid #FFFDFA;
+    transform: scale(1.1); 
+    transition: 0.3s linear;
+}
+
 .search-movie-icons {
     width: 20rem;
     border-radius: 5px;
