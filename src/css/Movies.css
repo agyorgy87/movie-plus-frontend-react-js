@@ -10,7 +10,7 @@
 
 .movies-content {
     margin-bottom: 5rem;
-    display: flex;
+    display: flex; 
     flex-direction: column;
     text-align: center;
 }
@@ -61,14 +61,19 @@
     float: left;  
 }
 
+.visible-movies-container img { 
+    transform: scale(1.0); 
+    transition: 0.3s linear;
+}
+
+.visible-movies-container img:hover {
+    border: 3px solid #FFFDFA;
+    transform: scale(1.1); 
+    transition: 0.3s linear;
+}
+
 .movies-movie-icons {
     width: 20rem;
     border-radius: 5px;
     box-shadow: 0 5px 8px 3px black;
-}
-
-.movies-movie-icons:hover {
-    border: 3px solid #FFFDFA;
-    transform: scale(1.1); 
-    transition: 0.3s linear;
 }

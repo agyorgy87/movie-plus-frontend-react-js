@@ -53,7 +53,7 @@ const SelectedMovie = () => {
                         <p className="main-title">{movieDetails.value.movieTitle}</p>
                             <div className="age-year-time-container">                               
                                 <p className="age-limit">{movieDetails.value.ageLimit}+</p>                                                                
-                                <p className="release-date">{movieDetails.value.releaseDate}</p>
+                                <p className="release-date">{movieDetails.value.releaseDate}</p> 
                                 <span class="dot"></span>
                                 <p className="movie-length">{movieDetails.value.movieLength}</p>
                             </div>                        

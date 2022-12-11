@@ -132,8 +132,8 @@ const Home = () => {
                                 }
                             </div>
                     </div>
-                    <div className="row">
-                        <h2 className="movie-genre-texts">Gyűjtemények</h2>
+                    <div className="row">  
+                        <h2 className="movie-genre-texts">GYŰJTEMÉNYEK</h2>
                             <div className="home-movies-container">
                                 {
                                     scifiMovies.map( movies => (
@@ -148,8 +148,7 @@ const Home = () => {
                                     ))
                                 }
                             </div>
-                    </div>
-               
+                    </div>               
                 </div>
             <div className="footer">
                 <Footer/>

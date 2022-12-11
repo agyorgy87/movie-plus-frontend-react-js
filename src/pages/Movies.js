@@ -45,7 +45,7 @@ const Movies = () => {
 
     return (  
         <div className="pages-container"> 
-            <div className="header">
+            <div className="header"> 
                 <NavigationBar/> 
             </div>
                 <div className="main-content movies-content">             
