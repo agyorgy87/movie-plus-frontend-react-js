@@ -26,7 +26,7 @@ const Home = () => {
 
     const [sliderData, setSliderData] = useState([]);
 
-    const [scrollX, setscrollX] = useState(1);
+    const [scrollX, setscrollX] = useState(0);
     const [scrollEnd, setscrollEnd] = useState(false);
     
     const movieDetails = useContext(MovieContext);
@@ -77,6 +77,7 @@ const Home = () => {
         */
     }, [])
 
+    
     useEffect(() => {
         if (
           scrl.current &&
@@ -88,7 +89,7 @@ const Home = () => {
         }
         return () => {};
     }, [scrl?.current?.scrollWidth, scrl?.current?.offsetWidth]);
-
+    
 
     const slide = (shift) => {
         scrl.current.scrollLeft += shift;
@@ -124,6 +125,7 @@ const Home = () => {
           setscrollEnd(false);
         }
       };
+      
 
     return (  
         <div className="pages-container"> 
@@ -139,15 +141,13 @@ const Home = () => {
                             <h2 className="movie-genre-texts">AKCIÓ FILMEK</h2>
                         </div>
                         <div className="different-genres-containers">
-                        {!scrollEnd && (
-                            <button 
-                            className="prev" 
-                            onClick={() => slide(-200)}
+                        {scrollX !== 0 && (                           
+                            <MdArrowBackIos
+                            className="prev-button" 
+                            onClick={() => slide(-380)}
                             onMouseEnter={(e) => anim(e)}
                             onMouseLeave={(e) => anim2(e)}
-                            >
-                                <MdArrowBackIos/>
-                            </button>
+                            />                        
                         )}
                             <div className="home-movies-container" ref={scrl} onScroll={scrollCheck}>
                                 {
@@ -163,15 +163,13 @@ const Home = () => {
                                     ))
                                 }
                             </div>
-                            {scrollX !== 0 && (
-                            <button 
-                            className="next" 
-                            onClick={() => slide(+200)}
-                            onMouseEnter={(e) => anim(e)}
-                            onMouseLeave={(e) => anim2(e)}
-                            >
-                                <MdArrowForwardIos/>
-                            </button>
+                            {!scrollEnd && (
+                                <MdArrowForwardIos
+                                className="next-button" 
+                                onClick={() => slide(+380)}
+                                onMouseEnter={(e) => anim(e)}
+                                onMouseLeave={(e) => anim2(e)}
+                                />
                             )}
                     </div>
                     </div>
