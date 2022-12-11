@@ -23,18 +23,52 @@
     font-family: 'Maven Pro', sans-serif;
 }
 
+//????
+
+.different-genres-containers{
+    text-align: center;
+    width: 100%;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .home-movies-container { 
+    
     height: 15rem;
     margin-top: -1rem;
     padding-left: 2rem;
     display: flex;
+    align-items: center; 
     overflow-x: scroll;
-    align-items: center;
+    
+    max-width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+        background: transparent;
+        -webkit-appearance: none;
+        width: 0;
+        height: 0;
+  }
 }
 
+/*
 .home-movies-container::-webkit-scrollbar { 
     display: none;
 }
+*/
+
+.prev, .next {
+
+
+    font-size: 1rem;
+    margin: 0;
+}
+
+
+//??????
 
 .home-movies-container img {
     max-width: 40vw;
