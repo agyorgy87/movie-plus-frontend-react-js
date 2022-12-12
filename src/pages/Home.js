@@ -8,7 +8,9 @@ import { useNavigate } from "react-router-dom";
 //import { useParams, Link} from 'react-router-dom';
 import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
+import { CollectionMovieContext } from "../context/CollectionMovieContext.js" 
 import { MdArrowBackIos, MdArrowForwardIos} from 'react-icons/md';
+
 import gsap from "gsap";
 
 const Home = () => {
@@ -22,7 +24,7 @@ const Home = () => {
     const [actionMovies, setActionMovies] = useState([]);
     const [comedyMovies, setComedyMovies] = useState([]);
     const [scifiMovies, setScifiMovies] = useState([]);
-    const [diehardCollection, setDiehardCollection] = useState([]);
+    const [collectionMovies, setCollectionMovies] = useState([])
 
     const [sliderData, setSliderData] = useState([]);
 
@@ -30,6 +32,9 @@ const Home = () => {
     const [scrollEnd, setscrollEnd] = useState(false);
     
     const movieDetails = useContext(MovieContext);
+    const collectionMovieDetails = useContext(CollectionMovieContext);
+
+    console.log(typeof collectionMovieDetails);
 
     useEffect(() => {  
 
@@ -63,10 +68,10 @@ const Home = () => {
                 setScifiMovies(parsedData);
             })
 
-            fetch("http://localhost:4000/group/diehardcollection")
+        fetch("http://localhost:4000/collection-movies")
             .then(data => data.json())
             .then(parsedData => {
-                setDiehardCollection(parsedData);
+                setCollectionMovies(parsedData);
             })
         /*    
         fetch("http://localhost:4000/get-movie/" + params.movieMainTitle)
@@ -75,6 +80,8 @@ const Home = () => {
                 setVisibleMovie(parsedData);
             }) 
         */
+
+         
     }, [])
 
     
@@ -104,16 +111,19 @@ const Home = () => {
           setscrollEnd(false);
         }
       };
-
+/*
       const anim = (e) => {
-        gsap.from(e.target, { scale: 1 });
-        gsap.to(e.target, { scale: 1.5 });
+        gsap.from(e.target, { scale: 1 }); 
+        gsap.to(e.target, { scale: 1.3 });
       };
       const anim2 = (e) => {
-        gsap.from(e.target, { scale: 1.5 });
+        gsap.from(e.target, { scale: 1.3 });    
         gsap.to(e.target, { scale: 1 });
       };
 
+    onMouseEnter={(e) => anim(e)}
+    onMouseLeave={(e) => anim2(e)}
+*/
     const scrollCheck = () => {
         setscrollX(scrl.current.scrollLeft);
         if (
@@ -141,36 +151,37 @@ const Home = () => {
                             <h2 className="movie-genre-texts">AKCIÓ FILMEK</h2>
                         </div>
                         <div className="different-genres-containers">
-                        {scrollX !== 0 && (                           
-                            <MdArrowBackIos
-                            className="prev-button" 
-                            onClick={() => slide(-380)}
-                            onMouseEnter={(e) => anim(e)}
-                            onMouseLeave={(e) => anim2(e)}
-                            />                        
-                        )}
-                            <div className="home-movies-container" ref={scrl} onScroll={scrollCheck}>
-                                {
-                                    actionMovies.map( movies => (
-                                        <div>  
-                                            <img 
-                                                src={"http://localhost:4000/icons/" + movies.icon} 
-                                                className="home-movie-icons"
-                                                alt="moviepicture" 
-                                                onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
-                                            />
-                                        </div>
-                                    ))
-                                }
+                            <div>
+                            {scrollX !== 0 && (                           
+                                <MdArrowBackIos
+                                className="prev-button" 
+                                onClick={() => slide(-380)}
+                                />  
+                                                
+                            )}
                             </div>
+                                <div className="home-movies-container" ref={scrl} onScroll={scrollCheck}>
+                                    {
+                                        actionMovies.map((movies, index) => (
+                                            <div>  
+                                                <img 
+                                                    src={"http://localhost:4000/icons/" + movies.icon} 
+                                                    className="home-movie-icons"
+                                                    alt="moviepicture" 
+                                                    onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
+                                                />
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            <div>
                             {!scrollEnd && (
                                 <MdArrowForwardIos
                                 className="next-button" 
-                                onClick={() => slide(+380)}
-                                onMouseEnter={(e) => anim(e)}
-                                onMouseLeave={(e) => anim2(e)}
+                                onClick={() => slide(+380)}                               
                                 />
                             )}
+                            </div>
                     </div>
                     </div>
                     <div className="row">
@@ -211,13 +222,13 @@ const Home = () => {
                         <h2 className="movie-genre-texts">GYŰJTEMÉNYEK</h2>
                             <div className="home-movies-container">
                                 {
-                                    scifiMovies.map( movies => (
+                                    collectionMovies.map( movies => (
                                         <div >  
                                             <img 
-                                                src={"http://localhost:4000/icons/" + movies.icon} 
+                                                src={"http://localhost:4000/collection-icons/" + movies.collectionIcon} 
                                                 className="home-movie-icons" 
                                                 alt="moviepicture"
-                                                onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
+                                                onClick={() => { collectionMovieDetails.setValue(movies); navigate("/selectedcollectionmovie")}}
                                             />
                                         </div>
                                     ))
