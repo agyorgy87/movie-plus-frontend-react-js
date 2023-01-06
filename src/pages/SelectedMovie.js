@@ -17,7 +17,7 @@ const SelectedMovie = () => {
     console.log(movieDetails);
 
     const addToFavorites = () => {
-        console.log("work")
+        console.log("work");
         let favoritMovieDetails = movieDetails.value;
         if(localStorage.getItem("favorites") === null){
             let listForFavoritMovies = [];
@@ -43,12 +43,12 @@ const SelectedMovie = () => {
     const isMovieInList = parsedListForFavoritMovies.filter(movie => movie.movieTitle === movieDetails.value.movieTitle).length;
 
     return (
-      <div className="pages-container"> 
+      <div className="pages-container">   
           <div className="header">
               <NavigationBar/>
           </div>
-          <div className="selected-movie-container main-content">
-                <img className="selected-movie-background-image" src={"http://localhost:4000/img/" + movieDetails.value.image} alt="#"/>
+          <div className="selected-movie-container main-content" style={{backgroundImage: `url("http://localhost:4000/img/${movieDetails.value.image}")`}}>
+                <div className="gradient-background">
                     <div className="movie-details">
                         <p className="main-title">{movieDetails.value.movieTitle}</p>
                             <div className="age-year-time-container">                               
@@ -71,6 +71,7 @@ const SelectedMovie = () => {
                         <p className="movie-director">Rendező: {movieDetails.value.director}</p>
                         <p className="movie-actors">Szereplők: {movieDetails.value.actors}</p>
                     </div>  
+                    </div>
           </div>
           <div className="footer">
               <Footer/>
