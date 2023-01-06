@@ -1,6 +1,6 @@
 import '../css/PagesStyle.css';
 import '../css/SelectedMovie.css'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavigationBar from '../components/NavigationBar.js';
 import Footer from '../components/Footer.js';
 import { useContext } from 'react';
@@ -13,8 +13,24 @@ const SelectedMovie = () => {
 
     const [currentlyDate, setCurrentlyDate] = useState(new Date());
 
+    const [movieHourLength, setMovieHourLength] = useState();
+    const [movieMinuteLength, setMovieMinuteLength] = useState();
+
     const movieDetails = useContext(MovieContext);
-    console.log(movieDetails);
+
+    useEffect(() => {
+
+        let movieInMinutes = movieDetails.value.movieLength;
+
+        let countMovieHour = movieInMinutes / 60;
+        setMovieHourLength(Math.trunc(countMovieHour));
+
+        let remainingMovieMinutes = movieInMinutes % 60;
+        setMovieMinuteLength(remainingMovieMinutes);
+
+    }, [movieHourLength, movieMinuteLength]);
+
+    console.log(movieHourLength);
 
     const addToFavorites = () => {
         console.log("work");
@@ -42,6 +58,7 @@ const SelectedMovie = () => {
     let parsedListForFavoritMovies = JSON.parse(listForFavoritMovies);
     const isMovieInList = parsedListForFavoritMovies.filter(movie => movie.movieTitle === movieDetails.value.movieTitle).length;
 
+
     return (
       <div className="pages-container">   
           <div className="header">
@@ -49,13 +66,13 @@ const SelectedMovie = () => {
           </div>
           <div className="selected-movie-container main-content" style={{backgroundImage: `url("http://localhost:4000/img/${movieDetails.value.image}")`}}>
                 <div className="gradient-background">
-                    <div className="movie-details">
+                    <div className="movie-details-container">
                         <p className="main-title">{movieDetails.value.movieTitle}</p>
                             <div className="age-year-time-container">                               
+                                <p className="movie-length">{movieHourLength}óra {movieMinuteLength}perc</p>
                                 <p className="age-limit">{movieDetails.value.ageLimit}+</p>                                                                
                                 <p className="release-date">{movieDetails.value.releaseDate}</p> 
-                                <span class="dot"></span>
-                                <p className="movie-length">{movieDetails.value.movieLength}</p>
+                                {/*<span class="dot"></span>*/}
                             </div>                        
                         <p className="movie-genre">{movieDetails.value.genre}</p>
                             <div className="play-and-add-buttons">                               
