@@ -13,8 +13,12 @@ import { MdArrowBackIos, MdArrowForwardIos} from 'react-icons/md';
 
 const Home = () => {
     //const params = useParams();
+    /*
+    let scrl = useRef(null); basic
+    */
 
-    let scrl = useRef(null);
+    let actionMoviesScrl = useRef(null);
+    let comedyMoviesScrl = useRef(null);
 
     let navigate = useNavigate();
 
@@ -26,9 +30,15 @@ const Home = () => {
 
     const [sliderData, setSliderData] = useState([]);
 
-    const [scrollX, setscrollX] = useState(0);
+    const [actionMoviesScrollX, setActionMoviesScrollX] = useState(0);
+    const [actionMoviesScrollEnd, setActionMoviesScrollEnd] = useState(false);
+
+    const [comedyMoviesScrollX, setComedyMoviesScrollX] = useState(0);
+    const [comedyMoviesScrollEnd, setComedyMoviesScrollEnd] = useState(false);
+    /*
+    const [scrollX, setscrollX] = useState(0); basic
     const [scrollEnd, setscrollEnd] = useState(false);
-    
+    */
     const movieDetails = useContext(MovieContext);
     const collectionMovieDetails = useContext(CollectionMovieContext);
 
@@ -81,7 +91,92 @@ const Home = () => {
          
     }, [])
 
+    /*action movies slider useeffect, slide and scrollcheckfunctions*/
+
+    useEffect(() => {
+        if (
+          actionMoviesScrl.current &&
+          actionMoviesScrl?.current?.scrollWidth === actionMoviesScrl?.current?.offsetWidth
+        ) {
+          setActionMoviesScrollEnd(true);
+        } else {
+          setActionMoviesScrollEnd(false);
+        }
+        return () => {};
+    }, [actionMoviesScrl?.current?.scrollWidth, actionMoviesScrl?.current?.offsetWidth]);
     
+
+    const actionMoviesSlide = (shift) => {
+        actionMoviesScrl.current.scrollLeft += shift;
+        setActionMoviesScrollX(actionMoviesScrollX + shift); 
+    
+        if (
+          Math.floor(actionMoviesScrl.current.scrollWidth - actionMoviesScrl.current.scrollLeft) <=
+          actionMoviesScrl.current.offsetWidth
+        ) {
+          setActionMoviesScrollEnd(true);
+        } else {
+          setActionMoviesScrollEnd(false);
+        }
+      };
+
+    const actionMoviesScrollCheck = () => {
+        setActionMoviesScrollX(actionMoviesScrl.current.scrollLeft);
+        if (
+          Math.floor(actionMoviesScrl.current.scrollWidth - actionMoviesScrl.current.scrollLeft) <=
+          actionMoviesScrl.current.offsetWidth
+        ) {
+          setActionMoviesScrollEnd(true);
+        } else {
+          setActionMoviesScrollEnd(false);
+        }
+      };
+
+      /*comedy movies slider useeffect, slide and scrollcheckfunctions*/
+
+      useEffect(() => {
+        if (
+          comedyMoviesScrl.current &&
+          comedyMoviesScrl?.current?.scrollWidth === comedyMoviesScrl?.current?.offsetWidth
+        ) {
+          setComedyMoviesScrollEnd(true);
+        } else {
+          setComedyMoviesScrollEnd(false);
+        }
+        return () => {};
+    }, [comedyMoviesScrl?.current?.scrollWidth, comedyMoviesScrl?.current?.offsetWidth]);
+    
+
+    const comedyMoviesSlide = (shift) => {
+        comedyMoviesScrl.current.scrollLeft += shift;
+        setComedyMoviesScrollX(comedyMoviesScrollX + shift); 
+    
+        if (
+          Math.floor(comedyMoviesScrl.current.scrollWidth - comedyMoviesScrl.current.scrollLeft) <=
+          comedyMoviesScrl.current.offsetWidth
+        ) {
+          setComedyMoviesScrollEnd(true);
+        } else {
+          setComedyMoviesScrollEnd(false);
+        }
+      };
+
+    const comedyMoviesScrollCheck = () => {
+        setComedyMoviesScrollX(comedyMoviesScrl.current.scrollLeft);
+        if (
+          Math.floor(comedyMoviesScrl.current.scrollWidth - comedyMoviesScrl.current.scrollLeft) <=
+          comedyMoviesScrl.current.offsetWidth
+        ) {
+          setComedyMoviesScrollEnd(true);
+        } else {
+          setComedyMoviesScrollEnd(false);
+        }
+      };
+
+      
+
+
+    /* basic
     useEffect(() => {
         if (
           scrl.current &&
@@ -120,7 +215,7 @@ const Home = () => {
           setscrollEnd(false);
         }
       };
-      
+    */
     let iconSize = parseInt(window.getComputedStyle(document.getElementsByTagName("html")[0]).fontSize.split("px")[0]) * 20
     let iconSizeWithMargin = iconSize + 33.6
 
@@ -137,9 +232,8 @@ const Home = () => {
                         <div className="movie-text-container">
                             <h2 className="movie-genre-texts">AKCIÓ FILMEK</h2>
                         </div>
-                        <div className="different-genres-containers">
-                            
-                            <div className="home-movies-container" ref={scrl} onScroll={scrollCheck}>
+                        <div className="different-genres-containers">                           
+                            <div className="home-movies-container" ref={actionMoviesScrl} onScroll={actionMoviesScrollCheck}>
                                 {
                                     actionMovies.map((movies, index) => (
                                         <div>  
@@ -154,20 +248,20 @@ const Home = () => {
                                 }
                             </div> 
                             <div className="prevoius-arrow-container">
-                                {scrollX !== 0 && (                           
+                                {actionMoviesScrollX !== 0 && (                           
                                     <MdArrowBackIos
                                     className="prev-button" 
-                                    onClick={() => slide(- iconSizeWithMargin)}
+                                    onClick={() => actionMoviesSlide(- iconSizeWithMargin)}
                                     
                                     />  
                                                     
                                 )}
                             </div>
                             <div className="next-arrow-container">
-                                {!scrollEnd && (
+                                {!actionMoviesScrollEnd && (
                                     <MdArrowForwardIos
                                     className="next-button" 
-                                    onClick={() => slide(iconSizeWithMargin)} 
+                                    onClick={() => actionMoviesSlide(iconSizeWithMargin)} 
                                                                  
                                     />
                                 )}
@@ -179,7 +273,7 @@ const Home = () => {
                             <h2 className="movie-genre-texts">VÍGJÁTÉKOK</h2>
                         </div>
                         <div className="different-genres-containers">
-                            <div className="home-movies-container">
+                            <div className="home-movies-container" ref={comedyMoviesScrl} onScroll={comedyMoviesScrollCheck}>
                                 {
                                     comedyMovies.map( movies => (
                                         <div>  
@@ -192,28 +286,24 @@ const Home = () => {
                                         </div>
                                     ))
                                 }   
-                            </div> 
+                            </div>
                             <div className="prevoius-arrow-container">
-                                {scrollX !== 0 && (                           
+                                {comedyMoviesScrollX !== 0 && (                           
                                     <MdArrowBackIos
                                     className="prev-button" 
-                                    onClick={() => slide(- iconSizeWithMargin)}
-                                    
-                                    />  
-                                                    
+                                    onClick={() => comedyMoviesSlide(- iconSizeWithMargin)}                                   
+                                    />                                                     
                                 )}
                             </div>
                             <div className="next-arrow-container">
-                                {!scrollEnd && (
+                                {!comedyMoviesScrollEnd && (
                                     <MdArrowForwardIos
                                     className="next-button" 
-                                    onClick={() => slide(iconSizeWithMargin)} 
-                                                                 
+                                    onClick={() => comedyMoviesSlide(iconSizeWithMargin)}                              
                                     />
                                 )}
-                            </div>
-                        </div>
-                            
+                            </div> 
+                        </div>                    
                     </div>
                     <div className="row">
                         <h2 className="movie-genre-texts">SCI-FI FILMEK</h2>
