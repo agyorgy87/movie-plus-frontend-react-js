@@ -8,57 +8,35 @@
 }
 
 .selected-movie-container {
-    /*
-    position: relative;
-    */
-    color: #fff;
-    /*position:relative;*/
-    /*height: 100vh;*/
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 100%;
     background-size: cover;
 }
 
-.movie-details {
-    background: linear-gradient(90deg, rgba(0,0,0,1) 10%, rgba(255,255,255,0) 60%);
+.movie-details-container {
+    background: linear-gradient(90deg, rgba(0,0,0,1) 20%, rgba(255,255,255,0) 100%);
     height: 100vh;
-    width: 50%;
-    top: 10%;
-    left: 5%;
+    width: 40%;
+    padding-left: 30px;
     color: white;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
     font-family: 'Saira Condensed', sans-serif;
 }
 
 .main-title {
-    font-size: 150px;
+    font-size: 100px;
+}
+
+.movie-data {
+    font-size: 20px;
+    color: #dbdbdb;
 }
 
 .age-year-time-container {
+    width: 40%;
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
-.age-limit {
-    display: flex;
-    justify-content: center;
-    font-size: 23px;
-    height: 2.2rem;
-    width: 2.2rem;
-    border-radius: 5px;
-    background-color: #383838;
-    margin-right: 0.5rem;
-}
-
-.release-date {
-    font-size: 1.5rem;
-    margin-right: 0.2rem;
-}
-
+/*
 .dot {
     height: 0.5rem;
     width: 0.5rem;
@@ -67,38 +45,99 @@
     margin-top:2%;
     margin-right: 0.2rem;
 }
+*/
 
-.movie-length {
-    font-size: 1.5rem;
-}
-
-.movie-genre {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-}
-
-.play-and-add-buttons {
-    margin-bottom: 2rem;
+.play-and-add-buttons-container {
+    height: 120px;
+    width: 20%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .play-button {
-    width: 100px;
-    height: 100px;
+    height: 80px;
+    width: 80px;
+    margin-right: 20px;
     border-radius: 50%;
-    border: none;
-    display: inline-block;
-    margin-right: 2rem;
+    border: solid white;
+    background-color: black;
 }
+
+.play-button:hover {
+    border: solid #5DA7DB;
+}
+
 
 .play-icon {
-    font-size: 5rem;
+    font-size: 3rem;
     vertical-align: middle;
+    color: white;
 }
 
-.movie-description {
+.play-icon:hover {
+    font-size: 3.4rem;
+    vertical-align: middle;
+    color: white;
+}
+
+.add-button {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-button:hover{
+    background-color: #5DA7DB;
+
+}
+
+.pipe-button {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pipe-button:hover{
+    background-color: #5DA7DB;
+}
+
+.movie-description-container {
     margin-bottom: 1.5rem;
 }
 
-.movie-director {
-    margin-bottom: 0.5rem;
+.movie-description {
+    font-size: 2rem;
+    color: #dbdbdb;
+}
+
+.movie-director-container {
+    margin-bottom: 1rem;
+}
+
+.movie-director-title,
+.movie-actors-title {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.movie-director-name,
+.movie-actor-names {
+    font-size: 1.3rem;
+    color: #dbdbdb;
 }
