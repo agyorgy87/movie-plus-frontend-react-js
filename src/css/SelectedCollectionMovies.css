@@ -1,0 +1,38 @@
+.collection-background-image {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    /*
+    background-repeat: no-repeat;
+    */
+    background-size: cover;
+}
+
+.collection-movies-container {
+    height: 100%; 
+    width: 100%; 
+}
+
+.collection-movies-container div {
+    height: 120px;
+    width: 250px;
+    margin: 50px;
+    float: left;  
+}
+
+.collection-movies-container img { 
+    transform: scale(1.0); 
+    transition: 0.3s linear;
+}
+
+.collection-movies-container img:hover {
+    border: 3px solid #FFFDFA;
+    transform: scale(1.1); 
+    transition: 0.3s linear;
+}
+
+.collection-movie-icons {
+    width: 20rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 8px 3px black;
+}
