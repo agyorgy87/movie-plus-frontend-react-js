@@ -19,6 +19,7 @@ const Home = () => {
 
     let actionMoviesScrl = useRef(null);
     let comedyMoviesScrl = useRef(null);
+    let scifiMoviesScrl = useRef(null);
 
     let navigate = useNavigate();
 
@@ -35,13 +36,12 @@ const Home = () => {
 
     const [comedyMoviesScrollX, setComedyMoviesScrollX] = useState(0);
     const [comedyMoviesScrollEnd, setComedyMoviesScrollEnd] = useState(false);
-    /*
-    const [scrollX, setscrollX] = useState(0); basic
-    const [scrollEnd, setscrollEnd] = useState(false);
-    */
+
+    const [scifiMoviesScrollX, setScifiMoviesScrollX] = useState(0);
+    const [scifiMoviesScrollEnd, setScifiMoviesScrollEnd] = useState(false);
+
     const movieDetails = useContext(MovieContext);
     const collectionMovieDetails = useContext(CollectionMovieContext);
-
 
     useEffect(() => {  
 
@@ -173,49 +173,47 @@ const Home = () => {
         }
       };
 
-      
+      /*scifi movies slider useeffect, slide and scrollcheckfunctions*/
 
-
-    /* basic
-    useEffect(() => {
+      useEffect(() => {
         if (
-          scrl.current &&
-          scrl?.current?.scrollWidth === scrl?.current?.offsetWidth
+          scifiMoviesScrl.current &&
+          scifiMoviesScrl?.current?.scrollWidth === scifiMoviesScrl?.current?.offsetWidth
         ) {
-          setscrollEnd(true);
+          setScifiMoviesScrollEnd(true);
         } else {
-          setscrollEnd(false);
+          setScifiMoviesScrollEnd(false);
         }
         return () => {};
-    }, [scrl?.current?.scrollWidth, scrl?.current?.offsetWidth]);
+    }, [scifiMoviesScrl?.current?.scrollWidth, scifiMoviesScrl?.current?.offsetWidth]);
     
 
-    const slide = (shift) => {
-        scrl.current.scrollLeft += shift;
-        setscrollX(scrollX + shift); 
+    const scifiMoviesSlide = (shift) => {
+        scifiMoviesScrl.current.scrollLeft += shift;
+        setScifiMoviesScrollX(scifiMoviesScrollX + shift); 
     
         if (
-          Math.floor(scrl.current.scrollWidth - scrl.current.scrollLeft) <=
-          scrl.current.offsetWidth
+          Math.floor(scifiMoviesScrl.current.scrollWidth - scifiMoviesScrl.current.scrollLeft) <=
+          scifiMoviesScrl.current.offsetWidth
         ) {
-          setscrollEnd(true);
+          setScifiMoviesScrollEnd(true);
         } else {
-          setscrollEnd(false);
+          setScifiMoviesScrollEnd(false);
         }
       };
 
-    const scrollCheck = () => {
-        setscrollX(scrl.current.scrollLeft);
+    const scifiMoviesScrollCheck = () => {
+        setScifiMoviesScrollX(scifiMoviesScrl.current.scrollLeft);
         if (
-          Math.floor(scrl.current.scrollWidth - scrl.current.scrollLeft) <=
-          scrl.current.offsetWidth
+          Math.floor(scifiMoviesScrl.current.scrollWidth - scifiMoviesScrl.current.scrollLeft) <=
+          scifiMoviesScrl.current.offsetWidth
         ) {
-          setscrollEnd(true);
+          setScifiMoviesScrollEnd(true);
         } else {
-          setscrollEnd(false);
+          setScifiMoviesScrollEnd(false);
         }
       };
-    */
+
     let iconSize = parseInt(window.getComputedStyle(document.getElementsByTagName("html")[0]).fontSize.split("px")[0]) * 20
     let iconSizeWithMargin = iconSize + 33.6
 
@@ -251,10 +249,8 @@ const Home = () => {
                                 {actionMoviesScrollX !== 0 && (                           
                                     <MdArrowBackIos
                                     className="prev-button" 
-                                    onClick={() => actionMoviesSlide(- iconSizeWithMargin)}
-                                    
-                                    />  
-                                                    
+                                    onClick={() => actionMoviesSlide(- iconSizeWithMargin)}                                  
+                                    />                                                     
                                 )}
                             </div>
                             <div className="next-arrow-container">
@@ -306,8 +302,11 @@ const Home = () => {
                         </div>                    
                     </div>
                     <div className="row">
-                        <h2 className="movie-genre-texts">SCI-FI FILMEK</h2>
-                            <div className="home-movies-container">
+                        <div>
+                            <h2 className="movie-genre-texts">SCI-FI FILMEK</h2>
+                        </div>
+                        <div className="different-genres-containers">
+                            <div className="home-movies-container" ref={scifiMoviesScrl} onScroll={scifiMoviesScrollCheck}>
                                 {
                                     scifiMovies.map( movies => (
                                         <div >  
@@ -321,9 +320,27 @@ const Home = () => {
                                     ))
                                 }
                             </div>
+                            <div className="prevoius-arrow-container">
+                                {scifiMoviesScrollX !== 0 && (                           
+                                    <MdArrowBackIos
+                                    className="prev-button" 
+                                    onClick={() => scifiMoviesSlide(- iconSizeWithMargin)}                                   
+                                    />                                                     
+                                )}
+                            </div>
+                            <div className="next-arrow-container">
+                                {!scifiMoviesScrollEnd && (
+                                    <MdArrowForwardIos
+                                    className="next-button" 
+                                    onClick={() => scifiMoviesSlide(iconSizeWithMargin)}                              
+                                    />
+                                )}
+                            </div> 
+                            </div>
                     </div>
                     <div className="row">  
                         <h2 className="movie-genre-texts">GYŰJTEMÉNYEK</h2>
+                        
                             <div className="home-movies-container">
                                 {
                                     collectionMovies.map( movies => (
