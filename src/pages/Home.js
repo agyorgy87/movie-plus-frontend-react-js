@@ -11,8 +11,6 @@ import { MovieContext } from "../context/MovieContext.js";
 import { CollectionMovieContext } from "../context/CollectionMovieContext.js" 
 import { MdArrowBackIos, MdArrowForwardIos} from 'react-icons/md';
 
-import gsap from "gsap";
-
 const Home = () => {
     //const params = useParams();
 
@@ -34,7 +32,6 @@ const Home = () => {
     const movieDetails = useContext(MovieContext);
     const collectionMovieDetails = useContext(CollectionMovieContext);
 
-    console.log(typeof collectionMovieDetails);
 
     useEffect(() => {  
 
@@ -111,19 +108,7 @@ const Home = () => {
           setscrollEnd(false);
         }
       };
-/*
-      const anim = (e) => {
-        gsap.from(e.target, { scale: 1 }); 
-        gsap.to(e.target, { scale: 1.3 });
-      };
-      const anim2 = (e) => {
-        gsap.from(e.target, { scale: 1.3 });    
-        gsap.to(e.target, { scale: 1 });
-      };
 
-    onMouseEnter={(e) => anim(e)}
-    onMouseLeave={(e) => anim2(e)}
-*/
     const scrollCheck = () => {
         setscrollX(scrl.current.scrollLeft);
         if (
@@ -136,6 +121,8 @@ const Home = () => {
         }
       };
       
+    let iconSize = parseInt(window.getComputedStyle(document.getElementsByTagName("html")[0]).fontSize.split("px")[0]) * 20
+    let iconSizeWithMargin = iconSize + 33.6
 
     return (  
         <div className="pages-container"> 
@@ -151,41 +138,47 @@ const Home = () => {
                             <h2 className="movie-genre-texts">AKCIÓ FILMEK</h2>
                         </div>
                         <div className="different-genres-containers">
-                            <div>
-                            {scrollX !== 0 && (                           
-                                <MdArrowBackIos
-                                className="prev-button" 
-                                onClick={() => slide(-380)}
-                                />  
-                                                
-                            )}
+                            
+                            <div className="home-movies-container" ref={scrl} onScroll={scrollCheck}>
+                                {
+                                    actionMovies.map((movies, index) => (
+                                        <div>  
+                                            <img 
+                                                src={"http://localhost:4000/icons/" + movies.icon} 
+                                                className="home-movie-icons"
+                                                alt="moviepicture" 
+                                                onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
+                                            />
+                                        </div>
+                                    ))
+                                }
+                            </div> 
+                            <div className="prevoius-arrow-container">
+                                {scrollX !== 0 && (                           
+                                    <MdArrowBackIos
+                                    className="prev-button" 
+                                    onClick={() => slide(- iconSizeWithMargin)}
+                                    
+                                    />  
+                                                    
+                                )}
                             </div>
-                                <div className="home-movies-container" ref={scrl} onScroll={scrollCheck}>
-                                    {
-                                        actionMovies.map((movies, index) => (
-                                            <div>  
-                                                <img 
-                                                    src={"http://localhost:4000/icons/" + movies.icon} 
-                                                    className="home-movie-icons"
-                                                    alt="moviepicture" 
-                                                    onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
-                                                />
-                                            </div>
-                                        ))
-                                    }
-                                </div>
-                            <div>
-                            {!scrollEnd && (
-                                <MdArrowForwardIos
-                                className="next-button" 
-                                onClick={() => slide(+380)}                               
-                                />
-                            )}
-                            </div>
-                    </div>
+                            <div className="next-arrow-container">
+                                {!scrollEnd && (
+                                    <MdArrowForwardIos
+                                    className="next-button" 
+                                    onClick={() => slide(iconSizeWithMargin)} 
+                                                                 
+                                    />
+                                )}
+                            </div>       
+                        </div>
                     </div>
                     <div className="row">
-                        <h2 className="movie-genre-texts">VÍGJÁTÉKOK</h2>
+                        <div>
+                            <h2 className="movie-genre-texts">VÍGJÁTÉKOK</h2>
+                        </div>
+                        <div className="different-genres-containers">
                             <div className="home-movies-container">
                                 {
                                     comedyMovies.map( movies => (
@@ -199,7 +192,28 @@ const Home = () => {
                                         </div>
                                     ))
                                 }   
+                            </div> 
+                            <div className="prevoius-arrow-container">
+                                {scrollX !== 0 && (                           
+                                    <MdArrowBackIos
+                                    className="prev-button" 
+                                    onClick={() => slide(- iconSizeWithMargin)}
+                                    
+                                    />  
+                                                    
+                                )}
                             </div>
+                            <div className="next-arrow-container">
+                                {!scrollEnd && (
+                                    <MdArrowForwardIos
+                                    className="next-button" 
+                                    onClick={() => slide(iconSizeWithMargin)} 
+                                                                 
+                                    />
+                                )}
+                            </div>
+                        </div>
+                            
                     </div>
                     <div className="row">
                         <h2 className="movie-genre-texts">SCI-FI FILMEK</h2>
