@@ -1,8 +1,7 @@
 import '../css/Slider.css';
 import React, { useEffect, useState, useRef } from 'react';
-//import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { MdArrowBackIos, MdArrowForwardIos} from 'react-icons/md';
 import { useNavigate } from "react-router-dom";
+import { MdArrowBackIos, MdArrowForwardIos} from 'react-icons/md';
 import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
 
@@ -40,14 +39,9 @@ const Slider = ({slidePictures}) => {
         setCurrent(current === 0 ? length - 1 : current - 1)
     }
 
-    console.log(current);
-    
     if(!Array.isArray(slidePictures) || slidePictures.length <= 0) {
         return null;
     }
-
-    let showImg = false;
-    console.log(showImg && "valami");
 
     return (
         <div className="slider-container">
@@ -71,4 +65,4 @@ const Slider = ({slidePictures}) => {
   )
 }
 
-export default Slider
+export default Slider;

@@ -39,8 +39,7 @@ const Movies = () => {
             filterMoviesGenre = filterMoviesGenre.filter(movie => movie.genre === selectedMoviesGenre);
             setVisibleMovies(filterMoviesGenre); 
         }
-        setVisibleMovies(filterMoviesGenre);
-        
+        setVisibleMovies(filterMoviesGenre);    
     }
 
     return (  
@@ -54,12 +53,12 @@ const Movies = () => {
                             <h1 className="movies-text">FILMEK</h1>
                         </div>
                         <div className="movies-search-bar-container"> 
-                        <select className="movies-genre-select" onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
-                            <option value="none">MINDEN FILM</option>
-                            <option value="akció">AKCIÓ</option>
-                            <option value="vígjáték">VÍGJÁTÉK</option>
-                            <option value="scifi">SCI-FI</option>
-                        </select>
+                            <select className="movies-genre-select" onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
+                                <option value="none">MINDEN FILM</option>
+                                <option value="akció">AKCIÓ</option>
+                                <option value="vígjáték">VÍGJÁTÉK</option>
+                                <option value="scifi">SCI-FI</option>
+                            </select>
                         </div>
                     </div>                  
                     <div className="visible-movies-container">
@@ -72,7 +71,7 @@ const Movies = () => {
                                             alt="moviepicture"
                                             onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                             />
-                                    </div>
+                                    </div> 
                                 ))
                             }
                     </div>                

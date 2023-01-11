@@ -1,8 +1,8 @@
 import '../css/NavigationBar.css'; 
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import { AiFillHome, AiOutlineSearch, AiOutlinePlus } from 'react-icons/ai';
 import { MdLocalMovies, MdAccountCircle } from 'react-icons/md';
-import { useNavigate } from "react-router-dom";
 
 
 const NavigationBar = () => {  

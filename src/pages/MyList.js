@@ -39,8 +39,8 @@ const MyList = () => {
                                     onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
                                     />
                             </div>
-                    ))
-                }
+                        ))
+                    }
                 </div>
             </div>
             <div className="footer">

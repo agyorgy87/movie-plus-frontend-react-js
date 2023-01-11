@@ -28,26 +28,27 @@ const SelectedCollectionMovie = () => {
     },[])
 
 
-  return (
+    return (
         <div className="pages-container">
             <div className="header">
                 <NavigationBar/>
             </div>
             <div className="main-content">
-                <div className="collection-background-image" style={{ 
+                <div className="collection-background-image" 
+                    style={{ 
                     backgroundImage: `url("http://localhost:4000/collection-backgrounds/${collectionMovieDetails.value.collectionBackground}")`
                     }}>   
                     <div className="collection-movies-container">
                         {
-                        selectedCollectionMovieIcons.map( movies => (
-                            <div>  
-                            <img 
-                            src={"http://localhost:4000/icons/" + movies.icon} 
-                            className="collection-movie-icons" 
-                            alt="moviepicture"
-                            onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
-                            />
-                            </div>
+                            selectedCollectionMovieIcons.map( movies => (
+                                <div>  
+                                    <img 
+                                    src={"http://localhost:4000/icons/" + movies.icon} 
+                                    className="collection-movie-icons" 
+                                    alt="moviepicture"
+                                    onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
+                                    />
+                                </div>
                             ))
                         }
                     </div>

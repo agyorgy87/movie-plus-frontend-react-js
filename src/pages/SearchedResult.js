@@ -56,7 +56,7 @@ const SearchedResult = () => {
                 <Footer/>
             </div>
         </div>
-  )
+    )
 }
 
 export default SearchedResult;

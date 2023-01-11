@@ -5,17 +5,12 @@ import Slider from "../components/Slider.js";
 import Footer from "../components/Footer.js";
 import React, {useState, useEffect, useRef} from 'react';
 import { useNavigate } from "react-router-dom";
-//import { useParams, Link} from 'react-router-dom';
 import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
 import { CollectionMovieContext } from "../context/CollectionMovieContext.js" 
 import { MdArrowBackIos, MdArrowForwardIos} from 'react-icons/md';
 
 const Home = () => {
-    //const params = useParams();
-    /*
-    let scrl = useRef(null); basic
-    */
 
     let actionMoviesScrl = useRef(null);
     let comedyMoviesScrl = useRef(null);
@@ -42,6 +37,7 @@ const Home = () => {
 
     const movieDetails = useContext(MovieContext);
     const collectionMovieDetails = useContext(CollectionMovieContext);
+
 
     useEffect(() => {  
 
@@ -79,16 +75,7 @@ const Home = () => {
             .then(data => data.json())
             .then(parsedData => {
                 setCollectionMovies(parsedData);
-            })
-        /*    
-        fetch("http://localhost:4000/get-movie/" + params.movieMainTitle)
-            .then(data => data.json())
-            .then(parsedData => {
-                setVisibleMovie(parsedData);
-            }) 
-        */
-
-         
+            })     
     }, [])
 
     /*action movies slider useeffect, slide and scrollcheckfunctions*/
@@ -134,7 +121,7 @@ const Home = () => {
 
       /*comedy movies slider useeffect, slide and scrollcheckfunctions*/
 
-      useEffect(() => {
+    useEffect(() => {
         if (
           comedyMoviesScrl.current &&
           comedyMoviesScrl?.current?.scrollWidth === comedyMoviesScrl?.current?.offsetWidth
@@ -175,7 +162,7 @@ const Home = () => {
 
       /*scifi movies slider useeffect, slide and scrollcheckfunctions*/
 
-      useEffect(() => {
+    useEffect(() => {
         if (
           scifiMoviesScrl.current &&
           scifiMoviesScrl?.current?.scrollWidth === scifiMoviesScrl?.current?.offsetWidth
@@ -216,6 +203,7 @@ const Home = () => {
 
     let iconSize = parseInt(window.getComputedStyle(document.getElementsByTagName("html")[0]).fontSize.split("px")[0]) * 20
     let iconSizeWithMargin = iconSize + 33.6
+
 
     return (  
         <div className="pages-container"> 
@@ -336,11 +324,10 @@ const Home = () => {
                                     />
                                 )}
                             </div> 
-                            </div>
+                        </div>
                     </div>
                     <div className="row">  
-                        <h2 className="movie-genre-texts">GYŰJTEMÉNYEK</h2>
-                        
+                        <h2 className="movie-genre-texts">GYŰJTEMÉNYEK</h2>                       
                             <div className="home-movies-container">
                                 {
                                     collectionMovies.map( movies => (

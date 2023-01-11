@@ -52,7 +52,6 @@ const Search = () => {
     },[searchByReleaseDate, searchByMovieLength, searchByAgeLimit]) 
 
     /*
-
     first, old solutions...
 
     useEffect(() => {

@@ -2,9 +2,7 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    /*
-    background-repeat: no-repeat;
-    */
+    /*background-repeat: no-repeat;*/
     background-size: cover;
 }
 
