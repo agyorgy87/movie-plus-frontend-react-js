@@ -99,7 +99,7 @@ li {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 846px) {
 
     nav .navigation-menu {
         height: 4rem;

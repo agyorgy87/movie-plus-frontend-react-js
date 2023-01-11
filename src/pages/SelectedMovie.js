@@ -19,7 +19,6 @@ const SelectedMovie = () => {
 
     const movieDetails = useContext(MovieContext);
 
-    //{movieDetails.value.genre}
     let selectedMoviesGenre = movieDetails.value.genre
     let movieGenreUppercase = selectedMoviesGenre.toUpperCase();
 
@@ -30,8 +29,6 @@ const SelectedMovie = () => {
         let remainingMovieMinutes = movieInMinutes % 60;
         setMovieMinuteLength(remainingMovieMinutes);
     }, [movieHourLength, movieMinuteLength]);
-
-    console.log(movieHourLength);
 
     const addToFavorites = () => {
         console.log("work");
@@ -68,11 +65,20 @@ const SelectedMovie = () => {
                 <div className="gradient-background">
                     <div className="movie-details-container">
                         <p className="main-title">{movieDetails.value.movieTitle}</p>
-                            <div className="age-year-time-container">                               
-                                <p className="movie-data">{movieHourLength} ÓRA {movieMinuteLength} PERC</p>
-                                <p className="movie-data">{movieDetails.value.ageLimit}+</p>                                                                
-                                <p className="movie-data">{movieDetails.value.releaseDate}</p> 
-                                <p className="movie-data">{movieGenreUppercase}</p>
+                            <div className="age-year-time-container"> 
+                                <div className="movie-length">
+                                    <p className="movie-data">{movieHourLength} ÓRA {movieMinuteLength} PERC</p>
+                                </div>                              
+                                <div className="movie-age">
+                                    <p className="movie-data">{movieDetails.value.ageLimit}+</p> 
+                                </div>
+                                <div className="movie-release">
+                                    <p className="movie-data">{movieDetails.value.releaseDate}</p>
+                                </div>                                                              
+                                 <div className="movie-genre">
+                                    <p className="movie-data">{movieGenreUppercase}</p>
+                                 </div>
+                                
                                 {/*<span class="dot"></span>*/}
                             </div>                                              
                             <div className="play-and-add-buttons-container">   

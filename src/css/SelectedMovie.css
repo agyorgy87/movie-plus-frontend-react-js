@@ -13,7 +13,7 @@
 
 .movie-details-container {
     height: 100vh;
-    width: 40%;
+    width: 70%;
     padding-left: 30px;
     color: white;
     font-family: 'Saira Condensed', sans-serif;
@@ -30,7 +30,7 @@
 }
 
 .age-year-time-container {
-    width: 40%;
+    width: 35%;
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
@@ -51,6 +51,7 @@
     height: 120px;
     width: 20%;
     margin-bottom: 10px;
+    padding-left: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,6 +120,7 @@
 
 .movie-description-container {
     margin-bottom: 1.5rem;
+
 }
 
 .movie-description {
@@ -140,4 +142,156 @@
 .movie-actor-names {
     font-size: 1.3rem;
     color: #dbdbdb;
+}
+
+@media (max-width: 1386px) {
+
+    .main-title {
+        font-size: 90px;
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    .main-title {
+        font-size: 80px;
+    }
+
+    .age-year-time-container {
+        width: 45%;
+    }
+
+    .movie-data {
+        font-size: 18px;
+    }
+
+    .play-button {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+    }
+
+    .play-icon {
+        font-size: 2.7rem;
+    }
+
+    .add-button {
+        height: 45px;
+        width: 45px;
+        font-size: 1.8rem;
+    }
+
+    .pipe-button {
+        height: 45px;
+        width: 45px;
+        font-size: 1.8rem;
+    }
+
+    .movie-description {
+        font-size: 1.7rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .age-year-time-container {
+        width: 60%;
+    }
+
+    .movie-description {
+        font-size: 1.5rem;
+    }
+
+    .movie-director-title,
+    .movie-actors-title {
+        font-size: 1.3rem;
+        color: white;
+    }
+
+    .movie-director-name,
+    .movie-actor-names {
+        font-size: 1.1rem;
+        color: #dbdbdb;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .main-title {
+        font-size: 70px;
+    }
+
+    .age-year-time-container {
+        width: 70%;
+    }
+
+    .play-button {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+    }
+
+    .play-icon {
+        font-size: 2.5rem;
+    }
+
+    .add-button {
+        height: 40px;
+        width: 40px;
+        font-size: 1.6rem;
+    }
+
+    .pipe-button {
+        height: 40px;
+        width: 40px;
+        font-size: 1.6rem;
+    }
+
+    .movie-description {
+        font-size: 1.3rem;
+    }
+
+    .movie-director-title,
+    .movie-actors-title {
+        font-size: 1.2rem;
+        color: white;
+    }
+
+    .movie-director-name,
+    .movie-actor-names {
+        font-size: 1rem;
+        color: #dbdbdb;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .main-title {
+        font-size: 60px;
+    }
+
+    .age-year-time-container {
+        width: 80%;
+    }
+
+    .movie-description {
+        font-size: 1.1rem;
+    }
+
+    .movie-director-title,
+    .movie-actors-title {
+        font-size: 1rem;
+        color: white;
+    }
+
+    .movie-director-name,
+    .movie-actor-names {
+        font-size: 0.9rem;
+        color: #dbdbdb;
+    }
+
 }
