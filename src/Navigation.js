@@ -13,31 +13,31 @@ import { SearchContext } from "./context/SearchContext.js";
 
 const Navigation = () => {
 
-  const [MovieData, setMovieData] = useState({});//kisbetűre!!!
-  const [SearchData, setSearchData] = useState({});
-  const [CollectionMovieData, setCollectionMovieData] = useState({});
+    const [movieData, setMovieData] = useState({});
+    const [searchData, setSearchData] = useState({});
+    const [collectionMovieData, setCollectionMovieData] = useState({});
 
-  return (
-    <div>
-      <MovieContext.Provider value={{value:MovieData, setValue:setMovieData}}>
-        <SearchContext.Provider value={{value:SearchData, setValue:setSearchData}}>
-          <CollectionMovieContext.Provider value={{value:CollectionMovieData, setValue:setCollectionMovieData}}>
-          <BrowserRouter>
-              <Routes>
-                  <Route path="/" element={<Home/>} />
-                  <Route path="/movies" element={<Movies/>} />
-                  <Route path="/search" element={<Search/>} />
-                  <Route path="/mylist" element={<MyList/>} />
-                  <Route path="/searchedresult" element={<SearchedResult/>} />   
-                  <Route path="/selectedmovie" element={<SelectedMovie/>} />  
-                  <Route path="/selectedcollectionmovie" element={<SelectedCollectionMovie/>} />       
-              </Routes>
-          </BrowserRouter>
-          </CollectionMovieContext.Provider>
-        </SearchContext.Provider>
-      </MovieContext.Provider>
-    </div>
-  );
+    return (
+        <div>
+            <MovieContext.Provider value={{value:movieData, setValue:setMovieData}}>
+                <SearchContext.Provider value={{value:searchData, setValue:setSearchData}}>
+                    <CollectionMovieContext.Provider value={{value:collectionMovieData, setValue:setCollectionMovieData}}>
+                        <BrowserRouter>
+                            <Routes>
+                                <Route path="/" element={<Home/>} />
+                                <Route path="/movies" element={<Movies/>} />
+                                <Route path="/search" element={<Search/>} />
+                                <Route path="/mylist" element={<MyList/>} />
+                                <Route path="/searchedresult" element={<SearchedResult/>} />   
+                                <Route path="/selectedmovie" element={<SelectedMovie/>} />  
+                                <Route path="/selectedcollectionmovie" element={<SelectedCollectionMovie/>} />       
+                            </Routes>
+                        </BrowserRouter>
+                    </CollectionMovieContext.Provider>
+                </SearchContext.Provider>
+            </MovieContext.Provider>
+        </div>
+    );
 }
 
 export default Navigation;
