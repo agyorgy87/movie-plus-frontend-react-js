@@ -58,3 +58,12 @@
     transform: scale(1.1); 
     transition: 0.3s linear;
 }
+
+@media (max-width: 768px) {
+
+    .mylist-text {
+        font-size: 1.5rem;
+    }
+
+}
+

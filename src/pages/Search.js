@@ -11,7 +11,7 @@ import { SearchContext } from "../context/SearchContext.js";
 
 
 
-const Search = () => { 
+const Search = () => {  
 
     let navigate = useNavigate();
     

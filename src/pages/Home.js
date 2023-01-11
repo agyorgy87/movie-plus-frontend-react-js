@@ -210,7 +210,7 @@ const Home = () => {
             <div className="header">
                 <NavigationBar/>
             </div>            
-                <div className="main-content">
+                <div className="main-content"> 
                     <div className="row">
                         <Slider slidePictures={sliderData}/>
                     </div>

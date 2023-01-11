@@ -47,7 +47,7 @@ const Movies = () => {
             <div className="header"> 
                 <NavigationBar/> 
             </div>
-                <div className="main-content movies-content">             
+                <div className="main-content movies-content">              
                     <div className="movies-select-search-bar-container">
                         <div>
                             <h1 className="movies-text">FILMEK</h1>

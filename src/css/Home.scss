@@ -76,6 +76,8 @@
     background-color: transparent;
 }
 
+
+
 .home-movies-container img {
     max-width: 40vw;
     margin-top: 10px;   
@@ -97,34 +99,24 @@
     box-shadow: 0 5px 8px 3px black;
 }
 
-@media (max-width: 800px) {
+
+
+
+@media (max-width: 768px) {
     .prevoius-arrow-container, 
     .prev-button,
     .next-arrow-container,
     .next-button {
         display: none;
     }
-}
 
-/*
-@media (max-width: 550px) {
-    .main {
-        margin-left: 1rem;
-        text-align: center;
+    .row {
+        margin-bottom: 0rem;
     }
 
-    .main .movies {
-        flex-wrap: wrap;
-        display: flex;
-        justify-content: center;
-    }
-
-    .main .movies img {
-        max-width: 80vw;
-        margin-bottom: 3rem;
-    }   
-    .forward {
-        display: none;
+    .movie-genre-texts {
+        font-size: 1.2rem;
     }
 }
-*/
+
+

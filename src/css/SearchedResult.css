@@ -51,3 +51,19 @@
     transform: scale(1.1); 
     transition: 0.3s linear;
 }
+
+@media (max-width: 768px) {
+    
+    .search-result-text { 
+        font-size: 1.5rem;
+    }
+
+    .result-movie-icon {
+        width: 17rem;
+    }
+
+    .all-movies-found div {
+         margin: 30px;
+    }
+
+}

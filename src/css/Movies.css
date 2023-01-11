@@ -75,3 +75,14 @@
     border-radius: 5px;
     box-shadow: 0 5px 8px 3px black;
 }
+
+@media (max-width: 992px) {
+    .movies-text {
+        font-size: 2rem;
+    }
+
+    .movies-genre-select {
+        width: 9rem;
+        font-size: 0.8rem;
+    }
+}
