@@ -6,7 +6,7 @@
     flex-direction: column;
     text-align: center;
     color: #FFFDFA;
-    background-color: rgb(32, 32, 32);
+    background-color: rgb(32, 32, 32); 
 }
 
 .footer-menu {
@@ -29,9 +29,11 @@
 }
 
 @media (max-width: 550px) {
+
     .footer-container {
         display: flex;
         flex-direction: column;
         text-align: center;
     }
+    
 }
