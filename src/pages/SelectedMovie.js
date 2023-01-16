@@ -61,7 +61,7 @@ const SelectedMovie = () => {
           <div className="header">
               <NavigationBar/>
           </div>
-          <div className="selected-movie-container main-content" style={{backgroundImage: `url("http://localhost:4000/img/${movieDetails.value.image}")`}}>
+          <div className="selected-movie-container main-content" style={{backgroundImage: `url("${process.env.REACT_APP_API_HOST}/img/${movieDetails.value.image}")`}}>
                 <div className="gradient-background">
                     <div className="movie-details-container">
                         <p className="main-title">{movieDetails.value.movieTitle}</p>

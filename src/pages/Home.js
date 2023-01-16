@@ -41,37 +41,37 @@ const Home = () => {
 
     useEffect(() => {  
 
-        fetch("http://localhost:4000/slide-show-images")
+        fetch(process.env.REACT_APP_API_HOST + "/slide-show-images")
             .then(data => data.json())
             .then(parsedData => {
                 setSliderData(parsedData)
         })
 
-        fetch("http://localhost:4000/all-movies")
+        fetch(process.env.REACT_APP_API_HOST + "/all-movies")
             .then(data => data.json())
             .then(parsedData => {
                 setAllMovies(parsedData);
             })
 
-        fetch("http://localhost:4000/all-movies-by-action/akció")
+        fetch(process.env.REACT_APP_API_HOST + "/all-movies-by-action/akció")
             .then(data => data.json())
             .then(parsedData => {
                 setActionMovies(parsedData)
             })
 
-        fetch("http://localhost:4000/all-movies-by-comedy/vígjáték")
+        fetch(process.env.REACT_APP_API_HOST + "/all-movies-by-comedy/vígjáték")
             .then(data => data.json())
             .then(parsedData => {
                 setComedyMovies(parsedData);
             })
 
-        fetch("http://localhost:4000/all-movies-by-scifi/scifi")
+        fetch(process.env.REACT_APP_API_HOST + "/all-movies-by-scifi/scifi")
             .then(data => data.json())
             .then(parsedData => {
                 setScifiMovies(parsedData);
             })
 
-        fetch("http://localhost:4000/collection-movies")
+        fetch(process.env.REACT_APP_API_HOST + "/collection-movies")
             .then(data => data.json())
             .then(parsedData => {
                 setCollectionMovies(parsedData);
@@ -224,7 +224,7 @@ const Home = () => {
                                     actionMovies.map((movies, index) => (
                                         <div>  
                                             <img 
-                                                src={"http://localhost:4000/icons/" + movies.icon} 
+                                                src={process.env.REACT_APP_API_HOST + "/icons/" + movies.icon} 
                                                 className="home-movie-icons"
                                                 alt="moviepicture" 
                                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
@@ -262,7 +262,7 @@ const Home = () => {
                                     comedyMovies.map( movies => (
                                         <div>  
                                             <img 
-                                                src={"http://localhost:4000/icons/" + movies.icon} 
+                                                src={process.env.REACT_APP_API_HOST +  "/icons/" + movies.icon} 
                                                 className="home-movie-icons"
                                                 alt="moviepicture"
                                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
@@ -299,7 +299,7 @@ const Home = () => {
                                     scifiMovies.map( movies => (
                                         <div >  
                                             <img 
-                                                src={"http://localhost:4000/icons/" + movies.icon} 
+                                                src={process.env.REACT_APP_API_HOST + "/icons/" + movies.icon} 
                                                 className="home-movie-icons" 
                                                 alt="moviepicture"
                                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
@@ -333,7 +333,7 @@ const Home = () => {
                                     collectionMovies.map( movies => (
                                         <div >  
                                             <img 
-                                                src={"http://localhost:4000/collection-icons/" + movies.collectionIcon} 
+                                                src={process.env.REACT_APP_API_HOST + "/collection-icons/" + movies.collectionIcon} 
                                                 className="home-movie-icons" 
                                                 alt="moviepicture"
                                                 onClick={() => { collectionMovieDetails.setValue(movies); navigate("/selectedcollectionmovie")}}

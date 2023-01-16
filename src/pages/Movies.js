@@ -18,7 +18,7 @@ const Movies = () => {
     const [selectedMoviesGenre, setSelectedMoviesGenre] = useState([]);
 
     useEffect (() => {
-        fetch("http://localhost:4000/all-movies")
+        fetch(process.env.REACT_APP_API_HOST + "/all-movies")
                 .then(data => data.json())
                 .then(parsedData => {
                   allMovies.current = parsedData;
@@ -66,7 +66,7 @@ const Movies = () => {
                                 visibleMovies.map( movies => (
                                     <div>  
                                         <img 
-                                            src={"http://localhost:4000/icons/" + movies.icon} 
+                                            src={process.env.REACT_APP_API_HOST + "/icons/" + movies.icon} 
                                             className="movies-movie-icons"
                                             alt="moviepicture"
                                             onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}

@@ -31,7 +31,7 @@ const Search = () => {
 
 
     useEffect (() => {
-        fetch("http://localhost:4000/all-movies")
+        fetch(process.env.REACT_APP_API_HOST + "/all-movies")
                 .then(data => data.json())
                 .then(parsedData => {
                   allMovies.current = parsedData;
@@ -39,6 +39,7 @@ const Search = () => {
                 })
       }, []) 
 
+    /*
     const filterByAllMoviesTypeWrite = () => {
         fetch("http://localhost:4000/all-movies-by-action/akció")
             .then(data => data.json())
@@ -46,11 +47,12 @@ const Search = () => {
                 setVisibleMovies(parsedData)
             })
     };
-
+    */
+   
     useEffect(() => {
         filterDatas();
     },[searchByReleaseDate, searchByMovieLength, searchByAgeLimit]) 
-
+    
     /*
     first, old solutions...
 
@@ -183,7 +185,7 @@ const Search = () => {
                             visibleMovies.map( movies => (
                                 <div >  
                                     <img 
-                                        src={"http://localhost:4000/icons/" + movies.icon} 
+                                        src={process.env.REACT_APP_API_HOST + "/icons/" + movies.icon} 
                                         className="search-movie-icons"
                                         alt="moviepicture"
                                         onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
