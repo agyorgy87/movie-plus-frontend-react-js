@@ -53,7 +53,7 @@ const SelectedMovie = () => {
     }
     
     let listForFavoritMovies = localStorage.getItem("favorites");
-    let parsedListForFavoritMovies = JSON.parse(listForFavoritMovies);
+    let parsedListForFavoritMovies = listForFavoritMovies != null ? JSON.parse(listForFavoritMovies) : [];
     const isMovieInList = parsedListForFavoritMovies.filter(movie => movie.movieTitle === movieDetails.value.movieTitle).length;
 
     return (
