@@ -15,7 +15,7 @@ const MyList = () => {
     const movieDetails = useContext(MovieContext);
 
     let listForFavoritMovies = localStorage.getItem("favorites");
-    let parsedListForFavoritMovies = JSON.parse(listForFavoritMovies);
+    let parsedListForFavoritMovies = listForFavoritMovies != null ? JSON.parse(listForFavoritMovies) : [];
 
     return (
         <div className="pages-container">
