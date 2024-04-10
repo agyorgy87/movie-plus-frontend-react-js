@@ -1,6 +1,6 @@
-# LINK FOR THE APP:
+# LINK FOR THE MOVIE+ STREAM APP:
 
-[https://movieplus.herokuapp.com](https://movieplus.herokuapp.com)
+[https://movie-plus-frontend-reactjs.onrender.com](https://movie-plus-frontend-reactjs.onrender.com)
 
 ## Installed Packages:
 
