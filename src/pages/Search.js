@@ -31,7 +31,7 @@ const Search = () => {
 
 
     useEffect (() => {
-        fetch(process.env.REACT_APP_API_HOST + "/all-movies")
+        fetch(process.env.REACT_APP_API_URL + "/all-movies")
                 .then(data => data.json())
                 .then(parsedData => {
                   allMovies.current = parsedData;
@@ -39,15 +39,6 @@ const Search = () => {
                 })
       }, []) 
 
-    /*
-    const filterByAllMoviesTypeWrite = () => {
-        fetch("http://localhost:4000/all-movies-by-action/akció")
-            .then(data => data.json())
-            .then(parsedData => {
-                setVisibleMovies(parsedData)
-            })
-    };
-    */
    
     useEffect(() => {
         filterDatas();
@@ -185,7 +176,7 @@ const Search = () => {
                             visibleMovies.map( movies => (
                                 <div >  
                                     <img 
-                                        src={process.env.REACT_APP_API_HOST + "/icons/" + movies.icon} 
+                                        src={process.env.REACT_APP_API_URL + "/icons/" + movies.icon} 
                                         className="search-movie-icons"
                                         alt="moviepicture"
                                         onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}

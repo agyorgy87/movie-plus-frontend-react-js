@@ -51,7 +51,7 @@ const Slider = ({slidePictures}) => {
                         <div className={index === current ? 'slide-active' : 'slide'} key={index}>  
                             {index === current && ( 
                                 <img 
-                                src={process.env.REACT_APP_API_HOST + "/wide-images/" + movies.wideImage} 
+                                src={process.env.REACT_APP_API_URL + "/wide-images/" + movies.wideImage} 
                                 className="slider-images"
                                 alt="moviepictures"    
                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}                                           

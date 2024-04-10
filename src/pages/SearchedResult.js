@@ -19,7 +19,7 @@ const SearchedResult = () => {
   const [allMovies, setAllMovies] = useState([]);
 
   useEffect (() => {
-            fetch(process.env.REACT_APP_API_HOST + "/get-movie-title/" + searchDetails.value)
+            fetch(process.env.REACT_APP_API_URL + "/get-movie-title/" + searchDetails.value)
             .then(data => data.json())
             .then(parsedData => {
                 console.log(parsedData);
@@ -42,7 +42,7 @@ const SearchedResult = () => {
                         allMovies.map( movies => (
                             <div>  
                                 <img 
-                                    src={process.env.REACT_APP_API_HOST + "/icons/" + movies.icon} 
+                                    src={process.env.REACT_APP_API_URL + "/icons/" + movies.icon} 
                                     className="result-movie-icon"
                                     alt="moviepicture"
                                     onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}

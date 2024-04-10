@@ -33,7 +33,7 @@ const MyList = () => {
                         parsedListForFavoritMovies.map(movies => ( 
                             <div>  
                                 <img 
-                                    src={process.env.REACT_APP_API_HOST + "/icons/" + movies.icon} 
+                                    src={process.env.REACT_APP_API_URL + "/icons/" + movies.icon} 
                                     className="mylist-movie-icons"
                                     alt="moviepicture" 
                                     onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}

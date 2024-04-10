@@ -20,7 +20,7 @@ const SelectedCollectionMovie = () => {
 
 
     useEffect (() => {
-      fetch(process.env.REACT_APP_API_HOST + "/group/" + collectionMovieDetails.value.group)
+      fetch(process.env.REACT_APP_API_URL + "/group/" + collectionMovieDetails.value.group)
             .then(data => data.json())
             .then(parsedData => {
               setSelectedCollectionMovieIcons(parsedData);
@@ -43,7 +43,7 @@ const SelectedCollectionMovie = () => {
                             selectedCollectionMovieIcons.map( movies => (
                                 <div>  
                                     <img 
-                                    src={process.env.REACT_APP_API_HOST + "/icons/" + movies.icon} 
+                                    src={process.env.REACT_APP_API_URL + "/icons/" + movies.icon} 
                                     className="collection-movie-icons" 
                                     alt="moviepicture"
                                     onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
