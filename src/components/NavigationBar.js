@@ -19,10 +19,22 @@ const NavigationBar = () => {
                         </div>   
                         <div>
                             <ul>
-                                <li><i><AiFillHome className="menu-icons" onClick={() => {navigate("/")}}/></i><a className="menu-pages" onClick={() => {navigate("/")}}>FŐOLDAL</a></li>
-                                <li><i><MdLocalMovies className="menu-icons" onClick={() => {navigate("/movies")}}/></i><a className="menu-pages" onClick={() => {navigate("/movies")}}>FILMEK</a></li>
-                                <li><i><AiOutlineSearch className="menu-icons" onClick={() => {navigate("/search")}}/></i><a className="menu-pages" onClick={() => {navigate("/search")}}>KERESÉS</a></li>
-                                <li><i><AiOutlinePlus className="menu-icons" onClick={() => {navigate("/mylist")}}/></i><a className="menu-pages" onClick={() => {navigate("/mylist")}}>SAJÁT LISTA</a></li>
+                                <li>
+                                    <i><AiFillHome className="menu-icons" onClick={() => {navigate("/")}}/></i>
+                                    <a className="menu-pages" onClick={() => {navigate("/")}}>HOME</a>
+                                </li>
+                                <li>
+                                    <i><MdLocalMovies className="menu-icons" onClick={() => {navigate("/movies")}}/></i>
+                                    <a className="menu-pages" onClick={() => {navigate("/movies")}}>MOVIES</a>
+                                </li>
+                                <li>
+                                    <i><AiOutlineSearch className="menu-icons" onClick={() => {navigate("/search")}}/></i>
+                                    <a className="menu-pages" onClick={() => {navigate("/search")}}>SEARCH</a>
+                                </li>
+                                <li>
+                                    <i><AiOutlinePlus className="menu-icons" onClick={() => {navigate("/mylist")}}/></i>
+                                    <a className="menu-pages" onClick={() => {navigate("/mylist")}}>MY LIST</a>
+                                </li>
                             </ul>                                              
                         </div> 
                     </div>              

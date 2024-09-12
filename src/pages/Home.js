@@ -4,6 +4,7 @@ import NavigationBar from "../components/NavigationBar.js";
 import Slider from "../components/Slider.js";
 import Footer from "../components/Footer.js";
 import React, {useState, useEffect, useRef} from 'react';
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
@@ -38,7 +39,32 @@ const Home = () => {
     const movieDetails = useContext(MovieContext);
     const collectionMovieDetails = useContext(CollectionMovieContext);
 
+    const baseUrlForImages = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
+    useEffect(() => {  
+
+        const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+
+        axios.get(`${baseURL}/slide-show-images`)
+        .then(response => setSliderData(response.data));
+
+        axios.get(`${baseURL}/all-movies`)
+            .then(response => setAllMovies(response.data));
+
+        axios.get(`${baseURL}/all-movies-by-action/action`)
+            .then(response => setActionMovies(response.data));
+
+        axios.get(`${baseURL}/all-movies-by-comedy/comedy`)
+            .then(response => setComedyMovies(response.data));
+
+        axios.get(`${baseURL}/all-movies-by-scifi/scienceFiction`)
+            .then(response => setScifiMovies(response.data));
+
+        axios.get(`${baseURL}/collection-movies`)
+            .then(response => setCollectionMovies(response.data));     
+    }, [])
+
+/*
     useEffect(() => {  
 
         fetch(process.env.REACT_APP_API_URL + "/slide-show-images")
@@ -78,7 +104,7 @@ const Home = () => {
             })     
     }, [])
 
-    /*action movies slider useeffect, slide and scrollcheckfunctions*/
+    */
 
     useEffect(() => {
         if (
@@ -216,15 +242,15 @@ const Home = () => {
                     </div>
                     <div className="row"> 
                         <div className="movie-text-container">
-                            <h2 className="movie-genre-texts">AKCIÓ FILMEK</h2>
+                            <h2 className="movie-genre-texts">Action movies</h2>
                         </div>
                         <div className="different-genres-containers">                           
                             <div className="home-movies-container" ref={actionMoviesScrl} onScroll={actionMoviesScrollCheck}>
                                 {
                                     actionMovies.map((movies, index) => (
-                                        <div>  
+                                        <div key={index}>  
                                             <img 
-                                                src={process.env.REACT_APP_API_URL + "/icons/" + movies.icon} 
+                                                src={`${baseUrlForImages}/icons/${movies.icon}`}  
                                                 className="home-movie-icons"
                                                 alt="moviepicture" 
                                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
@@ -254,15 +280,15 @@ const Home = () => {
                     </div>
                     <div className="row">
                         <div>
-                            <h2 className="movie-genre-texts">VÍGJÁTÉKOK</h2>
+                            <h2 className="movie-genre-texts">Comedy movies</h2>
                         </div>
                         <div className="different-genres-containers">
                             <div className="home-movies-container" ref={comedyMoviesScrl} onScroll={comedyMoviesScrollCheck}>
                                 {
-                                    comedyMovies.map( movies => (
-                                        <div>  
+                                    comedyMovies.map((movies,index) => (
+                                        <div key={index}>  
                                             <img 
-                                                src={process.env.REACT_APP_API_URL +  "/icons/" + movies.icon} 
+                                                src={`${baseUrlForImages}/icons/${movies.icon}`}  
                                                 className="home-movie-icons"
                                                 alt="moviepicture"
                                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
@@ -291,15 +317,15 @@ const Home = () => {
                     </div>
                     <div className="row">
                         <div>
-                            <h2 className="movie-genre-texts">SCI-FI FILMEK</h2>
+                            <h2 className="movie-genre-texts">Science fiction movies</h2>
                         </div>
                         <div className="different-genres-containers">
                             <div className="home-movies-container" ref={scifiMoviesScrl} onScroll={scifiMoviesScrollCheck}>
                                 {
-                                    scifiMovies.map( movies => (
-                                        <div >  
+                                    scifiMovies.map((movies,index) => (
+                                        <div key={index}>  
                                             <img 
-                                                src={process.env.REACT_APP_API_URL + "/icons/" + movies.icon} 
+                                                src={`${baseUrlForImages}/icons/${movies.icon}`}  
                                                 className="home-movie-icons" 
                                                 alt="moviepicture"
                                                 onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
@@ -327,13 +353,13 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="row">  
-                        <h2 className="movie-genre-texts">GYŰJTEMÉNYEK</h2>                       
+                        <h2 className="movie-genre-texts">Collections</h2>                       
                             <div className="home-movies-container">
                                 {
-                                    collectionMovies.map( movies => (
-                                        <div >  
-                                            <img 
-                                                src={process.env.REACT_APP_API_URL + "/collection-icons/" + movies.collectionIcon} 
+                                    collectionMovies.map((movies,index) => (
+                                        <div key={index}>  
+                                            <img                                               
+                                                src={`${baseUrlForImages}/collection-icons/${movies.collectionIcon}`} 
                                                 className="home-movie-icons" 
                                                 alt="moviepicture"
                                                 onClick={() => { collectionMovieDetails.setValue(movies); navigate("/selectedcollectionmovie")}}
@@ -352,3 +378,5 @@ const Home = () => {
 }
 
 export default Home;
+
+/* 354 line */
