@@ -3,6 +3,7 @@ import '../css/Movies.css';
 import React, {useState, useEffect, useRef} from 'react';
 import NavigationBar from '../components/NavigationBar.js';
 import Footer from '../components/Footer.js';
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
@@ -17,20 +18,21 @@ const Movies = () => {
     const [visibleMovies, setVisibleMovies] = useState([]);
     const [selectedMoviesGenre, setSelectedMoviesGenre] = useState([]);
 
-    useEffect (() => {
-        fetch(process.env.REACT_APP_API_URL + "/all-movies")
-                .then(data => data.json())
-                .then(parsedData => {
-                  allMovies.current = parsedData;
-                  setVisibleMovies(parsedData);
-                })
-      }, [])
+    const baseUrlForSearchMoviesGenre = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
+    useEffect(() => {
+        axios.get(`${baseUrlForSearchMoviesGenre}/all-movies`)
+          .then(response => {
+            allMovies.current = response.data;
+            setVisibleMovies(response.data);
+          })
+    }, []);
+
+    
     useEffect(() => { 
         moviesGenre();
     },[selectedMoviesGenre])
       
-    
     const moviesGenre = () => {
 
         let filterMoviesGenre = allMovies.current
@@ -41,6 +43,7 @@ const Movies = () => {
         }
         setVisibleMovies(filterMoviesGenre);    
     }
+    
 
     return (  
         <div className="pages-container"> 
@@ -52,13 +55,19 @@ const Movies = () => {
                         <div>
                             <h1 className="movies-text">FILMEK</h1>
                         </div>
-                        <div className="movies-search-bar-container"> 
-                            <select className="movies-genre-select" onChange={(e) => setSelectedMoviesGenre(e.target.value)}>
-                                <option value="none">MINDEN FILM</option>
-                                <option value="akció">AKCIÓ</option>
-                                <option value="vígjáték">VÍGJÁTÉK</option>
-                                <option value="scifi">SCI-FI</option>
-                            </select>
+                        <div className="genre-buttons"> 
+                            <div>
+                                <button value="none" onClick={(e) => setSelectedMoviesGenre(e.target.value)}>All</button>                              
+                            </div> 
+                            <div>
+                                <button value="action" onClick={(e) => setSelectedMoviesGenre(e.target.value)}>Action</button>
+                            </div>
+                            <div>
+                                <button value="comedy" onClick={(e) => setSelectedMoviesGenre(e.target.value)}>Comedy</button>
+                            </div>
+                            <div>
+                                <button value="scienceFiction" onClick={(e) => setSelectedMoviesGenre(e.target.value)}>Science Fiction</button>
+                            </div>
                         </div>
                     </div>                  
                     <div className="visible-movies-container">

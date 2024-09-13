@@ -39,73 +39,11 @@ const Search = () => {
                 })
       }, []) 
 
-   
+    /*
     useEffect(() => {
         filterDatas();
     },[searchByReleaseDate, searchByMovieLength, searchByAgeLimit]) 
     
-    /*
-    first, old solutions...
-
-    useEffect(() => {
-        searchByYear();
-    },[searchByReleaseDate]) 
-
-    useEffect (() => {        
-        searchByTime();
-    },[searchByMovieLength])
-    
-
-    const searchByYear = () => {
-        if(searchByReleaseDate === "2010-2022"){
-            const releaseDateBetweenTenAndTwentyTwo = allMovies.current.filter(movie => movie.releaseDate >= 2010 && movie.releaseDate <= 2022);
-            setVisibleMovies(releaseDateBetweenTenAndTwentyTwo);
-        }
-        else if(searchByReleaseDate === "2000-2009"){
-            const releaseDateBetweenZeroAndNine = allMovies.current.filter(movie => movie.releaseDate >= 2000 && movie.releaseDate <= 2009);
-            setVisibleMovies(releaseDateBetweenZeroAndNine);
-        }
-        else if(searchByReleaseDate === "1990-1999"){
-            const releaseDateBetweenNinetyAndNinetyNine = allMovies.current.filter(movie => movie.releaseDate >= 1990 && movie.releaseDate <= 1999);
-            setVisibleMovies(releaseDateBetweenNinetyAndNinetyNine);
-        }
-        else if(searchByReleaseDate === "1980-1989"){
-            const releaseDateBewtweenEightyAndEightyNine = allMovies.current.filter(movie => movie.releaseDate >= 1980 && movie.releaseDate <= 1989);
-            setVisibleMovies(releaseDateBewtweenEightyAndEightyNine);
-        }
-        else if(searchByReleaseDate === "none"){
-            setVisibleMovies(allMovies.current)
-        }
-    }
-    
-
-    const searchByYear = () => {
-
-        console.log(searchByReleaseDate)
-        const splittedYears = searchByReleaseDate.split("-");
-
-        const fromYears = parseInt(splittedYears[0]);
-        const toYears = parseInt(splittedYears[1]);
-
-        const releaseDate = allMovies.current.filter(movie => movie.releaseDate >= fromYears && movie.releaseDate <= toYears);
-            setVisibleMovies(releaseDate);
-    }
-    
-    const searchByTime = () => {
-
-        if(searchByMovieLength === "120+"){
-            const moreThan120Minutes = allMovies.current.filter(movie => movie.movieLength > 120)
-            setVisibleMovies(moreThan120Minutes);
-        }
-        else if(searchByMovieLength === "60-120"){
-            const lessThan120Minutes = allMovies.current.filter(movie => movie.movieLength > 60 && movie.movieLength < 120);
-            setVisibleMovies(lessThan120Minutes);
-        }
-        else if(searchByMovieLength === "none"){
-            setVisibleMovies(allMovies.current);
-        }
-    }
-    */
 
     const filterDatas = () => {
 
@@ -135,7 +73,7 @@ const Search = () => {
         }
         setVisibleMovies(filterAllMovies);
     }
-      
+    */
     return (
         <div className="pages-container">  
             <div className="header">
@@ -145,32 +83,7 @@ const Search = () => {
                 <div className="search-input-button-container">                     
                     <input type="text" placeholder="Film keresése" className="search-input" onChange={handleChange}/>                          
                     <button className="search-button" onClick={() => {navigate("/searchedresult")}}><BiSearch/></button>  
-                </div>
-                <div className="selects-container">
-                    <div>
-                        <select className="release-date-select" onChange={(e) => setSearchByReleaseDate(e.target.value)}> 
-                            <option value="none">Megjelenési dátum</option>
-                            <option value="2010-2022">2010-2022</option>
-                            <option value="2000-2009">2000-2009</option>
-                            <option value="1990-1999">1990-1999</option>
-                            <option value="1979-1989">1979-1989</option>
-                        </select>
-                    </div>
-                    <div>
-                        <select className="movie-length-select" onChange={(e) => setSearchByMovieLength(e.target.value)}>
-                            <option value="none">Film Játékideje</option>
-                            <option value="120+">Több mint 2 órás</option>
-                            <option value="60-120">1 és 2 óra között</option>
-                        </select>
-                    </div> 
-                    <div>
-                        <select className="age-limit-select" onChange={(e) => setSearchByAgeLimit(e.target.value)}>
-                            <option value="none">Korhatár</option>
-                            <option value="16+">16+</option>
-                            <option value="12+">12+</option>
-                        </select>
-                    </div> 
-                </div>           
+                </div>         
                 <div className="visible-search-container">               
                         {
                             visibleMovies.map( movies => (
