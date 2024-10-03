@@ -2,6 +2,7 @@ import '../css/PagesStyle.css';
 import '../css/Home.css';
 import NavigationBar from "../components/NavigationBar.js";
 import Slider from "../components/Slider.js";
+import ActionMoviesSlider from '../components/ActionMoviesSlider.js';
 import Footer from "../components/Footer.js";
 import React, {useState, useEffect, useRef} from 'react';
 import axios from "axios";
@@ -13,22 +14,16 @@ import { MdArrowBackIos, MdArrowForwardIos} from 'react-icons/md';
 
 const Home = () => {
 
-    let actionMoviesScrl = useRef(null);
+    
     let comedyMoviesScrl = useRef(null);
     let scifiMoviesScrl = useRef(null);
 
     let navigate = useNavigate();
 
     const [allMovies, setAllMovies] = useState([]);
-    const [actionMovies, setActionMovies] = useState([]);
     const [comedyMovies, setComedyMovies] = useState([]);
     const [scifiMovies, setScifiMovies] = useState([]);
-    const [collectionMovies, setCollectionMovies] = useState([])
-
-    //const [sliderData, setSliderData] = useState([]);
-
-    const [actionMoviesScrollX, setActionMoviesScrollX] = useState(0);
-    const [actionMoviesScrollEnd, setActionMoviesScrollEnd] = useState(false);
+    const [collectionMovies, setCollectionMovies] = useState([])    
 
     const [comedyMoviesScrollX, setComedyMoviesScrollX] = useState(0);
     const [comedyMoviesScrollEnd, setComedyMoviesScrollEnd] = useState(false);
@@ -51,9 +46,6 @@ const Home = () => {
         axios.get(`${baseURL}/all-movies`)
             .then(response => setAllMovies(response.data));
 
-        axios.get(`${baseURL}/all-movies-by-action/action`)
-            .then(response => setActionMovies(response.data), console.log(actionMovies));
-
         axios.get(`${baseURL}/all-movies-by-comedy/comedy`)
             .then(response => setComedyMovies(response.data));
 
@@ -64,44 +56,7 @@ const Home = () => {
             .then(response => setCollectionMovies(response.data));     
     }, [])
 
-    useEffect(() => {
-        if (
-          actionMoviesScrl.current &&
-          actionMoviesScrl?.current?.scrollWidth === actionMoviesScrl?.current?.offsetWidth
-        ) {
-          setActionMoviesScrollEnd(true);
-        } else {
-          setActionMoviesScrollEnd(false);
-        }
-        return () => {};
-    }, [actionMoviesScrl?.current?.scrollWidth, actionMoviesScrl?.current?.offsetWidth]);
     
-
-    const actionMoviesSlide = (shift) => {
-        actionMoviesScrl.current.scrollLeft += shift;
-        setActionMoviesScrollX(actionMoviesScrollX + shift); 
-    
-        if (
-          Math.floor(actionMoviesScrl.current.scrollWidth - actionMoviesScrl.current.scrollLeft) <=
-          actionMoviesScrl.current.offsetWidth
-        ) {
-          setActionMoviesScrollEnd(true);
-        } else {
-          setActionMoviesScrollEnd(false);
-        }
-      };
-
-    const actionMoviesScrollCheck = () => {
-        setActionMoviesScrollX(actionMoviesScrl.current.scrollLeft);
-        if (
-          Math.floor(actionMoviesScrl.current.scrollWidth - actionMoviesScrl.current.scrollLeft) <=
-          actionMoviesScrl.current.offsetWidth
-        ) {
-          setActionMoviesScrollEnd(true);
-        } else {
-          setActionMoviesScrollEnd(false);
-        }
-      };
 
       /*comedy movies slider useeffect, slide and scrollcheckfunctions*/
 
@@ -198,43 +153,8 @@ const Home = () => {
                     <div className="row">
                         <Slider/>
                     </div>
-                    <div className="row"> 
-                        <div className="movie-text-container">
-                            <h2 className="movie-genre-texts">Action movies</h2>
-                        </div>
-                        <div className="different-genres-containers">                          
-                            <div className="home-movies-container" ref={actionMoviesScrl} onScroll={actionMoviesScrollCheck}>
-                                {
-                                    actionMovies.map((movies, index) => (
-                                        <div key={index}>  
-                                            <img 
-                                                src={`${baseUrlForImages}/icons/${movies.icon}`}  
-                                                className="home-movie-icons"
-                                                alt="moviepicture" 
-                                                onClick={() => { movieDetails.setValue(movies); navigate("/selectedmovie")}}
-                                            />
-                                        </div>
-                                    ))
-                                }
-                            </div> 
-                            <div className="prevoius-arrow-container">
-                                {actionMoviesScrollX !== 0 && (                           
-                                    <MdArrowBackIos
-                                    className="prev-button" 
-                                    onClick={() => actionMoviesSlide(- iconSizeWithMargin)}                                  
-                                    />                                                     
-                                )}
-                            </div>
-                            <div className="next-arrow-container">
-                                {!actionMoviesScrollEnd && (
-                                    <MdArrowForwardIos
-                                    className="next-button" 
-                                    onClick={() => actionMoviesSlide(iconSizeWithMargin)} 
-                                                                 
-                                    />
-                                )}
-                            </div>       
-                        </div>
+                    <div className="row">
+                        <ActionMoviesSlider movieDetails={movieDetails}/>
                     </div>
                     <div className="row">
                         <div>
