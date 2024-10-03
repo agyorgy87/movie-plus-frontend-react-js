@@ -1,5 +1,5 @@
 import '../css/PagesStyle.css';
-import '../css/Home.scss';
+import '../css/Home.css';
 import NavigationBar from "../components/NavigationBar.js";
 import Slider from "../components/Slider.js";
 import Footer from "../components/Footer.js";
@@ -25,7 +25,7 @@ const Home = () => {
     const [scifiMovies, setScifiMovies] = useState([]);
     const [collectionMovies, setCollectionMovies] = useState([])
 
-    const [sliderData, setSliderData] = useState([]);
+    //const [sliderData, setSliderData] = useState([]);
 
     const [actionMoviesScrollX, setActionMoviesScrollX] = useState(0);
     const [actionMoviesScrollEnd, setActionMoviesScrollEnd] = useState(false);
@@ -45,14 +45,14 @@ const Home = () => {
 
         const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
-        axios.get(`${baseURL}/slide-show-images`)
-        .then(response => setSliderData(response.data));
+        //axios.get(`${baseURL}/slide-show-images`)
+        //.then(response => setSliderData(response.data));
 
         axios.get(`${baseURL}/all-movies`)
             .then(response => setAllMovies(response.data));
 
         axios.get(`${baseURL}/all-movies-by-action/action`)
-            .then(response => setActionMovies(response.data));
+            .then(response => setActionMovies(response.data), console.log(actionMovies));
 
         axios.get(`${baseURL}/all-movies-by-comedy/comedy`)
             .then(response => setComedyMovies(response.data));
@@ -63,48 +63,6 @@ const Home = () => {
         axios.get(`${baseURL}/collection-movies`)
             .then(response => setCollectionMovies(response.data));     
     }, [])
-
-/*
-    useEffect(() => {  
-
-        fetch(process.env.REACT_APP_API_URL + "/slide-show-images")
-            .then(data => data.json())
-            .then(parsedData => {
-                setSliderData(parsedData)
-        })
-
-        fetch(process.env.REACT_APP_API_URL + "/all-movies")
-            .then(data => data.json())
-            .then(parsedData => {
-                setAllMovies(parsedData);
-            })
-
-        fetch(process.env.REACT_APP_API_URL + "/all-movies-by-action/akció")
-            .then(data => data.json())
-            .then(parsedData => {
-                setActionMovies(parsedData)
-            })
-
-        fetch(process.env.REACT_APP_API_URL + "/all-movies-by-comedy/vígjáték")
-            .then(data => data.json())
-            .then(parsedData => {
-                setComedyMovies(parsedData);
-            })
-
-        fetch(process.env.REACT_APP_API_URL + "/all-movies-by-scifi/scifi")
-            .then(data => data.json())
-            .then(parsedData => {
-                setScifiMovies(parsedData);
-            })
-
-        fetch(process.env.REACT_APP_API_URL + "/collection-movies")
-            .then(data => data.json())
-            .then(parsedData => {
-                setCollectionMovies(parsedData);
-            })     
-    }, [])
-
-    */
 
     useEffect(() => {
         if (
@@ -236,15 +194,15 @@ const Home = () => {
             <div className="header">
                 <NavigationBar/>
             </div>            
-                <div className="main-content"> 
+                <div> 
                     <div className="row">
-                        <Slider slidePictures={sliderData}/>
+                        <Slider/>
                     </div>
                     <div className="row"> 
                         <div className="movie-text-container">
                             <h2 className="movie-genre-texts">Action movies</h2>
                         </div>
-                        <div className="different-genres-containers">                           
+                        <div className="different-genres-containers">                          
                             <div className="home-movies-container" ref={actionMoviesScrl} onScroll={actionMoviesScrollCheck}>
                                 {
                                     actionMovies.map((movies, index) => (

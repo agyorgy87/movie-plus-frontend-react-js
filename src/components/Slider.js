@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { MdArrowBackIos, MdArrowForwardIos} from 'react-icons/md';
 import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
+import axios from "axios";
 
-const Slider = ({slidePictures}) => {
+const Slider = () => {
 
     let clearTime = useRef({})
 
@@ -13,9 +14,19 @@ const Slider = ({slidePictures}) => {
 
     let navigate = useNavigate();
 
+    const [sliderData, setSliderData] = useState([]);
     const [current, setCurrent] = useState(0);
-    const length = slidePictures.length;
+    const length = sliderData.length;
 
+    
+    useEffect(() => {
+
+        const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+
+        axios.get(`${baseURL}/slide-show-images`)
+        .then(response => setSliderData(response.data));
+    })
+    
     
     useEffect(() => {
         if(current === 0){
@@ -39,14 +50,14 @@ const Slider = ({slidePictures}) => {
         setCurrent(current === 0 ? length - 1 : current - 1)
     }
 
-    if(!Array.isArray(slidePictures) || slidePictures.length <= 0) {
+    if(!Array.isArray(sliderData) || sliderData.length <= 0) {
         return null;
     }
 
     return (
         <div className="slider-container">
             <MdArrowBackIos className="left-arrow" onClick={prevSlide}/>
-                {slidePictures.map((movies, index) => { 
+                {sliderData.map((movies, index) => { 
                     return(
                         <div className={index === current ? 'slide-active' : 'slide'} key={index}>  
                             {index === current && ( 

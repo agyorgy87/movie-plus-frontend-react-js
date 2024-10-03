@@ -3,19 +3,31 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { AiFillHome, AiOutlineSearch, AiOutlinePlus } from 'react-icons/ai';
 import { MdLocalMovies, MdAccountCircle } from 'react-icons/md';
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 
 const NavigationBar = () => {  
 
     let navigate = useNavigate();
 
+    const navigation = [
+    { name: 'Dashboard', href: '#', current: true },
+    { name: 'Team', href: '#', current: false },
+    { name: 'Projects', href: '#', current: false },
+    { name: 'Calendar', href: '#', current: false },
+    ];
+    
+    function classNames(...classes) {
+        return classes.filter(Boolean).join(' ')
+      }
+
     return (
-        <div>
-            <nav>
+        <nav>
                 <div className="navigation-menu">
                     <div className="logo-menus-container">
                         <div className="logo-container">                           
-                            <p className="logo">MOVIE+</p>                                                                      
+                            <p className="logo">MOVIE+</p>                                                                
                         </div>   
                         <div>
                             <ul>
@@ -43,9 +55,12 @@ const NavigationBar = () => {
                     </div>  
                 </div>             
             </nav>
-        </div>
   )
 }
 
 export default NavigationBar;
+
+/*
+
+            */
 

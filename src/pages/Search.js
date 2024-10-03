@@ -4,76 +4,76 @@ import React, {useState, useEffect, useRef} from 'react';
 import { BiSearch } from 'react-icons/bi';
 import NavigationBar from '../components/NavigationBar.js';
 import Footer from '../components/Footer.js';
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
-import { SearchContext } from "../context/SearchContext.js";
 
 
 
 const Search = () => {  
 
     let navigate = useNavigate();
+
+    const baseUrlForSearchMoviesTitle = process.env.REACT_APP_API_URL || 'http://localhost:4000';
     
     const movieDetails = useContext(MovieContext);
-    const searchDetails = useContext(SearchContext);
+    const [searchTerm, setSearchTerm] = useState('');
 
     const handleChange = (e) => {
-        searchDetails.setValue(e.target.value);
+        setSearchTerm(e.target.value);
     }
 
     const allMovies = useRef([]);
 
     const [visibleMovies, setVisibleMovies] = useState([]);
-    const [searchByReleaseDate, setSearchByReleaseDate] = useState("none");
-    const [searchByMovieLength, setSearchByMovieLength] = useState("none");
-    const [searchByAgeLimit, setSearchByAgeLimit] = useState("none");
 
+    
 
     useEffect (() => {
-        fetch(process.env.REACT_APP_API_URL + "/all-movies")
-                .then(data => data.json())
+
+        axios.get(`${baseUrlForSearchMoviesTitle}/all-movies`)
+            .then(response => setVisibleMovies(response.data));
+
+        /*
+        axios.get(`${baseUrlForSearchMoviesTitle}/all-movies`)
                 .then(parsedData => {
                   allMovies.current = parsedData;
                   setVisibleMovies(parsedData);
                 })
-      }, []) 
+                */                 
+    }, []) 
 
-    /*
-    useEffect(() => {
-        filterDatas();
-    },[searchByReleaseDate, searchByMovieLength, searchByAgeLimit]) 
     
-
-    const filterDatas = () => {
-
-        let filterAllMovies = allMovies.current;
-
-        if(searchByReleaseDate !== "none"){
-            const splittedYears = searchByReleaseDate.split("-");
-            const fromYears = parseInt(splittedYears[0]);
-            const toYears = parseInt(splittedYears[1]);
-            filterAllMovies = filterAllMovies.filter(movie => movie.releaseDate >= fromYears && movie.releaseDate <= toYears);
+    useEffect(() => {
+        if (searchTerm !== '') {
+            axios.get(`${baseUrlForSearchMoviesTitle}/get-movie/${searchTerm}`)
+                .then(response => {                 
+                    setVisibleMovies(response.data);                  
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });           
+        } else {
+            axios.get(`${baseUrlForSearchMoviesTitle}/all-movies`)
+                .then(response => {
+                    setVisibleMovies(response.data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         }
-        if(searchByMovieLength !== "none"){
-            if(searchByMovieLength === "120+"){
-                filterAllMovies = filterAllMovies.filter(movie => movie.movieLength > 120);            
-            }
-            else if(searchByMovieLength === "60-120"){
-                filterAllMovies = filterAllMovies.filter(movie => movie.movieLength > 60 && movie.movieLength < 120);               
-            }
-        }
-        if(searchByAgeLimit !== "none"){
-            if(searchByAgeLimit === "16+"){
-                filterAllMovies = filterAllMovies.filter(movie => movie.ageLimit >= 16);            
-            }
-            else if(searchByAgeLimit === "12+"){
-                filterAllMovies = filterAllMovies.filter(movie => movie.ageLimit >= 12);               
-            }
-        }
-        setVisibleMovies(filterAllMovies);
-    }
+    }, [searchTerm]);
+    
+    /*NOPE - only on frontend
+    useEffect(() => {
+        const filteredMovies = allMovies.current.filter(movie =>
+            movie.movieTitle && movie.movieTitle.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setVisibleMovies(filteredMovies);
+    }, [searchTerm]);
     */
+
     return (
         <div className="pages-container">  
             <div className="header">
@@ -81,8 +81,8 @@ const Search = () => {
             </div>
             <div className="main-content search-content">
                 <div className="search-input-button-container">                     
-                    <input type="text" placeholder="Film keresése" className="search-input" onChange={handleChange}/>                          
-                    <button className="search-button" onClick={() => {navigate("/searchedresult")}}><BiSearch/></button>  
+                    <input type="text" placeholder="Film keresése" className="search-input" onChange={handleChange} value={searchTerm}/>                          
+                    {/*<button className="search-button" onClick={() => {navigate("/searchedresult")}}><BiSearch/></button>*/}
                 </div>         
                 <div className="visible-search-container">               
                         {

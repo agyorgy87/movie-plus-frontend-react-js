@@ -7,14 +7,9 @@
     user-select: none;
 }
 
-.main-content {
-    position:relative;
-    color: #FFFDFA; 
-}
-
 .row {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 .movie-genre-texts {
