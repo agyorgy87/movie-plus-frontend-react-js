@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { CollectionMovieContext } from "../context/CollectionMovieContext.js";
@@ -18,7 +18,7 @@ const Collections = () => {
 
     useEffect(() => {  
         axios.get(`${baseURL}/collection-movies`)
-            .then(response => setCollectionMovies(response.data));     
+            .then(response => setCollectionMovies(response.data));      
     }, [])
 
     return (

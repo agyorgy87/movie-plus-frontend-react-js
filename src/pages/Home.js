@@ -7,11 +7,10 @@ import ComedyMoviesSlider from '../components/ComedyMoviesSlider.js';
 import SciFiMoviesSlider from '../components/SciFiMoviesSlider.js';
 import Collections from '../components/Collections.js';
 import Footer from "../components/Footer.js";
-import React from 'react';
+//import React, {useState, useEffect} from 'react';
+//import axios from "axios";
 import { useContext } from 'react';
 import { MovieContext } from "../context/MovieContext.js";
-
-
 
 const Home = () => {
 
@@ -59,4 +58,4 @@ const Home = () => {
 
 export default Home;
 
-/* 354 line -> 60*/
+/* 354 line -> 58*/

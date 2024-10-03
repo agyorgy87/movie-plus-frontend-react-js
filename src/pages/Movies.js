@@ -68,6 +68,7 @@ const Movies = () => {
                             <div>
                                 <button value="scienceFiction" onClick={(e) => setSelectedMoviesGenre(e.target.value)}>Science Fiction</button>
                             </div>
+                            <button>Collections</button>
                         </div>
                     </div>                  
                     <div className="visible-movies-container">
